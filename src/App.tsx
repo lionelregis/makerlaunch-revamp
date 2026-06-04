@@ -1,0 +1,48 @@
+import { useEffect, useState } from 'react';
+import type { Role, StageId } from './data/content';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+import Landing from './views/Landing';
+import FounderView from './views/FounderView';
+import AdvisorView from './views/AdvisorView';
+
+type View = 'home' | Role;
+
+export default function App() {
+  const [view, setView] = useState<View>('home');
+  // A stage chosen from the landing pipeline strip, carried into the founder view.
+  const [pickedStage, setPickedStage] = useState<StageId | undefined>(undefined);
+
+  // Scroll to the top whenever the top-level view changes.
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [view]);
+
+  function navigate(next: View) {
+    setPickedStage(undefined);
+    setView(next);
+  }
+
+  function pickStage(stage: StageId) {
+    setPickedStage(stage);
+    setView('founder');
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col bg-white text-slate-900">
+      <Nav view={view} onNavigate={navigate} />
+
+      <main className="flex-1">
+        {view === 'home' && (
+          <Landing onSelectRole={(role) => navigate(role)} onPickStage={pickStage} />
+        )}
+        {view === 'founder' && (
+          <FounderView key={pickedStage ?? 'default'} initialStage={pickedStage} />
+        )}
+        {view === 'advisor' && <AdvisorView />}
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
