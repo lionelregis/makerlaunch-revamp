@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import type { Role, StageId } from './data/content';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Landing from './views/Landing';
 import FounderView from './views/FounderView';
 import AdvisorView from './views/AdvisorView';
+import type { Role, StageId } from './data/content';
 
 type View = 'home' | Role;
 
@@ -34,7 +34,7 @@ export default function App() {
 
       <main className="flex-1">
         {view === 'home' && (
-          <Landing onSelectRole={(role) => navigate(role)} onPickStage={pickStage} />
+          <Landing onSelectRole={navigate} onPickStage={pickStage} />
         )}
         {view === 'founder' && (
           <FounderView key={pickedStage ?? 'default'} initialStage={pickedStage} />

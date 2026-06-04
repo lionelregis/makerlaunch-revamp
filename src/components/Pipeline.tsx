@@ -1,123 +1,122 @@
-import { useI18n } from '../lib/i18n';
-import { programs, stages, ui } from '../data/content';
-import type { StageId } from '../data/content';
-import { ACCENTS } from '../lib/accents';
+import { useState } from 'react';
 import Icon from './Icon';
 import ProgramCard from './ProgramCard';
-import Reveal from './Reveal';
+import { accents } from '../lib/accents';
+import { programs, stages } from '../data/content';
+import type { StageId } from '../data/content';
 
-/** Non-interactive four-stage overview used on the landing page. */
-export function PipelineStrip({ onPick }: { onPick?: (stage: StageId) => void }) {
-  const { t } = useI18n();
+/* ------------------------------------------------------------------ */
+/* PipelineStrip — compact, clickable overview of the four stages      */
+/* ------------------------------------------------------------------ */
+export function PipelineStrip({ onPick }: { onPick: (stage: StageId) => void }) {
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <ol className="grid gap-4 md:grid-cols-4">
       {stages.map((stage, i) => {
-        const a = ACCENTS[stage.accent];
+        const a = accents[stage.accent];
         return (
-          <Reveal key={stage.id} delay={i * 90}>
+          <li key={stage.id} className="relative">
+            {i < stages.length - 1 && (
+              <span
+                aria-hidden="true"
+                className="absolute -right-2.5 top-9 hidden text-slate-300 md:block"
+              >
+                <Icon name="arrowRight" className="h-5 w-5" />
+              </span>
+            )}
             <button
-              type="button"
-              onClick={onPick ? () => onPick(stage.id) : undefined}
-              className={`relative flex h-full w-full flex-col rounded-2xl border bg-white p-5 text-left transition ${
-                onPick ? 'cursor-pointer hover:-translate-y-1 hover:shadow-lg' : ''
-              } ${a.border}`}
+              onClick={() => onPick(stage.id)}
+              className="group flex h-full w-full flex-col rounded-2xl border border-slate-200 bg-white p-5 text-left transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
             >
-              <div className="mb-3 flex items-center justify-between">
+              <div className="flex items-center justify-between">
                 <span className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br text-white ${a.gradient}`}>
                   <Icon name={stage.icon} className="h-6 w-6" />
                 </span>
-                <span className="text-3xl font-black text-slate-100">{stage.order}</span>
+                <span className="text-xs font-bold text-slate-400">Stage {stage.order}</span>
               </div>
-              <h3 className="text-base font-bold text-slate-900">{t(stage.name)}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-slate-500">{t(stage.tagline)}</p>
+              <h3 className="mt-4 font-display text-lg font-bold text-slate-900">{stage.name}</h3>
+              <p className="mt-1.5 flex-1 text-sm leading-relaxed text-slate-600">{stage.tagline}</p>
+              <span className={`mt-3 inline-flex items-center gap-1 text-xs font-bold ${a.text}`}>
+                See programs
+                <Icon name="arrowRight" className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
+              </span>
             </button>
-          </Reveal>
+          </li>
         );
       })}
-    </div>
+    </ol>
   );
 }
 
-/** Interactive explorer: pick a stage to reveal its criteria and programs. */
-export function PipelineExplorer({
-  selected,
-  onSelect,
-}: {
-  selected: StageId;
-  onSelect: (stage: StageId) => void;
-}) {
-  const { t } = useI18n();
-  const stage = stages.find((s) => s.id === selected)!;
-  const a = ACCENTS[stage.accent];
-  const stagePrograms = programs.filter((p) => p.stage === selected);
+/* ------------------------------------------------------------------ */
+/* PipelineExplorer — full interactive stage explorer                  */
+/* ------------------------------------------------------------------ */
+export function PipelineExplorer({ initialStage }: { initialStage?: StageId }) {
+  const [active, setActive] = useState<StageId>(initialStage ?? 'explore');
+  const stage = stages.find((s) => s.id === active)!;
+  const a = accents[stage.accent];
+  const stagePrograms = programs.filter((p) => p.stage === active);
 
   return (
     <div>
-      {/* Stage selector */}
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-stretch">
-        {stages.map((s, i) => {
-          const sa = ACCENTS[s.accent];
-          const active = s.id === selected;
+      {/* Stage selector tabs */}
+      <div className="flex flex-wrap gap-2">
+        {stages.map((s) => {
+          const sa = accents[s.accent];
+          const isActive = s.id === active;
           return (
-            <div key={s.id} className="flex flex-1 items-center gap-2">
-              <button
-                onClick={() => onSelect(s.id)}
-                className={`flex flex-1 items-center gap-3 rounded-xl border px-4 py-3 text-left transition ${
-                  active
-                    ? `bg-gradient-to-br text-white shadow-md ${sa.gradient} border-transparent`
-                    : `border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm`
-                }`}
-                aria-pressed={active}
-              >
-                <span
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${
-                    active ? 'bg-white/20 text-white' : `${sa.bgSoft} ${sa.text}`
-                  }`}
-                >
-                  <Icon name={s.icon} className="h-5 w-5" />
-                </span>
-                <span className="leading-tight">
-                  <span className={`block text-[10px] font-bold uppercase tracking-wide ${active ? 'text-white/70' : 'text-slate-400'}`}>
-                    {t(ui.navPipeline)} {s.order}
-                  </span>
-                  <span className={`block text-sm font-bold ${active ? 'text-white' : 'text-slate-800'}`}>
-                    {t(s.name)}
-                  </span>
-                </span>
-              </button>
-              {i < stages.length - 1 && (
-                <Icon name="arrowRight" className="hidden h-4 w-4 shrink-0 text-slate-300 sm:block" />
-              )}
-            </div>
+            <button
+              key={s.id}
+              onClick={() => setActive(s.id)}
+              className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${
+                isActive
+                  ? `${sa.solid} border-transparent`
+                  : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+              }`}
+            >
+              <Icon name={s.icon} className="h-4 w-4" />
+              {s.name}
+            </button>
           );
         })}
       </div>
 
-      {/* Selected stage detail */}
-      <div className={`mt-6 rounded-2xl border ${a.border} ${a.bgSoft} p-6`}>
-        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-2xl">
-            <h3 className={`text-xl font-bold ${a.text}`}>{t(stage.name)}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-700">{t(stage.purpose)}</p>
+      {/* Stage detail */}
+      <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1.4fr]">
+        {/* Left: stage description + criteria */}
+        <div key={stage.id} className="animate-fade-in">
+          <div className={`rounded-2xl bg-gradient-to-br p-6 text-white ${a.gradient}`}>
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/80">
+              <Icon name={stage.icon} className="h-4 w-4" />
+              Stage {stage.order} · {stage.owner}
+            </div>
+            <h3 className="mt-3 font-display text-2xl font-black">{stage.name}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/90">{stage.purpose}</p>
           </div>
-        </div>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2">
-          <div className="rounded-xl border border-white bg-white/70 p-4">
-            <div className={`text-xs font-bold uppercase tracking-wide ${a.text}`}>{t(ui.entry)}</div>
-            <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{t(stage.entry)}</p>
-          </div>
-          <div className="rounded-xl border border-white bg-white/70 p-4">
-            <div className={`text-xs font-bold uppercase tracking-wide ${a.text}`}>{t(ui.exit)}</div>
-            <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{t(stage.exit)}</p>
-          </div>
-        </div>
-      </div>
 
-      {/* Programs in this stage */}
-      <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {stagePrograms.map((p) => (
-          <ProgramCard key={p.id} program={p} defaultOpen={p.flagship} />
-        ))}
+          <dl className="mt-4 space-y-3">
+            <div className="rounded-xl border border-slate-200 bg-white p-4">
+              <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-500">
+                <span className={`h-2 w-2 rounded-full ${a.dot}`} />
+                Getting in
+              </dt>
+              <dd className="mt-1.5 text-sm leading-relaxed text-slate-700">{stage.entry}</dd>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-white p-4">
+              <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-500">
+                <Icon name="arrowRight" className={`h-3.5 w-3.5 ${a.text}`} />
+                Moving on
+              </dt>
+              <dd className="mt-1.5 text-sm leading-relaxed text-slate-700">{stage.advance}</dd>
+            </div>
+          </dl>
+        </div>
+
+        {/* Right: programs */}
+        <div key={`${stage.id}-programs`} className="animate-fade-in space-y-3">
+          {stagePrograms.map((p) => (
+            <ProgramCard key={p.id} program={p} accent={stage.accent} />
+          ))}
+        </div>
       </div>
     </div>
   );
