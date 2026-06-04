@@ -2,11 +2,12 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-// `base` lets the same build serve from a project subpath on GitHub Pages
-// (e.g. https://user.github.io/<repo>/). The deploy workflow sets VITE_BASE to
-// "/<repo>/" automatically; locally it defaults to "/".
+// Use relative asset paths ("./assets/...") so the build works from any path —
+// the site root, a GitHub Pages project subpath (https://user.github.io/<repo>/),
+// or a local preview — without depending on a base value being injected at build
+// time. This is robust for a single-page app served from one index.html.
 export default defineConfig({
-  base: process.env.VITE_BASE || '/',
+  base: './',
   plugins: [
     tailwindcss(),
     react(),

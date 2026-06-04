@@ -35,10 +35,9 @@ jobs:
         run: npm ci
 
       - name: Build
+        # vite.config.ts uses a relative base ("./"), so the build serves
+        # correctly from the Pages project subpath without any base injection.
         run: npm run build
-        env:
-          # e.g. "/makerlaunch-revamp/" — matches the GitHub Pages project URL.
-          VITE_BASE: /${{ github.event.repository.name }}/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
