@@ -1,73 +1,65 @@
-import { useI18n } from '../lib/i18n';
-import { advisor } from '../data/content';
 import Icon from '../components/Icon';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
+import { advisor, partners } from '../data/content';
 
 export default function AdvisorView() {
-  const { t } = useI18n();
-
   return (
     <div>
-      {/* Sub-hero */}
-      <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-grid opacity-40" />
-        <div className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-garnet-600/30 blur-3xl animate-float-slow" />
-        <div className="relative mx-auto max-w-6xl px-6 py-16">
-          <p className="text-xs font-bold uppercase tracking-[0.15em] text-garnet-300">
-            {t(advisor.eyebrow)}
-          </p>
-          <h1 className="mt-3 max-w-3xl text-3xl font-black leading-tight text-balance sm:text-4xl md:text-5xl">
-            {t(advisor.title)}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-300">{t(advisor.intro)}</p>
+      {/* Header */}
+      <section className="border-b border-slate-200 bg-gradient-to-b from-indigo-50 to-white">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-wider text-indigo-700">
+              {advisor.eyebrow}
+            </span>
+            <h1 className="mt-3 font-display text-3xl font-black leading-tight text-slate-900 text-balance sm:text-4xl">
+              {advisor.title}
+            </h1>
+            <p className="mt-4 text-lg leading-relaxed text-slate-700">{advisor.intro}</p>
+          </div>
         </div>
       </section>
 
       {/* Flywheel */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <SectionHeading title={t(advisor.flywheelTitle)} align="center" />
-        <div className="mt-10 grid gap-4 md:grid-cols-4">
-          {advisor.flywheelSteps.map((s, i) => (
-            <Reveal key={t(s.title)} delay={i * 100}>
-              <div className="relative h-full rounded-2xl border border-slate-200 bg-white p-6">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-garnet-50 text-sm font-black text-garnet-700">
-                    {i + 1}
+        <SectionHeading eyebrow="The system" title={advisor.flywheelTitle} align="center" />
+        <ol className="mt-10 grid gap-4 md:grid-cols-4">
+          {advisor.flywheelSteps.map((step, i) => (
+            <Reveal key={step.title} delay={i * 90} as="li">
+              <div className="relative flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6">
+                {i < advisor.flywheelSteps.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -right-2.5 top-9 hidden text-slate-300 md:block"
+                  >
+                    <Icon name="arrowRight" className="h-5 w-5" />
                   </span>
-                  <Icon name="spark" className="h-5 w-5 text-garnet-400" />
-                </div>
-                <h3 className="mt-4 text-base font-bold text-slate-900">{t(s.title)}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{t(s.body)}</p>
-                <Icon
-                  name={i < advisor.flywheelSteps.length - 1 ? 'arrowRight' : 'arrowLeft'}
-                  className="absolute -right-3 top-9 hidden h-6 w-6 text-slate-300 md:block"
-                />
+                )}
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-600 font-display text-sm font-extrabold text-white">
+                  {i + 1}
+                </span>
+                <h3 className="mt-4 font-display text-base font-bold text-slate-900">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{step.body}</p>
               </div>
             </Reveal>
           ))}
-        </div>
-        <p className="mt-6 text-center text-sm font-medium text-slate-500">
-          {t({
-            en: 'Today’s founders become tomorrow’s mentors — the cycle compounds.',
-            fr: 'Les fondateurs d’aujourd’hui deviennent les mentors de demain — le cycle s’amplifie.',
-          })}
-        </p>
+        </ol>
       </section>
 
       {/* Ways to get involved */}
       <section className="border-y border-slate-200 bg-slate-50 py-16">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title={t(advisor.waysTitle)} align="center" />
+          <SectionHeading title={advisor.waysTitle} align="center" />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {advisor.ways.map((w, i) => (
-              <Reveal key={t(w.title)} delay={i * 90}>
-                <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-md">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-garnet-500 to-garnet-800 text-white">
-                    <Icon name={w.icon} className="h-6 w-6" />
+            {advisor.ways.map((way, i) => (
+              <Reveal key={way.title} delay={i * 80}>
+                <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition hover:shadow-md">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-700">
+                    <Icon name={way.icon} className="h-6 w-6" />
                   </span>
-                  <h3 className="mt-4 text-base font-bold text-slate-900">{t(w.title)}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{t(w.body)}</p>
+                  <h3 className="mt-4 font-display text-base font-bold text-slate-900">{way.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{way.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -75,69 +67,95 @@ export default function AdvisorView() {
         </div>
       </section>
 
-      {/* PEO spotlight */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid items-center gap-8 rounded-3xl border border-slate-200 bg-gradient-to-br from-garnet-50 to-white p-8 md:grid-cols-[auto_1fr] md:p-10">
-          <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-garnet-700 text-white shadow-lg">
-            <Icon name="shield" className="h-10 w-10" />
+      {/* PEO advantage */}
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <Reveal className="overflow-hidden rounded-3xl border border-slate-200 bg-white">
+          <div className="grid gap-8 p-8 md:grid-cols-[auto_1fr] md:items-center md:p-10">
+            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600 text-white">
+              <Icon name="shield" className="h-9 w-9" />
+            </span>
+            <div>
+              <h2 className="font-display text-2xl font-black text-slate-900">{advisor.peoTitle}</h2>
+              <p className="mt-3 text-base leading-relaxed text-slate-700">{advisor.peoBody}</p>
+            </div>
           </div>
-          <div>
-            <h2 className="text-2xl font-bold text-slate-900">{t(advisor.peoTitle)}</h2>
-            <p className="mt-3 text-base leading-relaxed text-slate-600">{t(advisor.peoBody)}</p>
+        </Reveal>
+      </section>
+
+      {/* Impact goals */}
+      <section className="border-y border-slate-200 bg-slate-900 py-16 text-white">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-300">
+              <span className="h-px w-6 bg-indigo-400" />
+              {advisor.goalsSubtitle}
+            </div>
+            <h2 className="mt-3 font-display text-2xl font-black sm:text-3xl">{advisor.goalsTitle}</h2>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {advisor.goals.map((goal, i) => (
+              <Reveal key={goal.label} delay={i * 80}>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+                  <div className="font-display text-4xl font-black text-white">{goal.value}</div>
+                  <div className="mt-2 text-sm leading-snug text-slate-300">{goal.label}</div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Recognition */}
-      <section className="border-t border-slate-200 bg-slate-50 py-16">
-        <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title={t(advisor.recognitionTitle)} align="center" />
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {advisor.recognition.map((r, i) => (
-              <Reveal key={t(r.title)} delay={i * 100}>
-                <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6">
-                  <Icon name="check" className="h-6 w-6 text-emerald-600" />
-                  <h3 className="mt-3 text-base font-bold text-slate-900">{t(r.title)}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{t(r.body)}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Impact stats */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <SectionHeading title={t(advisor.statsTitle)} align="center" />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {advisor.stats.map((stat, i) => (
-            <Reveal key={t(stat.label)} delay={i * 90}>
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
-                <div className="bg-gradient-to-br from-garnet-600 to-garnet-900 bg-clip-text text-4xl font-black text-transparent">
-                  {t(stat.value)}
-                </div>
-                <div className="mt-2 text-sm leading-snug text-slate-600">{t(stat.label)}</div>
+        <SectionHeading title={advisor.recognitionTitle} align="center" />
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {advisor.recognition.map((item, i) => (
+            <Reveal key={item.title} delay={i * 90}>
+              <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6">
+                <Icon name="checkCircle" className="h-7 w-7 text-indigo-600" />
+                <h3 className="mt-4 font-display text-base font-bold text-slate-900">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.body}</p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-garnet-900 p-10 text-center text-white">
-          <div className="absolute inset-0 bg-grid opacity-40" />
-          <div className="relative mx-auto max-w-2xl">
-            <h2 className="text-3xl font-black text-balance">{t(advisor.ctaTitle)}</h2>
-            <p className="mt-3 text-base leading-relaxed text-garnet-100">{t(advisor.ctaBody)}</p>
-            <a
-              href="mailto:ceed@uottawa.ca?subject=Mentor%20%26%20advisor%20interest"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-garnet-800 transition hover:bg-garnet-50"
-            >
-              {t(advisor.ctaButton)}
-              <Icon name="arrowRight" className="h-4 w-4" />
-            </a>
+      {/* Ecosystem partners */}
+      <section className="border-t border-slate-200 bg-slate-50 py-14">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-center text-xs font-bold uppercase tracking-wider text-slate-400">
+            Scale-stage ecosystem partners ventures hand off to
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            {partners.map((p) => (
+              <span
+                key={p.name}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm"
+              >
+                <span className="font-semibold text-slate-800">{p.name}</span>
+                <span className="text-slate-400">·</span>
+                <span className="text-slate-500">{p.category}</span>
+              </span>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 to-violet-700 p-8 text-center text-white sm:p-12">
+          <h2 className="font-display text-3xl font-black text-balance">{advisor.ctaTitle}</h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-indigo-100">
+            {advisor.ctaBody}
+          </p>
+          <a
+            href="mailto:ceed@uottawa.ca?subject=Mentor%20interest%20%E2%80%94%20Engineering%20Entrepreneurship"
+            className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-indigo-700 transition hover:bg-indigo-50"
+          >
+            {advisor.ctaButton}
+            <Icon name="arrowRight" className="h-4 w-4" />
+          </a>
         </div>
       </section>
     </div>

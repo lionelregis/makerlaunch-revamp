@@ -1,23 +1,33 @@
-/** CEED wordmark mark — a garnet tile with a four-node pipeline motif. */
-export default function Logo({ className = 'w-10 h-10' }: { className?: string }) {
+import { brand } from '../data/content';
+
+/** Wordmark: a garnet glyph + the program name and centre. */
+export default function Logo({ inverted = false }: { inverted?: boolean }) {
   return (
-    <svg className={className} viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <rect width="40" height="40" rx="10" fill="url(#ceedGrad)" />
-      <g stroke="white" strokeWidth="2" strokeLinecap="round">
-        <path d="M9 26 L17 18 L23 24 L31 14" fill="none" opacity="0.95" />
-      </g>
-      <g fill="white">
-        <circle cx="9" cy="26" r="2.4" opacity="0.65" />
-        <circle cx="17" cy="18" r="2.4" opacity="0.78" />
-        <circle cx="23" cy="24" r="2.4" opacity="0.9" />
-        <circle cx="31" cy="14" r="3" />
-      </g>
-      <defs>
-        <linearGradient id="ceedGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#a82948" />
-          <stop offset="1" stopColor="#64192c" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <div className="flex items-center gap-2.5">
+      <span
+        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg font-display text-base font-extrabold ${
+          inverted ? 'bg-white text-garnet-700' : 'bg-garnet-700 text-white'
+        }`}
+        aria-hidden="true"
+      >
+        E
+      </span>
+      <span className="leading-tight">
+        <span
+          className={`block font-display text-sm font-extrabold ${
+            inverted ? 'text-white' : 'text-slate-900'
+          }`}
+        >
+          {brand.programName}
+        </span>
+        <span
+          className={`block text-[11px] font-medium ${
+            inverted ? 'text-white/70' : 'text-slate-500'
+          }`}
+        >
+          {brand.short} · uOttawa Engineering
+        </span>
+      </span>
+    </div>
   );
 }

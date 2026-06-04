@@ -2,49 +2,51 @@ import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 
 /**
- * Fades + lifts its children into view the first time they enter the viewport.
- * `delay` staggers entrance (in ms). Degrades gracefully to visible.
+ * Fades + lifts its children into view the first time they scroll into the
+ * viewport. Degrades to immediately-visible if IntersectionObserver is missing
+ * or the user prefers reduced motion (handled globally in CSS).
  */
 export default function Reveal({
   children,
   delay = 0,
   className = '',
-  as: As = 'div',
+  as: Tag = 'div',
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
-  as?: 'div' | 'section' | 'li' | 'article';
+  as?: 'div' | 'li' | 'section';
 }) {
   const ref = useRef<HTMLElement | null>(null);
-  // Start visible when there's no observer to drive us (e.g. SSR / old browsers).
-  const [visible, setVisible] = useState(() => typeof IntersectionObserver === 'undefined');
+  // When IntersectionObserver is unavailable, show immediately (no animation
+  // gating) rather than risk content staying hidden.
+  const [shown, setShown] = useState(
+    () => typeof IntersectionObserver === 'undefined',
+  );
 
   useEffect(() => {
-    const node = ref.current;
-    if (!node || visible) return;
-    const observer = new IntersectionObserver(
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.disconnect();
-          }
+        if (entries[0].isIntersecting) {
+          setShown(true);
+          io.disconnect();
         }
       },
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
     );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [visible]);
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <As
+    <Tag
       ref={ref as never}
-      className={`${className} ${visible ? 'animate-fade-up' : 'opacity-0'}`}
-      style={visible ? { animationDelay: `${delay}ms` } : undefined}
+      className={`${shown ? 'animate-fade-up' : 'opacity-0'} ${className}`}
+      style={shown ? { animationDelay: `${delay}ms` } : undefined}
     >
       {children}
-    </As>
+    </Tag>
   );
 }
