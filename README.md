@@ -33,9 +33,12 @@ Scale**.
     competitions, the speaker series).
   - The **MakerLaunch entry bar** (customer discovery *or* a working prototype).
 - **Advisor / alumni journey.** How giving back comes full circle, concrete
-  ways to get involved, the **P.Eng. advantage**, a **mentor gallery** (six
-  illustrative advisor profiles with bios, expertise, and why they give back),
+  ways to get involved, the **P.Eng. advantage**, a featured **mentor preview**,
   recognition, the ecosystem partners, and the 2029 impact goals.
+- **Mentors & Advisors directory.** A dedicated page with the full catalogue of
+  (illustrative) mentor profiles — each with an avatar, bio, areas of expertise,
+  and a quote on why they give back — filterable by field. Avatars are
+  illustrated portraits with a graceful coloured-monogram fallback.
 
 All copy is written to be genuinely front-facing — internal/strategic jargon
 (pipeline, flywheel, etc.) is deliberately avoided.
@@ -84,12 +87,15 @@ src/
     ProgramCard       Expandable program card (who it's for / offers / takeaway)
     ProductStudio     Product Studio deep-dive (formats + six phases)
     StageFinder       The founder starting-point finder
-    Mentors           Advisor/mentor gallery (illustrative profiles)
+    Avatar            Illustrated mentor avatar with monogram fallback
+    MentorCard        A single mentor/advisor profile card
+    Mentors           Featured mentor preview (links to the directory)
   views/
     Landing           Hero + role selection + the idea + the path + principles
     FounderView       Finder, Product Studio, full path, entry bar, steps
     AdvisorView       Full circle, ways to help, P.Eng., mentors, impact, CTA
-  App.tsx             View routing (home / founder / advisor)
+    MentorsPage       Full mentors & advisors directory, filterable by field
+  App.tsx             View routing (home / founder / advisor / mentors)
   main.tsx            Entry point
 ```
 
