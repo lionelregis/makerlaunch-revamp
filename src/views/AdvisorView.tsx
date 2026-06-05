@@ -4,7 +4,7 @@ import SectionHeading from '../components/SectionHeading';
 import Mentors from '../components/Mentors';
 import { advisor, partners } from '../data/content';
 
-export default function AdvisorView() {
+export default function AdvisorView({ onSeeMentors }: { onSeeMentors: () => void }) {
   return (
     <div>
       {/* Header */}
@@ -85,7 +85,7 @@ export default function AdvisorView() {
 
       {/* Meet the mentors */}
       <section className="border-y border-slate-200 bg-slate-50 py-16">
-        <Mentors />
+        <Mentors onSeeAll={onSeeMentors} />
       </section>
 
       {/* Impact goals */}

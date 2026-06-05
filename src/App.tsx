@@ -4,9 +4,10 @@ import Footer from './components/Footer';
 import Landing from './views/Landing';
 import FounderView from './views/FounderView';
 import AdvisorView from './views/AdvisorView';
+import MentorsPage from './views/MentorsPage';
 import type { Role, StageId } from './data/content';
 
-type View = 'home' | Role;
+type View = 'home' | Role | 'mentors';
 
 export default function App() {
   const [view, setView] = useState<View>('home');
@@ -39,7 +40,8 @@ export default function App() {
         {view === 'founder' && (
           <FounderView key={pickedStage ?? 'default'} initialStage={pickedStage} />
         )}
-        {view === 'advisor' && <AdvisorView />}
+        {view === 'advisor' && <AdvisorView onSeeMentors={() => navigate('mentors')} />}
+        {view === 'mentors' && <MentorsPage onBack={() => navigate('advisor')} />}
       </main>
 
       <Footer />
