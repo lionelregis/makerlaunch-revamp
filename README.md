@@ -43,24 +43,38 @@ Scale**.
 All copy is written to be genuinely front-facing — internal/strategic jargon
 (pipeline, flywheel, etc.) is deliberately avoided.
 
-## Content source
+## Editing the content
 
-Copy is drawn from two front-facing source documents and lives in a single
-typed module (`src/data/content.ts`), so it can be reviewed and edited without
-touching the components:
+All of the site's wording lives in plain Markdown files in **`src/content/`**.
+To change any copy, edit the Markdown and rebuild (the deploy does this
+automatically on push to `main`). You never touch the components.
 
-- *Engineering Entrepreneurship Programming Revamp — Executive Summary*
-- *Product Studio — A Year-Round Product Development Training Program*
+| File | What it controls |
+| --- | --- |
+| `home.md` | Brand, the hero, the four stat boxes, the four principles, the two role cards, the footer |
+| `pipeline.md` | The four stages (Explore, Validate, Build, Scale) |
+| `programs.md` | Every program card (summary, what it offers, takeaway) |
+| `product-studio.md` | The Product Studio section (intro, three formats, six phases) |
+| `founder.md` | The founder page copy and the starting-point finder |
+| `advisor.md` | The advisor page copy, ecosystem partners, mentors-page headings |
+| `mentors.md` | The mentor and advisor profiles |
 
-Internal/administrative material (budgets, resourcing, milestone schedules,
-decision gates) is intentionally excluded.
+Each file has a small data block at the top (between the `---` fences) written
+in YAML: keep the field names, the indentation, and the `-` for list items, and
+change only the words. `src/data/content.ts` loads and type-checks these files;
+do not put wording there.
+
+The content was originally drawn from two source documents (the *Engineering
+Entrepreneurship Programming Revamp* and the *Product Studio* operating design),
+with internal/administrative material (budgets, resourcing, schedules)
+intentionally excluded.
 
 ## Tech stack
 
 - [React 19](https://react.dev) + [TypeScript](https://www.typescriptlang.org)
 - [Vite 8](https://vite.dev) (Rolldown)
 - [Tailwind CSS v4](https://tailwindcss.com) (theme tokens via `@theme`)
-- No runtime UI dependencies beyond React — icons are a hand-rolled inline set.
+- Content authored in Markdown + YAML, parsed with `js-yaml`.
 
 ## Getting started
 
@@ -76,7 +90,8 @@ npm run lint     # run ESLint
 
 ```
 src/
-  data/content.ts     All copy + the program/stage/finder data model
+  content/*.md        All site wording (edit these), as Markdown + YAML
+  data/content.ts     Loads + type-checks src/content/*.md (do not edit copy here)
   lib/accents.ts      Stage → Tailwind class maps (kept static for the JIT)
   components/
     Nav, Footer, Logo
