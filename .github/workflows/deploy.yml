@@ -1,10 +1,8 @@
 name: Deploy to GitHub Pages
 
-# Deploys the institutional strategy site in strategy-site/ to GitHub Pages.
-# The generator is a zero-dependency Node script, and the site uses relative
-# links, so it serves correctly from the Pages project subpath with no base
-# configuration. Triggers on pushes to the default branch (main) and can also be
-# run manually.
+# Deploys the built React app to GitHub Pages. Triggers on pushes to the default
+# branch (main) and can also be run manually. vite.config.ts uses a relative
+# base ("./"), so the build serves correctly from the Pages project subpath.
 on:
   push:
     branches: [main]
@@ -31,9 +29,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
-      - name: Build static site
-        run: node strategy-site/build.mjs
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -43,7 +45,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./strategy-site/dist
+          path: ./dist
 
   deploy:
     needs: build
