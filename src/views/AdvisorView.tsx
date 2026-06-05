@@ -1,6 +1,7 @@
 import Icon from '../components/Icon';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
+import Mentors from '../components/Mentors';
 import { advisor, partners } from '../data/content';
 
 export default function AdvisorView() {
@@ -21,9 +22,9 @@ export default function AdvisorView() {
         </div>
       </section>
 
-      {/* Flywheel */}
+      {/* How giving back comes full circle */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <SectionHeading eyebrow="The system" title={advisor.flywheelTitle} align="center" />
+        <SectionHeading eyebrow="How it works" title={advisor.flywheelTitle} align="center" />
         <ol className="mt-10 grid gap-4 md:grid-cols-4">
           {advisor.flywheelSteps.map((step, i) => (
             <Reveal key={step.title} delay={i * 90} as="li">
@@ -82,6 +83,11 @@ export default function AdvisorView() {
         </Reveal>
       </section>
 
+      {/* Meet the mentors */}
+      <section className="border-y border-slate-200 bg-slate-50 py-16">
+        <Mentors />
+      </section>
+
       {/* Impact goals */}
       <section className="border-y border-slate-200 bg-slate-900 py-16 text-white">
         <div className="mx-auto max-w-6xl px-6">
@@ -125,7 +131,7 @@ export default function AdvisorView() {
       <section className="border-t border-slate-200 bg-slate-50 py-14">
         <div className="mx-auto max-w-6xl px-6">
           <p className="text-center text-xs font-bold uppercase tracking-wider text-slate-400">
-            Scale-stage ecosystem partners ventures hand off to
+            Where ventures go next — the partners we introduce them to
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             {partners.map((p) => (

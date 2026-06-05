@@ -2,6 +2,7 @@ import Icon from '../components/Icon';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
 import StageFinder from '../components/StageFinder';
+import ProductStudio from '../components/ProductStudio';
 import { PipelineExplorer } from '../components/Pipeline';
 import { founder } from '../data/content';
 import type { StageId } from '../data/content';
@@ -36,11 +37,16 @@ export default function FounderView({ initialStage }: { initialStage?: StageId }
         </div>
       </section>
 
-      {/* Pipeline explorer */}
-      <section className="border-y border-slate-200 bg-slate-50 py-16">
+      {/* Product Studio deep-dive */}
+      <section className="border-y border-slate-200 bg-white py-16">
+        <ProductStudio />
+      </section>
+
+      {/* Full path explorer */}
+      <section className="border-b border-slate-200 bg-slate-50 py-16">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
-            eyebrow="The pathway"
+            eyebrow="Your full path"
             title={founder.pipelineTitle}
             subtitle={founder.pipelineSubtitle}
           />

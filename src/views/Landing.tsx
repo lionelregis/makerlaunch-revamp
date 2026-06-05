@@ -82,7 +82,7 @@ export default function Landing({
       </section>
 
       {/* ----------------------------------------------------------------- */}
-      {/* The idea behind the revamp                                        */}
+      {/* The idea, in one breath                                           */}
       {/* ----------------------------------------------------------------- */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <Reveal className="mx-auto max-w-3xl text-center">

@@ -19,26 +19,38 @@ Scale**.
 - **Role-based entry.** Choose *Founder* or *Advisor / Alumni* and the site
   tailors what you see.
 - **Founder journey.**
-  - A 3-step **stage finder** that recommends where to start based on your idea,
-    team, and evidence.
-  - An **interactive pipeline explorer** with each stage's purpose, how you get
-    in, how you move on, and the programs at every stage (the new *Validation
-    Program*, the refreshed *MakerLaunch* accelerator, the *Simon Nehme* summer
-    school, GNG 4120 and capstone entrepreneurial streams, the eHub advisory,
-    and the Explore-stage events — Design Day, uOttawaHack, pitch and case
+  - A 3-step **starting-point finder** that recommends where to begin based on
+    your idea, team, and evidence.
+  - A **Product Studio** deep-dive: its three formats (Foundations Series, Build
+    Sprints, Studio Cohort) and the six phases of building a product
+    (Discover → Define → Design → Build → Validate → Launch), each with what you
+    can do and what you produce.
+  - A **clearly readable program catalogue** — every program expands to show
+    *who it's for*, *what it offers*, and *what you walk away with*, across all
+    four stages (Product Studio, the refreshed *MakerLaunch* accelerator, the
+    *Simon Nehme* summer school, GNG 4120 and capstone continuation tracks, the
+    eHub, and the Explore-stage events — Design Day, uOttawaHack, pitch and case
     competitions, the speaker series).
-  - The explicit **MakerLaunch readiness criteria**.
-- **Advisor / alumni journey.** The mentorship **flywheel**, concrete ways to
-  get involved (mentor, Demo Day reviewer, case contributor, P.Eng. support),
-  the **PEO advantage**, recognition, the ecosystem partners ventures hand off
-  to, and the 2029 impact goals.
+  - The **MakerLaunch entry bar** (customer discovery *or* a working prototype).
+- **Advisor / alumni journey.** How giving back comes full circle, concrete
+  ways to get involved, the **P.Eng. advantage**, a **mentor gallery** (six
+  illustrative advisor profiles with bios, expertise, and why they give back),
+  recognition, the ecosystem partners, and the 2029 impact goals.
+
+All copy is written to be genuinely front-facing — internal/strategic jargon
+(pipeline, flywheel, etc.) is deliberately avoided.
 
 ## Content source
 
-All copy is drawn from the *Engineering Entrepreneurship Programming Revamp —
-Executive Summary* (Faculty of Engineering, University of Ottawa, CEED, Summer
-2026) and lives in a single typed module (`src/data/content.ts`), so it can be
-reviewed and edited without touching the components.
+Copy is drawn from two front-facing source documents and lives in a single
+typed module (`src/data/content.ts`), so it can be reviewed and edited without
+touching the components:
+
+- *Engineering Entrepreneurship Programming Revamp — Executive Summary*
+- *Product Studio — A Year-Round Product Development Training Program*
+
+Internal/administrative material (budgets, resourcing, milestone schedules,
+decision gates) is intentionally excluded.
 
 ## Tech stack
 
@@ -68,19 +80,21 @@ src/
     Icon              Inline icon set keyed by name
     Reveal            Scroll-triggered fade-in wrapper
     SectionHeading
-    Pipeline          PipelineStrip (overview) + PipelineExplorer (interactive)
-    ProgramCard       Expandable program card
-    StageFinder       The founder stage-finder wizard
+    Pipeline          Stage overview strip + interactive stage explorer
+    ProgramCard       Expandable program card (who it's for / offers / takeaway)
+    ProductStudio     Product Studio deep-dive (formats + six phases)
+    StageFinder       The founder starting-point finder
+    Mentors           Advisor/mentor gallery (illustrative profiles)
   views/
-    Landing           Hero + role selection + intent + pipeline + principles
-    FounderView       Stage finder, pipeline explorer, readiness, steps
-    AdvisorView       Flywheel, ways to help, PEO, impact, partners, CTA
+    Landing           Hero + role selection + the idea + the path + principles
+    FounderView       Finder, Product Studio, full path, entry bar, steps
+    AdvisorView       Full circle, ways to help, P.Eng., mentors, impact, CTA
   App.tsx             View routing (home / founder / advisor)
   main.tsx            Entry point
 ```
 
 ## Deployment
 
-The site deploys to GitHub Pages via `.github/workflows/deploy.yml` on pushes to
-`main`. The build sets `VITE_BASE` to `/<repo>/` so it serves correctly from the
-project subpath.
+The site deploys to GitHub Pages (source: GitHub Actions) via
+`.github/workflows/deploy.yml` on pushes to `main`. The build uses a relative
+base (`./`), so it serves correctly from the Pages project subpath.

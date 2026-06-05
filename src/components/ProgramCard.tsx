@@ -47,15 +47,11 @@ export default function ProgramCard({
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500">
             <span className="inline-flex items-center gap-1">
               <Icon name="spark" className={`h-3.5 w-3.5 ${a.text}`} />
-              {program.type}
+              {program.kind}
             </span>
             <span className="inline-flex items-center gap-1">
               <Icon name="calendar" className="h-3.5 w-3.5" />
               {program.when}
-            </span>
-            <span className="inline-flex items-center gap-1">
-              <Icon name="users" className="h-3.5 w-3.5" />
-              {program.reach}
             </span>
           </div>
         </div>
@@ -63,9 +59,33 @@ export default function ProgramCard({
           <Icon name={open ? 'minus' : 'plus'} className="h-4 w-4" />
         </span>
       </button>
+
       {open && (
         <div className="animate-fade-in border-t border-slate-100 px-5 pb-5 pt-4">
-          <p className="text-sm leading-relaxed text-slate-700">{program.detail}</p>
+          <div className="flex items-start gap-2 text-sm text-slate-600">
+            <Icon name="users" className={`mt-0.5 h-4 w-4 shrink-0 ${a.text}`} />
+            <p>
+              <span className="font-semibold text-slate-800">Who it’s for: </span>
+              {program.forWhom}
+            </p>
+          </div>
+
+          <p className="mt-4 text-xs font-bold uppercase tracking-wide text-slate-500">What it offers</p>
+          <ul className="mt-2 space-y-1.5">
+            {program.offers.map((item) => (
+              <li key={item} className="flex items-start gap-2 text-sm leading-relaxed text-slate-700">
+                <Icon name="check" className={`mt-1 h-3.5 w-3.5 shrink-0 ${a.text}`} />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <div className={`mt-4 rounded-xl ${a.soft} p-3.5`}>
+            <p className="text-sm leading-relaxed text-slate-700">
+              <span className={`font-semibold ${a.text}`}>You walk away with: </span>
+              {program.takeaway}
+            </p>
+          </div>
         </div>
       )}
     </div>
