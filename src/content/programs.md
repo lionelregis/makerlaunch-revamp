@@ -7,28 +7,28 @@ programs:
     name: Product Studio — Foundations Series
     kind: Open workshop series · part of Product Studio
     when: Fall & winter · drop-in
-    forWhom: Any engineering or computer science student — no idea or experience needed
-    summary: Open, drop-in workshops that teach the craft of building a product, one piece at a time.
+    forWhom: Any engineering or computer science student — no idea or tech stack needed
+    summary: Open, drop-in workshops that teach the craft of building and shipping a product, one phase at a time.
     offers:
       - No application and no obligation — come to one workshop or all of them
-      - Each session covers one part of building a product, from finding a real problem to launching
+      - Each session covers one phase of building and shipping, from a product definition to release
       - 'Hands-on: every workshop ends with something concrete you take away and act on'
-      - Often led by alumni founders and working industry practitioners
-    takeaway: The core skills to take an idea seriously — and a clear sense of whether you want to go further.
+      - Often led by alumni founders and working engineers who ship products
+    takeaway: The core skills to build and ship — and a clear sense of whether you want to go further.
   - id: sprints
     stage: explore
     status: new
     name: Product Studio — Build Sprints
     kind: Short intensives · part of Product Studio
     when: Weekends & reading weeks
-    forWhom: Students who want to make fast, real progress on an idea
-    summary: Short, intensive bursts that turn casual interest into real progress.
+    forWhom: Students who want to make fast, real progress on a build
+    summary: The program’s signature. Short, intensive builds that turn intent into a working artifact.
     offers:
-      - One phase of building a product, compressed into a weekend or reading-week intensive
-      - Formats like a Discovery Sprint, a Prototyping Sprint, an MVP Build Weekend, or a Launch Sprint
-      - A real deadline and a finished artifact to show for it
+      - One phase of building and shipping, compressed into a weekend or reading-week intensive
+      - Formats like a Prototype Sprint, an MVP Build Weekend, or a Ship Sprint
+      - A real deadline and a finished, working artifact to show for it
       - A great way to test-drive the work before committing to the full cohort
-    takeaway: Momentum, a concrete result, and proof to yourself that you can do this.
+    takeaway: Momentum, a working artifact, and proof to yourself that you can ship.
   - id: gng4120
     stage: explore
     status: ''
@@ -127,15 +127,15 @@ programs:
     name: Product Studio — Studio Cohort
     kind: Term-long cohort · the Validation Program
     when: Fall–winter · milestone by milestone
-    forWhom: Committed students and teams ready to work on an idea outside class
-    summary: The full Product Studio experience — a term-long cohort that takes your idea to the point where MakerLaunch will take you.
+    forWhom: Committed teams with a validated idea, ready to build it outside class
+    summary: The full Product Studio experience — a term-long cohort that takes a validated idea all the way to a shipped product.
     offers:
-      - Work through all six phases of building a product against clear milestones
+      - Work through all six phases, from a product definition to a shipped product, against clear milestones
       - Direct mentorship from the program lead, plus alumni and industry mentors
-      - Micro-funding of $500–$2,500 per team, with no equity taken
-      - Open to join — the goal is to make it safe and cheap to test an idea, not to pick winners
-      - Ends right at the MakerLaunch entry bar, with documented proof of your progress
-    takeaway: A proven problem or a working prototype — and a direct, evidence-backed introduction to MakerLaunch.
+      - Micro-funding of $500–$2,500 per team, with no equity taken, to cover real build costs
+      - Open to join — the goal is to make it safe and cheap to build and ship, not to pick winners
+      - Ends with a working, shipped product and a documented readiness summary for MakerLaunch
+    takeaway: A working, shipped product — and a direct, evidence-backed introduction to MakerLaunch.
   - id: simon-nehme
     stage: validate
     status: refreshed
@@ -143,9 +143,9 @@ programs:
     kind: Summer program
     when: Summer (May–Aug)
     forWhom: Teams who want to use the summer to push an idea forward
-    summary: The summer on-ramp into Product Studio.
+    summary: The summer on-ramp into Product Studio — a build and validation vehicle.
     offers:
-      - Spend the summer on customer conversations and early prototypes
+      - Spend the summer building and validating, with a head start on shipping
       - Milestones that line up with the Studio Cohort, so you can flow straight into the fall
       - A head start toward being MakerLaunch-ready
     takeaway: A summer of real progress — and a strong position heading into the fall cohort.

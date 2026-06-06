@@ -116,8 +116,15 @@ export interface StudioPhase {
   n: number;
   icon: string;
   name: string;
+  /** Depth marker, e.g. "Framework" or "Hands-on · core". */
+  depth: string;
   can: string;
   produces: string;
+}
+
+export interface ToolkitArea {
+  area: string;
+  methods: string;
 }
 
 export interface ProductStudio {
@@ -133,6 +140,11 @@ export interface ProductStudio {
   phasesSubtitle: string;
   phases: StudioPhase[];
   gateNote: string;
+  toolkitTitle: string;
+  toolkitSubtitle: string;
+  toolkit: ToolkitArea[];
+  toolsLabel: string;
+  tools: string[];
   image?: string;
   imageAlt?: string;
 }
