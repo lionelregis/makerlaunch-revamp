@@ -39,11 +39,13 @@ Scale**.
   (illustrative) mentor profiles — each with an avatar, bio, areas of expertise,
   and a quote on why they give back — filterable by field. Avatars are
   illustrated portraits with a graceful coloured-monogram fallback.
-- **Launchpad.** A team-formation board (like a job board for finding
-  cofounders). Browse ventures, filter by the cofounder skills a team is
-  seeking, and post your own idea. Posting is an in-browser demo: a new post
-  appears immediately and persists in the visitor's own browser (localStorage),
-  seeded with editable example posts.
+- **Launchpad.** A two-sided team-formation board (like a job board, both ways).
+  A segmented control switches between **ventures seeking cofounders** (filter by
+  the skills a team needs) and **students seeking a team** (each profile shows
+  name, degree and concentration, year, areas of interest, and a "looking for"
+  note). Either side can post and reach out by email. Posting is an in-browser
+  demo: a new post appears immediately and persists in the visitor's own browser
+  (localStorage), seeded with editable example posts and profiles.
 
 All copy is written to be genuinely front-facing — internal/strategic jargon
 (pipeline, flywheel, etc.) is deliberately avoided.

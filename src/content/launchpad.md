@@ -33,9 +33,45 @@ launchpadPage:
   removeLabel: Remove this post
   fallbackContact: ceed@uottawa.ca
   mailtoSubject: Cofounder interest via the Engineering Entrepreneurship Launchpad
-  calloutTitle: Looking for a cofounder?
-  calloutBody: Browse ventures seeking teammates, or post your own idea, on the Launchpad.
+  calloutTitle: Looking for a cofounder, or a team to join?
+  calloutBody: Browse ventures seeking teammates and students looking to join, or post your own, on the Launchpad.
   calloutCta: Open the Launchpad
+  tabVentures: Ventures seeking cofounders
+  tabStudents: Students seeking a team
+  students:
+    countLabel: students looking to join a venture
+    filterLabel: Interested in
+    filterAll: All interests
+    emptyLabel: No students list that interest yet. Try another filter, or post your profile.
+    note: Example profiles are illustrative. Anything you post stays in your own browser and is not shared.
+    postButton: Post your profile
+    postCancel: Cancel
+    formTitle: Post your profile
+    formIntro: Tell teams who you are and what you want to work on. Your profile is saved in this browser only, so you can see how it would appear on the board.
+    nameLabel: Name
+    namePlaceholder: For example, Alex Chen
+    degreeLabel: Degree
+    degreePlaceholder: For example, Software Engineering
+    concentrationLabel: Concentration (optional)
+    concentrationPlaceholder: For example, Artificial intelligence
+    yearLabel: Year of study
+    yearPlaceholder: For example, 3rd year
+    interestsLabel: Areas of interest
+    interestsHint: Separate with commas.
+    interestsPlaceholder: Software, Machine learning, Cleantech
+    lookingLabel: What you are looking for
+    lookingPlaceholder: The kind of project, role, or team you want to join.
+    contactLabel: Contact email
+    contactPlaceholder: you@uottawa.ca
+    submitButton: Post to the board
+    formError: Add your name, your degree, and at least one area of interest.
+    interestsHeading: Interested in
+    lookingHeading: Looking for
+    reachOut: Reach out
+    yourPostBadge: Posted by you
+    removeLabel: Remove this profile
+    fallbackContact: ceed@uottawa.ca
+    mailtoSubject: Interest in joining a venture via the Engineering Entrepreneurship Launchpad
 launchpadPosts:
   - id: seed-northwind
     title: Northwind Robotics
@@ -99,6 +135,64 @@ launchpadPosts:
       - Machine learning
       - Business
     contact: lumen@example.com
+launchpadProfiles:
+  - id: seed-amir
+    name: Amir Haddad
+    degree: Computer Science
+    concentration: Artificial intelligence
+    year: 3rd year
+    interests:
+      - Software
+      - Machine learning
+    looking: A small team building something technical where I can own real engineering work.
+    contact: amir@example.com
+  - id: seed-bianca
+    name: Bianca Rossi
+    degree: Mechanical Engineering
+    concentration: Mechatronics
+    year: 4th year
+    interests:
+      - Hardware
+      - Robotics
+    looking: A hardware venture that needs help taking a prototype to something you can actually manufacture.
+  - id: seed-david
+    name: David Osei
+    degree: Biomedical Engineering
+    year: Graduate
+    interests:
+      - Health
+      - Regulatory
+    looking: A medtech team that wants someone who understands the path from prototype to a regulated device.
+    contact: david@example.com
+  - id: seed-emma
+    name: Emma Tremblay
+    degree: Software Engineering
+    concentration: Human-computer interaction
+    year: 2nd year
+    interests:
+      - Design
+      - Frontend
+    looking: An early team where I can shape the product and the user experience from the start.
+    contact: emma@example.com
+  - id: seed-felix
+    name: Félix Bergeron
+    degree: Chemical Engineering
+    year: 4th year
+    interests:
+      - Cleantech
+      - Manufacturing
+    looking: A cleantech or materials venture working on something physical with real impact.
+  - id: seed-grace
+    name: Grace Liu
+    degree: Commerce, Telfer
+    concentration: Marketing
+    year: 3rd year
+    interests:
+      - Business
+      - Marketing
+      - Sales
+    looking: An engineering team with a strong product that needs a business cofounder to reach customers.
+    contact: grace@example.com
 ---
 
 <!--
