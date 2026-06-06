@@ -143,7 +143,7 @@ programs:
     kind: Summer program
     when: Summer (May–Aug)
     forWhom: Teams who want to use the summer to push an idea forward
-    summary: The summer way into the Validate stage, aligned with Product Studio.
+    summary: The summer on-ramp into Product Studio.
     offers:
       - Spend the summer on customer conversations and early prototypes
       - Milestones that line up with the Studio Cohort, so you can flow straight into the fall
@@ -159,7 +159,7 @@ programs:
     summary: A way to continue a promising design-course project instead of shelving it.
     offers:
       - Designed with the course professor, so it counts and keeps its academic credibility
-      - A clear path from coursework into the Validate stage
+      - A clear path from coursework into Product Studio
       - Keeps your momentum going past the end of the term
     takeaway: A bridge from a great course project into a real venture path.
   - id: capstone-stream

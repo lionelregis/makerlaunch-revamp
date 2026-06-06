@@ -7,7 +7,7 @@ brand:
 landing:
   eyebrow: A connected path from idea to venture · starting September 2026
   title: Engineering ideas, carried all the way to a venture.
-  subtitle: A connected path — Explore, Validate, Build, Scale — that helps engineering and computer science students turn an idea into a real, incorporated venture. Anchored by the MakerLaunch accelerator and built so no promising idea stalls at the end of a course.
+  subtitle: A connected path — Explore, Product Studio, MakerLaunch, Founders Network — that helps engineering and computer science students turn an idea into a real, incorporated venture, built so no promising idea stalls at the end of a course.
   roleQuestion: First, who are you?
   roleHint: We’ll show you what matters for your path.
   intentTitle: The idea, in one breath
