@@ -4,10 +4,16 @@ import SectionHeading from '../components/SectionHeading';
 import StageFinder from '../components/StageFinder';
 import ProductStudio from '../components/ProductStudio';
 import { PipelineExplorer } from '../components/Pipeline';
-import { founder } from '../data/content';
+import { founder, launchpadPage } from '../data/content';
 import type { StageId } from '../data/content';
 
-export default function FounderView({ initialStage }: { initialStage?: StageId }) {
+export default function FounderView({
+  initialStage,
+  onOpenLaunchpad,
+}: {
+  initialStage?: StageId;
+  onOpenLaunchpad: () => void;
+}) {
   return (
     <div>
       {/* Header */}
@@ -34,6 +40,32 @@ export default function FounderView({ initialStage }: { initialStage?: StageId }
         />
         <div className="mt-8">
           <StageFinder />
+        </div>
+      </section>
+
+      {/* Launchpad callout (team formation, an Explore-stage action) */}
+      <section className="mx-auto max-w-5xl px-6 pb-4">
+        <div className="flex flex-col items-start gap-4 rounded-2xl border border-indigo-200 bg-indigo-50 p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-start gap-3">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white">
+              <Icon name="users" className="h-6 w-6" />
+            </span>
+            <div>
+              <h3 className="font-display text-base font-bold text-slate-900">
+                {launchpadPage.calloutTitle}
+              </h3>
+              <p className="mt-1 text-sm leading-relaxed text-slate-600">
+                {launchpadPage.calloutBody}
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={onOpenLaunchpad}
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-indigo-700"
+          >
+            {launchpadPage.calloutCta}
+            <Icon name="arrowRight" className="h-4 w-4" />
+          </button>
         </div>
       </section>
 

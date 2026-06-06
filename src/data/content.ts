@@ -14,6 +14,7 @@ import productStudioRaw from '../content/product-studio.md?raw';
 import founderRaw from '../content/founder.md?raw';
 import advisorRaw from '../content/advisor.md?raw';
 import mentorsRaw from '../content/mentors.md?raw';
+import launchpadRaw from '../content/launchpad.md?raw';
 
 /** Read the YAML data block (the part between the leading --- fences). */
 function frontmatter(raw: string): Record<string, unknown> {
@@ -221,6 +222,69 @@ export interface Footer {
   contact: string;
 }
 
+export interface TeamMember {
+  name: string;
+  role: string;
+}
+
+export interface LaunchPost {
+  id: string;
+  /** Venture name / headline. */
+  title: string;
+  /** What they are building. */
+  vision: string;
+  /** Current team members. */
+  team: TeamMember[];
+  /** Cofounder skills sought (drives the filter and the tags). */
+  seeking: string[];
+  /** Contact email; falls back to LaunchpadCopy.fallbackContact. */
+  contact?: string;
+  /** Runtime-only: true for posts a visitor created in their browser. Never in YAML. */
+  local?: boolean;
+}
+
+export interface LaunchpadCopy {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  countLabel: string;
+  filterLabel: string;
+  filterAll: string;
+  emptyLabel: string;
+  note: string;
+  // Post toggle + form
+  postButton: string;
+  postCancel: string;
+  formTitle: string;
+  formIntro: string;
+  titleLabel: string;
+  titlePlaceholder: string;
+  visionLabel: string;
+  visionPlaceholder: string;
+  teamLabel: string;
+  teamHint: string;
+  teamPlaceholder: string;
+  seekingLabel: string;
+  seekingHint: string;
+  seekingPlaceholder: string;
+  contactLabel: string;
+  contactPlaceholder: string;
+  submitButton: string;
+  formError: string;
+  // Card
+  teamHeading: string;
+  seekingHeading: string;
+  reachOut: string;
+  yourPostBadge: string;
+  removeLabel: string;
+  fallbackContact: string;
+  mailtoSubject: string;
+  // Founder-page callout
+  calloutTitle: string;
+  calloutBody: string;
+  calloutCta: string;
+}
+
 // ---------------------------------------------------------------------------
 // Parsed content
 // ---------------------------------------------------------------------------
@@ -248,3 +312,7 @@ export const partners = advisorFm.partners as Partner[];
 export const mentorsPage = advisorFm.mentorsPage as MentorsPage;
 
 export const mentors = frontmatter(mentorsRaw).mentors as Mentor[];
+
+const launchpadFm = frontmatter(launchpadRaw);
+export const launchpadPage = launchpadFm.launchpadPage as LaunchpadCopy;
+export const launchpadPosts = launchpadFm.launchpadPosts as LaunchPost[];
