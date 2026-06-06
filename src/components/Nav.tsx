@@ -2,7 +2,7 @@ import Logo from './Logo';
 import Icon from './Icon';
 import type { Role } from '../data/content';
 
-type View = 'home' | Role | 'mentors';
+type View = 'home' | Role | 'mentors' | 'launchpad';
 
 export default function Nav({
   view,
@@ -25,6 +25,16 @@ export default function Nav({
         </button>
 
         <nav className="flex items-center gap-1.5 sm:gap-2">
+          <button
+            onClick={() => onNavigate('launchpad')}
+            className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+              view === 'launchpad'
+                ? 'bg-indigo-50 text-indigo-700'
+                : 'text-slate-700 hover:bg-slate-100'
+            }`}
+          >
+            Launchpad
+          </button>
           <button
             onClick={() => onNavigate('mentors')}
             className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${

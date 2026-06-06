@@ -39,6 +39,11 @@ Scale**.
   (illustrative) mentor profiles — each with an avatar, bio, areas of expertise,
   and a quote on why they give back — filterable by field. Avatars are
   illustrated portraits with a graceful coloured-monogram fallback.
+- **Launchpad.** A team-formation board (like a job board for finding
+  cofounders). Browse ventures, filter by the cofounder skills a team is
+  seeking, and post your own idea. Posting is an in-browser demo: a new post
+  appears immediately and persists in the visitor's own browser (localStorage),
+  seeded with editable example posts.
 
 All copy is written to be genuinely front-facing — internal/strategic jargon
 (pipeline, flywheel, etc.) is deliberately avoided.
@@ -58,6 +63,7 @@ automatically on push to `main`). You never touch the components.
 | `founder.md` | The founder page copy and the starting-point finder |
 | `advisor.md` | The advisor page copy, ecosystem partners, mentors-page headings |
 | `mentors.md` | The mentor and advisor profiles |
+| `launchpad.md` | The Launchpad page copy, the post form labels, and the example posts |
 
 Each file has a small data block at the top (between the `---` fences) written
 in YAML: keep the field names, the indentation, and the `-` for list items, and
