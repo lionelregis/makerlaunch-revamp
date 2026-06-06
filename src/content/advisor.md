@@ -60,6 +60,8 @@ advisor:
   ctaTitle: Ready to give back?
   ctaBody: Mentor recruitment opens ahead of the first Studio Cohort. Register your interest and we’ll match you to where you can have the most impact.
   ctaButton: Register your interest
+  headerImage: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=70'
+  headerImageAlt: A mentor meeting with a founder
 partners:
   - name: Invest Ottawa
     category: Regional ecosystem

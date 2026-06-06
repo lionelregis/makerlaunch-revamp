@@ -1,6 +1,7 @@
 import Icon from './Icon';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
+import Image from './Image';
 import { productStudio as ps } from '../data/content';
 
 /**
@@ -32,6 +33,17 @@ export default function ProductStudio() {
           <p className="mt-3 text-sm leading-relaxed text-slate-700">{ps.forWhom}</p>
         </Reveal>
       </div>
+
+      {ps.image && (
+        <Reveal className="mt-10">
+          <Image
+            src={ps.image}
+            alt={ps.imageAlt ?? ''}
+            gradient="from-emerald-500 to-teal-700"
+            className="aspect-[21/9] w-full rounded-2xl shadow-sm"
+          />
+        </Reveal>
+      )}
 
       {/* Three formats */}
       <div className="mt-14">

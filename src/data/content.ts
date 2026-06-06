@@ -48,6 +48,14 @@ export interface Landing {
   principlesTitle: string;
   pipelineTitle: string;
   pipelineSubtitle: string;
+  heroImage?: string;
+  heroImageAlt?: string;
+}
+
+export interface PhotoBandItem {
+  src: string;
+  alt: string;
+  caption?: string;
 }
 
 export interface RoleCard {
@@ -124,6 +132,8 @@ export interface ProductStudio {
   phasesSubtitle: string;
   phases: StudioPhase[];
   gateNote: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 export interface Partner {
@@ -166,6 +176,11 @@ export interface Founder {
   readinessB: string;
   stepsTitle: string;
   steps: TextStep[];
+  finderCalloutTitle: string;
+  finderCalloutBody: string;
+  finderCalloutCta: string;
+  headerImage?: string;
+  headerImageAlt?: string;
 }
 
 export interface InvolvementWay {
@@ -195,6 +210,8 @@ export interface Advisor {
   ctaTitle: string;
   ctaBody: string;
   ctaButton: string;
+  headerImage?: string;
+  headerImageAlt?: string;
 }
 
 export interface Mentor {
@@ -355,6 +372,7 @@ export const heroStats = home.heroStats as Stat[];
 export const principles = home.principles as Principle[];
 export const roleCards = home.roleCards as RoleCard[];
 export const footer = home.footer as Footer;
+export const photoBand = (home.photoBand as PhotoBandItem[]) ?? [];
 
 export const stages = frontmatter(pipelineRaw).stages as Stage[];
 export const programs = frontmatter(programsRaw).programs as Program[];

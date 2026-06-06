@@ -1,10 +1,12 @@
 import Icon from '../components/Icon';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
+import Image from '../components/Image';
 import { PipelineStrip } from '../components/Pipeline';
 import {
   heroStats,
   landing,
+  photoBand,
   principles,
   roleCards,
 } from '../data/content';
@@ -23,6 +25,15 @@ export default function Landing({
       {/* Hero + role selection                                             */}
       {/* ----------------------------------------------------------------- */}
       <section className="relative overflow-hidden bg-garnet-900 text-white">
+        {landing.heroImage && (
+          <Image
+            src={landing.heroImage}
+            alt=""
+            gradient="from-garnet-800 to-garnet-950"
+            className="absolute inset-0 opacity-30"
+          />
+        )}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-garnet-900 via-garnet-900/80 to-garnet-900/50" />
         <div className="absolute inset-0 bg-grid opacity-70" />
         <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-garnet-500/30 blur-3xl animate-float-slow" />
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-rose-500/20 blur-3xl animate-float-slow" />
@@ -89,6 +100,23 @@ export default function Landing({
           <SectionHeading title={landing.intentTitle} align="center" />
           <p className="mt-4 text-lg leading-relaxed text-slate-700">{landing.intentBody}</p>
         </Reveal>
+
+        {photoBand.length > 0 && (
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            {photoBand.map((photo, i) => (
+              <Reveal key={photo.src} delay={i * 90}>
+                <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                  <Image src={photo.src} alt={photo.alt} className="aspect-[4/3] w-full" />
+                  {photo.caption && (
+                    <figcaption className="px-4 py-3 text-sm font-semibold text-slate-700">
+                      {photo.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* ----------------------------------------------------------------- */}

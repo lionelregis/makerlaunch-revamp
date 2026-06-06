@@ -2,7 +2,7 @@ import Logo from './Logo';
 import Icon from './Icon';
 import type { Role } from '../data/content';
 
-type View = 'home' | Role | 'mentors' | 'launchpad';
+type View = 'home' | Role | 'mentors' | 'launchpad' | 'finder';
 
 export default function Nav({
   view,
