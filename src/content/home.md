@@ -11,7 +11,7 @@ landing:
   roleQuestion: First, who are you?
   roleHint: We’ll show you what matters for your path.
   intentTitle: The idea, in one breath
-  intentBody: 'Engineering and computer science students generate ideas in design courses, hackathons, pitch competitions, and capstone projects — but until now, nothing carried those ideas forward. So we built the missing step: Product Studio, a year-round program that teaches you how to find a real problem, build a product, and prove it works — then hands you to MakerLaunch ready to accelerate.'
+  intentBody: 'Engineering and computer science students validate ideas in their courses and at the eHub — but until now, nothing helped them actually build and ship. So we built the missing step: Product Studio, a year-round program that teaches you to take a validated idea and turn it into a working, shipped product — then hands you to MakerLaunch ready to accelerate.'
   principlesTitle: What guides every step
   pipelineTitle: One path, four stages
   pipelineSubtitle: CEED supports you through the first three stages, then introduces you to the wider ecosystem to scale. Select a stage to see what it offers.
@@ -21,7 +21,7 @@ heroStats:
   - value: '4'
     label: stages from first idea to launched venture
   - value: '6'
-    label: phases of building a product, taught end to end
+    label: phases from a validated idea to a shipped product
   - value: '3'
     label: 'ways in: drop-in workshops, sprints, or the full cohort'
   - value: $500–$2.5k

@@ -11,16 +11,16 @@ founder:
   pipelineTitle: See the whole path, stage by stage
   pipelineSubtitle: Four stages, clear steps, and an introduction to what’s next at every point. Select a stage to see what it offers and what it takes to move on.
   readinessTitle: The one rule that matters most
-  readinessBody: To get into MakerLaunch, you need just one of these — and Product Studio is built to get you there.
-  readinessA: Proof from customer conversations that a real problem exists.
+  readinessBody: To get into MakerLaunch you need just one of these. Product Studio gets you the working prototype; your courses and the eHub cover the discovery side.
+  readinessA: Proof from customer discovery that a real problem exists (from your courses or the eHub).
   readinessOr: OR
-  readinessB: A working prototype that solves a real user problem.
+  readinessB: A working prototype that solves a real user problem (this is what Product Studio gets you to).
   stepsTitle: How to get started
   steps:
     - title: Start with Product Studio
       body: Drop in to a Foundations workshop or a Build Sprint — or join a pitch competition, uOttawaHack, or Design Day. No commitment required.
     - title: Join the Studio Cohort
-      body: When you’re ready to commit, the term-long Studio Cohort takes your idea through every phase to a proven problem or a working prototype.
+      body: When you’re ready to commit, the term-long Studio Cohort takes your validated idea through every phase to a working, shipped product.
     - title: Get into MakerLaunch
       body: Once you’ve met the bar, MakerLaunch gives you funding, coaching, mentors, and in-kind legal, accounting, and design help.
     - title: Grow with the ecosystem
@@ -36,9 +36,9 @@ finderQuestions:
     options:
       - label: I’m curious, but I don’t have an idea yet
         stage: explore
-      - label: I have an idea I’d like to test
+      - label: I have a validated idea and I’m ready to build it
         stage: validate
-      - label: I’ve proven a real problem with users
+      - label: I’ve built and shipped something to users
         stage: build
       - label: I’m already incorporated with traction
         stage: scale
@@ -56,9 +56,9 @@ finderQuestions:
     options:
       - label: Nothing yet — I want to learn the basics
         stage: explore
-      - label: A few conversations or sketches
+      - label: Customer discovery done — a validated problem
         stage: validate
-      - label: 20+ customer conversations OR a working prototype
+      - label: A working prototype or a shipped product
         stage: build
       - label: Revenue, pilots, or committed funding
         stage: scale

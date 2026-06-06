@@ -5,20 +5,20 @@ stages:
     accent: amber
     icon: compass
     name: Explore
-    tagline: Generate ideas, meet teammates, and learn the craft.
-    purpose: Get a feel for entrepreneurship, come up with ideas, and find teammates — through workshops, hackathons, competitions, and speakers. No commitment to continue; the goal is simply to start.
+    tagline: Meet entrepreneurship, validate an idea, and find your team.
+    purpose: Meet entrepreneurship, come up with and validate ideas, and find teammates — through your courses, the eHub, hackathons, competitions, and Product Studio’s open workshops. This is where customer discovery happens. No commitment to continue; the goal is simply to start.
     entry: You’re a student in the Faculty of Engineering or computer science. Everyone is welcome.
-    advance: You decide to carry an idea forward, past the end of a course or event.
+    advance: You’ve validated an idea and found a team, and you’re ready to build.
     owner: Faculty & CEED
   - id: validate
     order: 2
     accent: emerald
     icon: beaker
     name: Product Studio
-    tagline: Turn an idea into a proven problem with a committed team.
-    purpose: Turn an idea into a proven problem with a committed team, through customer conversations and early prototypes. This is the bridge between the classroom and the accelerator — the stage that makes an idea worth accelerating.
-    entry: A committed team and a problem worth testing. Joining the Studio Cohort is open — there’s no competition to get in.
-    advance: Proof from customer conversations, or a working prototype that solves a real user problem.
+    tagline: Build, test, and ship a validated idea into a working product.
+    purpose: Take a validated idea and build, test, and ship it into a real, working product. This is where execution happens — the working-prototype path to the accelerator. Discovery is assumed; it comes from your courses and the eHub.
+    entry: A validated idea and a committed team. Joining the Studio Cohort is open — there’s no competition to get in.
+    advance: A working, shipped product that solves a real user problem.
     owner: CEED
   - id: build
     order: 3
