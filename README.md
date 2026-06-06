@@ -72,12 +72,13 @@ in YAML: keep the field names, the indentation, and the `-` for list items, and
 change only the words. `src/data/content.ts` loads and type-checks these files;
 do not put wording there.
 
-Photos are editable the same way: the homepage hero and photo band live in
-`home.md`, and the Founder/Advisor header photos and the Product Studio photo are
-fields in their files. Each is just an image URL; swap it for another (or one of
-your own under `public/`). If a URL fails to load, it falls back to a gradient.
-The starting-point finder (the short quiz) is reached from a link on the Founder
-page rather than sitting inline.
+Photos are editable the same way: the homepage hero lives in `home.md`, and the
+Founder/Advisor header photos and the Product Studio photo are fields in their
+files. Each is just an image URL; swap it for another (or one of your own under
+`public/`). If a URL fails to load, it falls back to a gradient. The homepage
+"ventures built here" strip is driven by the founder profiles in `mentors.md`
+(any profile with a `venture` field is featured). The starting-point finder (the
+short quiz) is reached from a link on the Founder page rather than sitting inline.
 
 The content was originally drawn from two source documents (the *Engineering
 Entrepreneurship Programming Revamp* and the *Product Studio* operating design),

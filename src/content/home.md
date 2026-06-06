@@ -54,16 +54,11 @@ footer:
   blurb: Engineering Entrepreneurship at the University of Ottawa — programs that take engineering and computer science students from a first idea to a launched venture. Dates and details may change as programs roll out.
   rights: © 2026 Centre for Entrepreneurship and Engineering Design · University of Ottawa
   contact: Contact CEED
-photoBand:
-  - src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=70'
-    alt: A team planning a project together
-    caption: Form a team
-  - src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70'
-    alt: Building electronics and prototypes
-    caption: Build a prototype
-  - src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=70'
-    alt: Presenting an idea to a room
-    caption: Pitch and launch
+venturesStrip:
+  eyebrow: From this Faculty
+  title: Ventures built by founders from here
+  subtitle: A snapshot of the kinds of companies that come out of the MakerLaunch community.
+  note: Founder and venture profiles shown here are illustrative examples.
 ---
 
 <!--

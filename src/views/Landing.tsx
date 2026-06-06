@@ -2,13 +2,15 @@ import Icon from '../components/Icon';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
 import Image from '../components/Image';
+import Avatar from '../components/Avatar';
 import { PipelineStrip } from '../components/Pipeline';
 import {
   heroStats,
   landing,
-  photoBand,
+  mentors,
   principles,
   roleCards,
+  venturesStrip,
 } from '../data/content';
 import type { Role, StageId } from '../data/content';
 
@@ -19,6 +21,8 @@ export default function Landing({
   onSelectRole: (role: Role) => void;
   onPickStage: (stage: StageId) => void;
 }) {
+  const founders = mentors.filter((m) => m.venture);
+
   return (
     <div>
       {/* ----------------------------------------------------------------- */}
@@ -100,23 +104,6 @@ export default function Landing({
           <SectionHeading title={landing.intentTitle} align="center" />
           <p className="mt-4 text-lg leading-relaxed text-slate-700">{landing.intentBody}</p>
         </Reveal>
-
-        {photoBand.length > 0 && (
-          <div className="mt-12 grid gap-4 sm:grid-cols-3">
-            {photoBand.map((photo, i) => (
-              <Reveal key={photo.src} delay={i * 90}>
-                <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                  <Image src={photo.src} alt={photo.alt} className="aspect-[4/3] w-full" />
-                  {photo.caption && (
-                    <figcaption className="px-4 py-3 text-sm font-semibold text-slate-700">
-                      {photo.caption}
-                    </figcaption>
-                  )}
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-        )}
       </section>
 
       {/* ----------------------------------------------------------------- */}
@@ -155,6 +142,40 @@ export default function Landing({
           ))}
         </div>
       </section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* Ventures built here                                               */}
+      {/* ----------------------------------------------------------------- */}
+      {founders.length > 0 && (
+        <section className="border-t border-slate-200 bg-slate-50 py-16">
+          <div className="mx-auto max-w-6xl px-6">
+            <SectionHeading
+              eyebrow={venturesStrip.eyebrow}
+              title={venturesStrip.title}
+              subtitle={venturesStrip.subtitle}
+              align="center"
+            />
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {founders.map((m, i) => (
+                <Reveal key={m.name} delay={i * 70}>
+                  <div className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition hover:shadow-md">
+                    <Avatar name={m.name} className="h-12 w-12 shrink-0" textClassName="text-sm" />
+                    <div className="min-w-0">
+                      <div className="font-display text-base font-bold text-slate-900">
+                        {m.venture}
+                      </div>
+                      <div className="truncate text-xs text-slate-500">
+                        {m.name} · {m.field}
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            <p className="mt-6 text-center text-xs text-slate-400">{venturesStrip.note}</p>
+          </div>
+        </section>
+      )}
     </div>
   );
 }
