@@ -243,6 +243,61 @@ export interface LaunchPost {
   local?: boolean;
 }
 
+export interface StudentProfile {
+  id: string;
+  name: string;
+  /** Program / credential, e.g. "Software Engineering". */
+  degree: string;
+  /** Optional specialization. */
+  concentration?: string;
+  /** Year of study, e.g. "3rd year". */
+  year: string;
+  /** Areas of interest (drives the filter and the tags). */
+  interests: string[];
+  /** What the student is looking for. */
+  looking: string;
+  /** Contact email; falls back to StudentCopy.fallbackContact. */
+  contact?: string;
+  /** Runtime-only: true for profiles a visitor created in their browser. */
+  local?: boolean;
+}
+
+export interface StudentCopy {
+  countLabel: string;
+  filterLabel: string;
+  filterAll: string;
+  emptyLabel: string;
+  note: string;
+  postButton: string;
+  postCancel: string;
+  formTitle: string;
+  formIntro: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  degreeLabel: string;
+  degreePlaceholder: string;
+  concentrationLabel: string;
+  concentrationPlaceholder: string;
+  yearLabel: string;
+  yearPlaceholder: string;
+  interestsLabel: string;
+  interestsHint: string;
+  interestsPlaceholder: string;
+  lookingLabel: string;
+  lookingPlaceholder: string;
+  contactLabel: string;
+  contactPlaceholder: string;
+  submitButton: string;
+  formError: string;
+  interestsHeading: string;
+  lookingHeading: string;
+  reachOut: string;
+  yourPostBadge: string;
+  removeLabel: string;
+  fallbackContact: string;
+  mailtoSubject: string;
+}
+
 export interface LaunchpadCopy {
   eyebrow: string;
   title: string;
@@ -283,6 +338,10 @@ export interface LaunchpadCopy {
   calloutTitle: string;
   calloutBody: string;
   calloutCta: string;
+  // Two-sided board
+  tabVentures: string;
+  tabStudents: string;
+  students: StudentCopy;
 }
 
 // ---------------------------------------------------------------------------
@@ -316,3 +375,4 @@ export const mentors = frontmatter(mentorsRaw).mentors as Mentor[];
 const launchpadFm = frontmatter(launchpadRaw);
 export const launchpadPage = launchpadFm.launchpadPage as LaunchpadCopy;
 export const launchpadPosts = launchpadFm.launchpadPosts as LaunchPost[];
+export const launchpadProfiles = launchpadFm.launchpadProfiles as StudentProfile[];
