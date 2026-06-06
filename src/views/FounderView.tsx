@@ -1,7 +1,7 @@
 import Icon from '../components/Icon';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
-import StageFinder from '../components/StageFinder';
+import Image from '../components/Image';
 import ProductStudio from '../components/ProductStudio';
 import { PipelineExplorer } from '../components/Pipeline';
 import { founder, launchpadPage } from '../data/content';
@@ -10,62 +10,77 @@ import type { StageId } from '../data/content';
 export default function FounderView({
   initialStage,
   onOpenLaunchpad,
+  onOpenFinder,
 }: {
   initialStage?: StageId;
   onOpenLaunchpad: () => void;
+  onOpenFinder: () => void;
 }) {
   return (
     <div>
       {/* Header */}
       <section className="border-b border-slate-200 bg-gradient-to-b from-garnet-50 to-white">
         <div className="mx-auto max-w-6xl px-6 py-14">
-          <div className="max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-wider text-garnet-700">
-              {founder.eyebrow}
-            </span>
-            <h1 className="mt-3 font-display text-3xl font-black leading-tight text-slate-900 text-balance sm:text-4xl">
-              {founder.title}
-            </h1>
-            <p className="mt-4 text-lg leading-relaxed text-slate-700">{founder.intro}</p>
+          <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_1fr]">
+            <div className="max-w-2xl">
+              <span className="text-xs font-bold uppercase tracking-wider text-garnet-700">
+                {founder.eyebrow}
+              </span>
+              <h1 className="mt-3 font-display text-3xl font-black leading-tight text-slate-900 text-balance sm:text-4xl">
+                {founder.title}
+              </h1>
+              <p className="mt-4 text-lg leading-relaxed text-slate-700">{founder.intro}</p>
+            </div>
+            {founder.headerImage && (
+              <Image
+                src={founder.headerImage}
+                alt={founder.headerImageAlt ?? ''}
+                className="aspect-[4/3] w-full rounded-2xl shadow-sm"
+              />
+            )}
           </div>
         </div>
       </section>
 
-      {/* Stage finder */}
-      <section className="mx-auto max-w-3xl px-6 py-16">
-        <SectionHeading
-          eyebrow={founder.finderSubtitle}
-          title={founder.finderTitle}
-          align="center"
-        />
-        <div className="mt-8">
-          <StageFinder />
-        </div>
-      </section>
-
-      {/* Launchpad callout (team formation, an Explore-stage action) */}
-      <section className="mx-auto max-w-5xl px-6 pb-4">
-        <div className="flex flex-col items-start gap-4 rounded-2xl border border-indigo-200 bg-indigo-50 p-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-start gap-3">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white">
+      {/* Quick links: find your starting point, and find a cofounder */}
+      <section className="mx-auto max-w-6xl px-6 pt-10">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="flex h-full flex-col items-start gap-3 rounded-2xl border border-garnet-200 bg-garnet-50 p-6">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-garnet-700 text-white">
+              <Icon name="compass" className="h-6 w-6" />
+            </span>
+            <h3 className="font-display text-base font-bold text-slate-900">
+              {founder.finderCalloutTitle}
+            </h3>
+            <p className="flex-1 text-sm leading-relaxed text-slate-600">
+              {founder.finderCalloutBody}
+            </p>
+            <button
+              onClick={onOpenFinder}
+              className="inline-flex items-center gap-2 rounded-full bg-garnet-700 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-garnet-800"
+            >
+              {founder.finderCalloutCta}
+              <Icon name="arrowRight" className="h-4 w-4" />
+            </button>
+          </div>
+          <div className="flex h-full flex-col items-start gap-3 rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-600 text-white">
               <Icon name="users" className="h-6 w-6" />
             </span>
-            <div>
-              <h3 className="font-display text-base font-bold text-slate-900">
-                {launchpadPage.calloutTitle}
-              </h3>
-              <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                {launchpadPage.calloutBody}
-              </p>
-            </div>
+            <h3 className="font-display text-base font-bold text-slate-900">
+              {launchpadPage.calloutTitle}
+            </h3>
+            <p className="flex-1 text-sm leading-relaxed text-slate-600">
+              {launchpadPage.calloutBody}
+            </p>
+            <button
+              onClick={onOpenLaunchpad}
+              className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-indigo-700"
+            >
+              {launchpadPage.calloutCta}
+              <Icon name="arrowRight" className="h-4 w-4" />
+            </button>
           </div>
-          <button
-            onClick={onOpenLaunchpad}
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-indigo-700"
-          >
-            {launchpadPage.calloutCta}
-            <Icon name="arrowRight" className="h-4 w-4" />
-          </button>
         </div>
       </section>
 

@@ -6,9 +6,10 @@ import FounderView from './views/FounderView';
 import AdvisorView from './views/AdvisorView';
 import MentorsPage from './views/MentorsPage';
 import LaunchpadPage from './views/LaunchpadPage';
+import FinderPage from './views/FinderPage';
 import type { Role, StageId } from './data/content';
 
-type View = 'home' | Role | 'mentors' | 'launchpad';
+type View = 'home' | Role | 'mentors' | 'launchpad' | 'finder';
 
 export default function App() {
   const [view, setView] = useState<View>('home');
@@ -43,11 +44,13 @@ export default function App() {
             key={pickedStage ?? 'default'}
             initialStage={pickedStage}
             onOpenLaunchpad={() => navigate('launchpad')}
+            onOpenFinder={() => navigate('finder')}
           />
         )}
         {view === 'advisor' && <AdvisorView onSeeMentors={() => navigate('mentors')} />}
         {view === 'mentors' && <MentorsPage onBack={() => navigate('advisor')} />}
         {view === 'launchpad' && <LaunchpadPage onBack={() => navigate('founder')} />}
+        {view === 'finder' && <FinderPage onBack={() => navigate('founder')} />}
       </main>
 
       <Footer />

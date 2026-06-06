@@ -54,6 +54,8 @@ productStudio:
       can: Get your product to its first users and gather early signs of traction.
       produces: A launch plan and first traction — often the point you’re ready for MakerLaunch.
   gateNote: Two of these phases — Discover and Build — are exactly what MakerLaunch looks for. Reach either one with real evidence, and you’ve met the bar to join the accelerator.
+  image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=70'
+  imageAlt: Students building at their laptops
 ---
 
 <!--

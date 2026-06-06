@@ -1,6 +1,7 @@
 import Icon from '../components/Icon';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
+import Image from '../components/Image';
 import Mentors from '../components/Mentors';
 import { advisor, partners } from '../data/content';
 
@@ -10,14 +11,24 @@ export default function AdvisorView({ onSeeMentors }: { onSeeMentors: () => void
       {/* Header */}
       <section className="border-b border-slate-200 bg-gradient-to-b from-indigo-50 to-white">
         <div className="mx-auto max-w-6xl px-6 py-14">
-          <div className="max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-wider text-indigo-700">
-              {advisor.eyebrow}
-            </span>
-            <h1 className="mt-3 font-display text-3xl font-black leading-tight text-slate-900 text-balance sm:text-4xl">
-              {advisor.title}
-            </h1>
-            <p className="mt-4 text-lg leading-relaxed text-slate-700">{advisor.intro}</p>
+          <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_1fr]">
+            <div className="max-w-2xl">
+              <span className="text-xs font-bold uppercase tracking-wider text-indigo-700">
+                {advisor.eyebrow}
+              </span>
+              <h1 className="mt-3 font-display text-3xl font-black leading-tight text-slate-900 text-balance sm:text-4xl">
+                {advisor.title}
+              </h1>
+              <p className="mt-4 text-lg leading-relaxed text-slate-700">{advisor.intro}</p>
+            </div>
+            {advisor.headerImage && (
+              <Image
+                src={advisor.headerImage}
+                alt={advisor.headerImageAlt ?? ''}
+                gradient="from-indigo-500 to-violet-700"
+                className="aspect-[4/3] w-full rounded-2xl shadow-sm"
+              />
+            )}
           </div>
         </div>
       </section>

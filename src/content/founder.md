@@ -25,6 +25,11 @@ founder:
       body: Once you’ve met the bar, MakerLaunch gives you funding, coaching, mentors, and in-kind legal, accounting, and design help.
     - title: Grow with the ecosystem
       body: Graduate into personal introductions with regional and national partners — then come back as a mentor yourself.
+  finderCalloutTitle: Not sure where to start?
+  finderCalloutBody: Answer three quick questions and we’ll point you to the right stage and the programs that fit.
+  finderCalloutCta: Find your starting point
+  headerImage: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1100&q=70'
+  headerImageAlt: Founders planning with sticky notes
 finderQuestions:
   - id: idea
     prompt: Where are you with your idea?
