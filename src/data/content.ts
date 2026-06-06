@@ -52,10 +52,11 @@ export interface Landing {
   heroImageAlt?: string;
 }
 
-export interface PhotoBandItem {
-  src: string;
-  alt: string;
-  caption?: string;
+export interface VenturesStrip {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  note: string;
 }
 
 export interface RoleCard {
@@ -221,6 +222,8 @@ export interface Mentor {
   bio: string;
   expertise: string[];
   quote: string;
+  /** If set, this person is featured in the homepage "ventures built here" strip. */
+  venture?: string;
 }
 
 export interface MentorsPage {
@@ -372,7 +375,7 @@ export const heroStats = home.heroStats as Stat[];
 export const principles = home.principles as Principle[];
 export const roleCards = home.roleCards as RoleCard[];
 export const footer = home.footer as Footer;
-export const photoBand = (home.photoBand as PhotoBandItem[]) ?? [];
+export const venturesStrip = home.venturesStrip as VenturesStrip;
 
 export const stages = frontmatter(pipelineRaw).stages as Stage[];
 export const programs = frontmatter(programsRaw).programs as Program[];

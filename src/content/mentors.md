@@ -3,6 +3,7 @@ mentors:
   - name: Priya Nair, P.Eng.
     role: Co-founder & CTO, Northwind Robotics · MakerLaunch ’20
     field: Hardware
+    venture: Northwind Robotics
     bio: A mechanical engineering grad who built Northwind’s first warehouse robot in the CEED makerspace. She now leads a 30-person hardware team and has raised two rounds of venture funding.
     expertise:
       - Hardware prototyping
@@ -12,6 +13,7 @@ mentors:
   - name: Marc-André Bélanger
     role: Founder & CEO, Rivière Health
     field: Software
+    venture: Rivière Health
     bio: A software engineering alumnus building tools for community clinics across Eastern Ontario. He runs customer-discovery sessions in both French and English.
     expertise:
       - Customer discovery
@@ -21,6 +23,7 @@ mentors:
   - name: Dr. Aïsha Mohamed
     role: Co-founder, Helios Materials · spun out of uOttawa research
     field: Cleantech & Energy
+    venture: Helios Materials
     bio: A chemical engineering PhD who turned her lab’s battery-coating research into a company. She guides graduate students through the messy early days of commercializing research and navigating IP.
     expertise:
       - Deep tech & cleantech
@@ -48,6 +51,7 @@ mentors:
   - name: Liam Chen
     role: Two-time founder · Demo Day judge
     field: Hardware
+    venture: Cinder Climate
     bio: An electrical engineering alumnus who founded and sold an IoT startup, then started again in climate hardware. He’s blunt about what works and what doesn’t, and teams love him for it.
     expertise:
       - Hardware startups
@@ -57,6 +61,7 @@ mentors:
   - name: Sophie Lemaire
     role: Founder & CEO, Maple Grid Energy · MakerLaunch ’19
     field: Cleantech & Energy
+    venture: Maple Grid Energy
     bio: An electrical engineering alumna whose software helps utilities balance renewable energy on the grid. She was in MakerLaunch’s very first cohort and now hires from it.
     expertise:
       - Energy & utilities
@@ -84,6 +89,7 @@ mentors:
   - name: Tunde Adeyemi
     role: Fintech founder · angel investor
     field: Finance
+    venture: Settle
     bio: A computer science alumnus who built a payments startup acquired by a major bank, and now invests in early-stage founders. He’s candid about fundraising and the emotional side of building.
     expertise:
       - Fintech
