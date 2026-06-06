@@ -11,7 +11,7 @@ founder:
   pipelineTitle: See the whole path, stage by stage
   pipelineSubtitle: Four stages, clear steps, and an introduction to what’s next at every point. Select a stage to see what it offers and what it takes to move on.
   readinessTitle: The one rule that matters most
-  readinessBody: To get into MakerLaunch (the Build stage), you need just one of these — and Product Studio is built to get you there.
+  readinessBody: To get into MakerLaunch, you need just one of these — and Product Studio is built to get you there.
   readinessA: Proof from customer conversations that a real problem exists.
   readinessOr: OR
   readinessB: A working prototype that solves a real user problem.
