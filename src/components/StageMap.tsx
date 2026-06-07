@@ -14,10 +14,7 @@ function StageNode({ stage }: { stage: Stage }) {
         <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white ${a.gradient}`}>
           <Icon name={stage.icon} className="h-6 w-6" />
         </span>
-        <div>
-          <span className="text-[11px] font-bold uppercase tracking-wide text-slate-400">{stage.owner}</span>
-          <h3 className="font-display text-lg font-bold text-slate-900">{stage.name}</h3>
-        </div>
+        <h3 className="font-display text-lg font-bold text-slate-900">{stage.name}</h3>
       </div>
       <p className="mt-2.5 text-sm leading-relaxed text-slate-600">{stage.tagline}</p>
     </div>
@@ -44,10 +41,8 @@ function Connector() {
 export default function StageMap() {
   return (
     <div className="mx-auto max-w-3xl">
-      {/* Top: Explore */}
-      <div className="mx-auto max-w-md">
-        <StageNode stage={byId.explore} />
-      </div>
+      {/* Top: Explore — full width, mirroring Founders Network at the bottom. */}
+      <StageNode stage={byId.explore} />
 
       <Connector />
       <div className="flex justify-center">
@@ -68,10 +63,8 @@ export default function StageMap() {
 
       <Connector />
 
-      {/* Bottom: Founders Network */}
-      <div className="mx-auto max-w-md">
-        <StageNode stage={byId.scale} />
-      </div>
+      {/* Bottom: Founders Network — full width, mirroring Explore at the top. */}
+      <StageNode stage={byId.scale} />
     </div>
   );
 }

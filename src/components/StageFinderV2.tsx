@@ -89,7 +89,6 @@ export default function StageFinderV2() {
                 <Icon name={stage.icon} className="h-8 w-8" />
               </span>
               <div>
-                <div className="text-xs font-bold uppercase tracking-wider text-white/80">{stage.owner}</div>
                 <h3 className="font-display text-2xl font-black">{stage.name}</h3>
                 <p className="text-sm text-white/90">{stage.tagline}</p>
               </div>
