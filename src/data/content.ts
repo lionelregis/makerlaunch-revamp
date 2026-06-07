@@ -300,6 +300,13 @@ export interface LabCapability {
   icon: string;
   name: string;
   body: string;
+  image?: string;
+}
+
+export interface LabPhoto {
+  src: string;
+  alt: string;
+  caption?: string;
 }
 
 export interface LabTrack {
@@ -326,6 +333,9 @@ export interface LabCopy {
   capabilitiesTitle: string;
   capabilitiesSubtitle: string;
   capabilities: LabCapability[];
+  galleryTitle: string;
+  gallerySubtitle: string;
+  gallery: LabPhoto[];
   howTitle: string;
   howSubtitle: string;
   tracks: LabTrack[];

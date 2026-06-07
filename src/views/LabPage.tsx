@@ -89,14 +89,22 @@ export default function LabPage() {
       {/* Capabilities */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <SectionHeading eyebrow="Capabilities" title={lab.capabilitiesTitle} subtitle={lab.capabilitiesSubtitle} align="center" />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {lab.capabilities.map((c) => (
-            <div key={c.name} className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition hover:shadow-md">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white">
-                <Icon name={c.icon} className="h-6 w-6" />
-              </span>
-              <h3 className="mt-4 font-display text-base font-bold text-slate-900">{c.name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{c.body}</p>
+            <div
+              key={c.name}
+              className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <div className="relative">
+                <Image src={c.image} alt="" gradient="from-indigo-500 to-violet-600" className="aspect-[16/9] w-full" />
+                <span className="absolute -bottom-5 left-5 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white shadow-md ring-4 ring-white">
+                  <Icon name={c.icon} className="h-6 w-6" />
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col p-6 pt-8">
+                <h3 className="font-display text-base font-bold text-slate-900">{c.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{c.body}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -135,17 +143,34 @@ export default function LabPage() {
         </div>
       </section>
 
-      {/* Support & ecosystem */}
-      <section className="mx-auto max-w-4xl px-6 py-16 text-center">
-        <SectionHeading eyebrow="Support" title={lab.supportTitle} subtitle={lab.supportBody} align="center" />
-        <div className="mt-8 flex flex-wrap justify-center gap-2">
-          {lab.partners.map((p) => (
-            <span key={p} className="rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-medium text-slate-600">
-              {p}
-            </span>
+      {/* Inside the lab — photo gallery */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <SectionHeading eyebrow="Inside the lab" title={lab.galleryTitle} subtitle={lab.gallerySubtitle} align="center" />
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          {lab.gallery.map((g) => (
+            <figure key={g.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+              <Image src={g.src} alt={g.alt} gradient="from-slate-700 to-slate-900" className="aspect-[4/3] w-full" />
+              {g.caption && (
+                <figcaption className="px-4 py-3 text-xs font-medium text-slate-500">{g.caption}</figcaption>
+              )}
+            </figure>
           ))}
         </div>
-        <p className="mt-4 text-xs text-slate-400">{lab.supportNote}</p>
+      </section>
+
+      {/* Support & ecosystem */}
+      <section className="border-y border-slate-200 bg-slate-50 py-16">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <SectionHeading eyebrow="Support" title={lab.supportTitle} subtitle={lab.supportBody} align="center" />
+          <div className="mt-8 flex flex-wrap justify-center gap-2">
+            {lab.partners.map((p) => (
+              <span key={p} className="rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-medium text-slate-600">
+                {p}
+              </span>
+            ))}
+          </div>
+          <p className="mt-4 text-xs text-slate-400">{lab.supportNote}</p>
+        </div>
       </section>
 
       {/* CTA */}

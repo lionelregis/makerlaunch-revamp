@@ -33,21 +33,39 @@ lab:
     - icon: rocket
       name: Additive manufacturing
       body: Industrial polymer and metal 3D printing for rapid prototyping and low-volume production runs.
+      image: 'https://images.unsplash.com/photo-1611117775350-ac3950990985?auto=format&fit=crop&w=900&q=70'
     - icon: flow
       name: Robotics and automation
       body: Collaborative robots and automated work cells to prototype and test real production processes.
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=70'
     - icon: spark
       name: Industrial IoT and smart factory
       body: Sensors, edge devices, and data pipelines to instrument equipment and test predictive maintenance.
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70'
     - icon: target
       name: Metrology and materials
       body: Inspection, measurement, and materials characterization to prove quality and hold tolerances.
+      image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=70'
     - icon: globe
       name: Private 5G and connectivity
       body: A private wireless testbed to validate connected, low-latency industrial applications.
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=70'
     - icon: book
       name: Digital twin and simulation
       body: Model and simulate a line before you commit, then compare the model against live results.
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=70'
+  galleryTitle: A working industrial environment
+  gallerySubtitle: Real equipment, real conditions, and engineers on hand to help you run a project.
+  gallery:
+    - src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=70'
+      alt: An engineer working on industrial equipment
+      caption: Hands-on testing on real equipment
+    - src: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=70'
+      alt: An engineer reviewing data on a tablet beside a machine
+      caption: Instrumented machines and live data
+    - src: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=70'
+      alt: A team collaborating around a workstation
+      caption: Expert advisors alongside your team
   howTitle: Two ways to run a project
   howSubtitle: Both end in evidence you can act on, whether you are proving a technology or piloting it with a customer.
   tracks:
