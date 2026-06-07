@@ -1,24 +1,32 @@
 import Icon from './Icon';
 import { accents } from '../lib/accents';
-import { stages, previewCopy } from '../data/content';
-import type { Stage } from '../data/content';
+import { stages, landing } from '../data/content';
+import type { Stage, StageId } from '../data/content';
 
 const byId = Object.fromEntries(stages.map((s) => [s.id, s])) as Record<string, Stage>;
 
-/** One stage node in the branching map. */
-function StageNode({ stage }: { stage: Stage }) {
+/** One stage node in the branching map. Becomes a button when onPick is given. */
+function StageNode({ stage, onPick }: { stage: Stage; onPick?: (stage: StageId) => void }) {
   const a = accents[stage.accent];
-  return (
-    <div className={`h-full rounded-2xl border bg-white p-5 shadow-sm ${a.border}`}>
-      <div className="flex items-center gap-3">
-        <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white ${a.gradient}`}>
-          <Icon name={stage.icon} className="h-6 w-6" />
-        </span>
-        <h3 className="font-display text-lg font-bold text-slate-900">{stage.name}</h3>
-      </div>
-      <p className="mt-2.5 text-sm leading-relaxed text-slate-600">{stage.tagline}</p>
-    </div>
+  const base = `flex h-full w-full flex-col items-center rounded-2xl border bg-white p-5 text-center shadow-sm ${a.border}`;
+  const inner = (
+    <>
+      <span className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br text-white ${a.gradient}`}>
+        <Icon name={stage.icon} className="h-6 w-6" />
+      </span>
+      <h3 className="mt-3 font-display text-lg font-bold text-slate-900">{stage.name}</h3>
+      <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{stage.tagline}</p>
+    </>
   );
+
+  if (onPick) {
+    return (
+      <button onClick={() => onPick(stage.id)} className={`group ${base} transition hover:-translate-y-0.5 hover:shadow-md`}>
+        {inner}
+      </button>
+    );
+  }
+  return <div className={base}>{inner}</div>;
 }
 
 /** A short vertical connector with a down chevron. */
@@ -38,33 +46,33 @@ function Connector() {
  * reflects the real logic: you either build your way up through Product Studio,
  * or enter MakerLaunch directly once you already have the proof.
  */
-export default function StageMap() {
+export default function StageMap({ onPick }: { onPick?: (stage: StageId) => void }) {
   return (
     <div className="mx-auto max-w-3xl">
       {/* Top: Explore — full width, mirroring Founders Network at the bottom. */}
-      <StageNode stage={byId.explore} />
+      <StageNode stage={byId.explore} onPick={onPick} />
 
       <Connector />
       <div className="flex justify-center">
         <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-500">
-          {previewCopy.mapBranchLabel}
+          {landing.pipelineBranchLabel}
         </span>
       </div>
       <div className="py-2" />
 
       {/* Two parallel routes */}
       <div className="grid items-center gap-3 sm:grid-cols-[1fr_auto_1fr]">
-        <StageNode stage={byId.validate} />
+        <StageNode stage={byId.validate} onPick={onPick} />
         <span className="mx-auto rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-400">
           or
         </span>
-        <StageNode stage={byId.build} />
+        <StageNode stage={byId.build} onPick={onPick} />
       </div>
 
       <Connector />
 
       {/* Bottom: Founders Network — full width, mirroring Explore at the top. */}
-      <StageNode stage={byId.scale} />
+      <StageNode stage={byId.scale} onPick={onPick} />
     </div>
   );
 }

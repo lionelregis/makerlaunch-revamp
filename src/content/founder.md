@@ -4,10 +4,11 @@ founder:
   title: A connected path from first idea to growing venture.
   intro: Wherever you’re starting from, there’s a next step inside the Faculty — no more dead ends at the end of a course. Answer three quick questions and we’ll point you to where to begin.
   finderTitle: Find your starting point
-  finderSubtitle: Three quick questions — no account needed.
+  finderSubtitle: Three quick questions. We look at the proof you have and whether a founder is ready to commit.
   finderResultTitle: We’d suggest starting at
   finderRestart: Start over
   finderRecommended: Programs at this stage
+  finderReasonLabel: Why this stage
   pipelineTitle: See the whole path, stage by stage
   pipelineSubtitle: Four stages, clear steps, and an introduction to what’s next at every point. Select a stage to see what it offers and what it takes to move on.
   readinessTitle: The one rule that matters most
@@ -32,36 +33,36 @@ founder:
   headerImageAlt: Founders planning with sticky notes
 finderQuestions:
   - id: idea
-    prompt: Where are you with your idea?
+    prompt: Where are you with your venture?
     options:
-      - label: I’m curious, but I don’t have an idea yet
+      - label: I’m exploring, with no real idea yet
         stage: explore
-      - label: I have a validated idea and I’m ready to build it
+      - label: I have a validated idea, but I haven’t built it
         stage: validate
-      - label: I’ve built and shipped something to users
+      - label: I have a working prototype or a shipped product
         stage: build
-      - label: I’m already incorporated with traction
+      - label: I’m incorporated with real traction
+        stage: scale
+  - id: evidence
+    prompt: What proof do you have so far?
+    options:
+      - label: Nothing concrete yet
+        stage: explore
+      - label: An idea I believe in, but no proof yet
+        stage: validate
+      - label: Customer-discovery proof, or a working prototype
+        stage: build
+      - label: Paying customers, pilots, or committed funding
         stage: scale
   - id: team
-    prompt: Do you have a team?
+    prompt: Is a founder ready to commit?
     options:
-      - label: Just me, for now
+      - label: Just me, exploring for now
         stage: explore
-      - label: Two or more committed teammates
+      - label: A team forming, still weighing it up
         stage: validate
-      - label: A team with a founder ready to commit
+      - label: Yes, a founder is ready to commit
         stage: build
-  - id: evidence
-    prompt: What do you have to show so far?
-    options:
-      - label: Nothing yet — I want to learn the basics
-        stage: explore
-      - label: Customer discovery done — a validated problem
-        stage: validate
-      - label: A working prototype or a shipped product
-        stage: build
-      - label: Revenue, pilots, or committed funding
-        stage: scale
 ---
 
 <!--

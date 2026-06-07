@@ -3,7 +3,7 @@ import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
 import Image from '../components/Image';
 import Avatar from '../components/Avatar';
-import { PipelineStrip } from '../components/Pipeline';
+import StageMap from '../components/StageMap';
 import {
   heroStats,
   landing,
@@ -118,7 +118,7 @@ export default function Landing({
             align="center"
           />
           <div className="mt-10">
-            <PipelineStrip onPick={onPickStage} />
+            <StageMap onPick={onPickStage} />
           </div>
         </div>
       </section>

@@ -16,7 +16,6 @@ import founderRaw from '../content/founder.md?raw';
 import advisorRaw from '../content/advisor.md?raw';
 import mentorsRaw from '../content/mentors.md?raw';
 import launchpadRaw from '../content/launchpad.md?raw';
-import previewRaw from '../content/preview.md?raw';
 
 /** Read the YAML data block (the part between the leading --- fences). */
 function frontmatter(raw: string): Record<string, unknown> {
@@ -50,6 +49,7 @@ export interface Landing {
   principlesTitle: string;
   pipelineTitle: string;
   pipelineSubtitle: string;
+  pipelineBranchLabel: string;
   heroImage?: string;
   heroImageAlt?: string;
 }
@@ -226,6 +226,7 @@ export interface Founder {
   finderCalloutTitle: string;
   finderCalloutBody: string;
   finderCalloutCta: string;
+  finderReasonLabel: string;
   headerImage?: string;
   headerImageAlt?: string;
 }
@@ -286,20 +287,6 @@ export interface Footer {
   blurb: string;
   rights: string;
   contact: string;
-}
-
-/** Copy for the experimental /preview.html page (not part of the live site). */
-export interface PreviewCopy {
-  eyebrow: string;
-  title: string;
-  intro: string;
-  mapTitle: string;
-  mapSubtitle: string;
-  mapBranchLabel: string;
-  finderTitle: string;
-  finderSubtitle: string;
-  finderReasonLabel: string;
-  backLabel: string;
 }
 
 export interface TeamMember {
@@ -459,7 +446,3 @@ const launchpadFm = frontmatter(launchpadRaw);
 export const launchpadPage = launchpadFm.launchpadPage as LaunchpadCopy;
 export const launchpadPosts = launchpadFm.launchpadPosts as LaunchPost[];
 export const launchpadProfiles = launchpadFm.launchpadProfiles as StudentProfile[];
-
-const previewFm = frontmatter(previewRaw);
-export const previewCopy = previewFm.preview as PreviewCopy;
-export const finderQuestionsV2 = previewFm.finderQuestionsV2 as FinderQuestion[];

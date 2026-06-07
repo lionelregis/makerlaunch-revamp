@@ -14,7 +14,8 @@ landing:
   intentBody: 'Engineering and computer science students validate ideas in their courses and at the eHub — but until now, nothing helped them actually build and ship. So we built the missing step: Product Studio, a year-round program that teaches you to take a validated idea and turn it into a working, shipped product — then hands you to MakerLaunch ready to accelerate.'
   principlesTitle: What guides every step
   pipelineTitle: One path, four stages
-  pipelineSubtitle: CEED supports you through the first three stages, then introduces you to the wider ecosystem to scale. Select a stage to see what it offers.
+  pipelineSubtitle: Start in Explore. From there you build your way up through Product Studio, or go straight to MakerLaunch if you already have the proof. Both routes lead to the Founders Network. Select a stage to see what it offers.
+  pipelineBranchLabel: choose your route
   heroImage: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=70'
   heroImageAlt: Students collaborating around a table
 heroStats:

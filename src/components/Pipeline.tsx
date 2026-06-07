@@ -9,48 +9,6 @@ import { programs, stages } from '../data/content';
 import type { StageId } from '../data/content';
 
 /* ------------------------------------------------------------------ */
-/* PipelineStrip — compact, clickable overview of the four stages      */
-/* ------------------------------------------------------------------ */
-export function PipelineStrip({ onPick }: { onPick: (stage: StageId) => void }) {
-  return (
-    <ol className="grid gap-4 md:grid-cols-4">
-      {stages.map((stage, i) => {
-        const a = accents[stage.accent];
-        return (
-          <li key={stage.id} className="relative">
-            {i < stages.length - 1 && (
-              <span
-                aria-hidden="true"
-                className="absolute -right-2.5 top-9 hidden text-slate-300 md:block"
-              >
-                <Icon name="arrowRight" className="h-5 w-5" />
-              </span>
-            )}
-            <button
-              onClick={() => onPick(stage.id)}
-              className="group flex h-full w-full flex-col rounded-2xl border border-slate-200 bg-white p-5 text-left transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
-            >
-              <div className="flex items-center justify-between">
-                <span className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br text-white ${a.gradient}`}>
-                  <Icon name={stage.icon} className="h-6 w-6" />
-                </span>
-                <span className="text-xs font-bold text-slate-400">Stage {stage.order}</span>
-              </div>
-              <h3 className="mt-4 font-display text-lg font-bold text-slate-900">{stage.name}</h3>
-              <p className="mt-1.5 flex-1 text-sm leading-relaxed text-slate-600">{stage.tagline}</p>
-              <span className={`mt-3 inline-flex items-center gap-1 text-xs font-bold ${a.text}`}>
-                See programs
-                <Icon name="arrowRight" className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
-              </span>
-            </button>
-          </li>
-        );
-      })}
-    </ol>
-  );
-}
-
-/* ------------------------------------------------------------------ */
 /* PipelineExplorer — full interactive stage explorer                  */
 /* ------------------------------------------------------------------ */
 export function PipelineExplorer({ initialStage }: { initialStage?: StageId }) {
