@@ -11,6 +11,7 @@ import homeRaw from '../content/home.md?raw';
 import pipelineRaw from '../content/pipeline.md?raw';
 import programsRaw from '../content/programs.md?raw';
 import productStudioRaw from '../content/product-studio.md?raw';
+import makerLaunchRaw from '../content/makerlaunch.md?raw';
 import founderRaw from '../content/founder.md?raw';
 import advisorRaw from '../content/advisor.md?raw';
 import mentorsRaw from '../content/mentors.md?raw';
@@ -147,6 +148,38 @@ export interface ProductStudio {
   tools: string[];
   image?: string;
   imageAlt?: string;
+}
+
+/** One step of the MakerLaunch cohort journey. */
+export interface MakerLaunchPhase {
+  n: number;
+  icon: string;
+  name: string;
+  /** What happens at this step. */
+  focus: string;
+  /** The milestone the venture reaches by the end of it. */
+  milestone: string;
+}
+
+/** One support the accelerator provides (funding, mentors, in-kind help...). */
+export interface MakerLaunchSupport {
+  icon: string;
+  title: string;
+  body: string;
+}
+
+export interface MakerLaunch {
+  eyebrow: string;
+  name: string;
+  tagline: string;
+  lead: string;
+  journeyTitle: string;
+  journeySubtitle: string;
+  phases: MakerLaunchPhase[];
+  supportsTitle: string;
+  supportsSubtitle: string;
+  supports: MakerLaunchSupport[];
+  closingNote: string;
 }
 
 export interface Partner {
@@ -393,6 +426,8 @@ export const stages = frontmatter(pipelineRaw).stages as Stage[];
 export const programs = frontmatter(programsRaw).programs as Program[];
 export const productStudio = frontmatter(productStudioRaw)
   .productStudio as ProductStudio;
+export const makerLaunch = frontmatter(makerLaunchRaw)
+  .makerLaunch as MakerLaunch;
 
 const founderFm = frontmatter(founderRaw);
 export const founder = founderFm.founder as Founder;

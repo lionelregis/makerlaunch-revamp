@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import Icon from './Icon';
 import ProgramCard from './ProgramCard';
+import StageDisclosure from './StageDisclosure';
 import ProductStudio from './ProductStudio';
+import MakerLaunch from './MakerLaunch';
 import { accents } from '../lib/accents';
 import { programs, stages } from '../data/content';
 import type { StageId } from '../data/content';
@@ -120,34 +122,29 @@ export function PipelineExplorer({ initialStage }: { initialStage?: StageId }) {
         </div>
       </div>
 
-      {/* On the Product Studio stage, a single on-demand disclosure reveals the
-          six build-to-ship phases and the frameworks and tools it teaches, so the
-          stage panel stays compact until a reader asks for the detail. */}
+      {/* Each program stage with a deeper curriculum carries one on-demand
+          disclosure, so the stage panel stays compact until a reader asks for the
+          detail: Product Studio reveals its six build-to-ship phases and toolkit;
+          MakerLaunch reveals its cohort journey and what the accelerator gives you. */}
       {active === 'validate' && (
-        <details className="group mt-6 overflow-hidden rounded-2xl border border-emerald-200 bg-emerald-50/40">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-5 [&::-webkit-details-marker]:hidden">
-            <span className="flex items-center gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-600 text-white">
-                <Icon name="beaker" className="h-5 w-5" />
-              </span>
-              <span>
-                <span className="font-display text-base font-bold text-slate-900">
-                  What you’ll learn in Product Studio
-                </span>
-                <span className="block text-sm text-slate-600">
-                  The six phases, plus the frameworks and tools the curriculum teaches.
-                </span>
-              </span>
-            </span>
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-emerald-300 text-emerald-700">
-              <Icon name="plus" className="h-4 w-4 group-open:hidden" />
-              <Icon name="minus" className="hidden h-4 w-4 group-open:block" />
-            </span>
-          </summary>
-          <div className="border-t border-emerald-100 bg-white p-5 sm:p-6">
-            <ProductStudio />
-          </div>
-        </details>
+        <StageDisclosure
+          accent="emerald"
+          icon="beaker"
+          title="What you’ll learn in Product Studio"
+          subtitle="The six phases, plus the frameworks and tools the curriculum teaches."
+        >
+          <ProductStudio />
+        </StageDisclosure>
+      )}
+      {active === 'build' && (
+        <StageDisclosure
+          accent="garnet"
+          icon="rocket"
+          title="Inside the MakerLaunch accelerator"
+          subtitle="The cohort journey, and everything you get along the way."
+        >
+          <MakerLaunch />
+        </StageDisclosure>
       )}
     </div>
   );
