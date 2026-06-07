@@ -41,8 +41,22 @@ export default function FounderView({
         </div>
       </section>
 
+      {/* Full path explorer */}
+      <section className="border-b border-slate-200 bg-slate-50 py-16">
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionHeading
+            eyebrow="Your full path"
+            title={founder.pipelineTitle}
+            subtitle={founder.pipelineSubtitle}
+          />
+          <div className="mt-8">
+            <PipelineExplorer initialStage={initialStage} />
+          </div>
+        </div>
+      </section>
+
       {/* Quick links: find your starting point, and find a cofounder */}
-      <section className="mx-auto max-w-6xl px-6 pt-10">
+      <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="flex h-full flex-col items-start gap-3 rounded-2xl border border-garnet-200 bg-garnet-50 p-6">
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-garnet-700 text-white">
@@ -79,20 +93,6 @@ export default function FounderView({
               {launchpadPage.calloutCta}
               <Icon name="arrowRight" className="h-4 w-4" />
             </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Full path explorer */}
-      <section className="border-b border-slate-200 bg-slate-50 py-16">
-        <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading
-            eyebrow="Your full path"
-            title={founder.pipelineTitle}
-            subtitle={founder.pipelineSubtitle}
-          />
-          <div className="mt-8">
-            <PipelineExplorer initialStage={initialStage} />
           </div>
         </div>
       </section>
