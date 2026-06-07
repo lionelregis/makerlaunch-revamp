@@ -2,7 +2,6 @@ import Icon from '../components/Icon';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
 import Image from '../components/Image';
-import ProductStudio from '../components/ProductStudio';
 import { PipelineExplorer } from '../components/Pipeline';
 import { founder, launchpadPage } from '../data/content';
 import type { StageId } from '../data/content';
@@ -82,11 +81,6 @@ export default function FounderView({
             </button>
           </div>
         </div>
-      </section>
-
-      {/* Product Studio deep-dive */}
-      <section className="border-y border-slate-200 bg-white py-16">
-        <ProductStudio />
       </section>
 
       {/* Full path explorer */}
