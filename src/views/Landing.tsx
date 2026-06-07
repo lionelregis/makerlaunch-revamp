@@ -97,16 +97,6 @@ export default function Landing({
       </section>
 
       {/* ----------------------------------------------------------------- */}
-      {/* The idea, in one breath                                           */}
-      {/* ----------------------------------------------------------------- */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <SectionHeading title={landing.intentTitle} align="center" />
-          <p className="mt-4 text-lg leading-relaxed text-slate-700">{landing.intentBody}</p>
-        </Reveal>
-      </section>
-
-      {/* ----------------------------------------------------------------- */}
       {/* Pipeline peek                                                     */}
       {/* ----------------------------------------------------------------- */}
       <section className="border-y border-slate-200 bg-slate-50 py-16">

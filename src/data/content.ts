@@ -44,8 +44,6 @@ export interface Landing {
   subtitle: string;
   roleQuestion: string;
   roleHint: string;
-  intentTitle: string;
-  intentBody: string;
   principlesTitle: string;
   pipelineTitle: string;
   pipelineSubtitle: string;

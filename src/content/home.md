@@ -10,8 +10,6 @@ landing:
   subtitle: A connected path — Explore, Product Studio, MakerLaunch, Founders Network — that helps engineering and computer science students turn an idea into a real, incorporated venture, built so no promising idea stalls at the end of a course.
   roleQuestion: First, who are you?
   roleHint: We’ll show you what matters for your path.
-  intentTitle: The idea, in one breath
-  intentBody: 'Engineering and computer science students validate ideas in their courses and at the eHub — but until now, nothing helped them actually build and ship. So we built the missing step: Product Studio, a year-round program that teaches you to take a validated idea and turn it into a working, shipped product — then hands you to MakerLaunch ready to accelerate.'
   principlesTitle: What guides every step
   pipelineTitle: One path, four stages
   pipelineSubtitle: Start in Explore. From there you build your way up through Product Studio, or go straight to MakerLaunch if you already have the proof. Both routes lead to the Founders Network. Select a stage to see what it offers.
