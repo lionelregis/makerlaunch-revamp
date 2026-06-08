@@ -117,15 +117,8 @@ export interface StudioPhase {
   n: number;
   icon: string;
   name: string;
-  /** Depth marker, e.g. "Framework" or "Hands-on · core". */
-  depth: string;
+  /** A one-line description of what this phase teaches. */
   can: string;
-  produces: string;
-}
-
-export interface ToolkitArea {
-  area: string;
-  methods: string;
 }
 
 export interface ProductStudio {
@@ -141,10 +134,6 @@ export interface ProductStudio {
   phasesSubtitle: string;
   phases: StudioPhase[];
   gateNote: string;
-  toolkitTitle: string;
-  toolkitSubtitle: string;
-  toolkit: ToolkitArea[];
-  toolsLabel: string;
   tools: string[];
   image?: string;
   imageAlt?: string;
@@ -155,10 +144,8 @@ export interface MakerLaunchPhase {
   n: number;
   icon: string;
   name: string;
-  /** What happens at this step. */
+  /** A one-line description of what happens at this step. */
   focus: string;
-  /** The milestone the venture reaches by the end of it. */
-  milestone: string;
 }
 
 /** One support the accelerator provides (funding, mentors, in-kind help...). */

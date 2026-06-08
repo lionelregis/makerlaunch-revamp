@@ -26,56 +26,28 @@ productStudio:
     - 'n': 1
       icon: target
       name: Define the Build
-      depth: Framework
-      can: Turn a validated idea into a scoped, shippable product definition (this phase carries a short bridge from your discovery work).
-      produces: A product definition with scope, success criteria, and a definition of done.
+      can: Scope a validated idea into a clear product definition.
     - 'n': 2
       icon: flow
       name: Design the System
-      depth: Framework
-      can: Make sound technical decisions and lay out the system under real constraints.
-      produces: A system design and a record of the key decisions and trade-offs.
+      can: Make the key technical decisions and design the system.
     - 'n': 3
       icon: beaker
       name: Prototype to De-risk
-      depth: Hands-on
-      can: Build fast, low-cost prototypes that retire the biggest risks before you commit.
-      produces: A de-risking prototype and a note of what it tested and changed.
+      can: Build quick prototypes that retire the biggest risks.
     - 'n': 4
       icon: rocket
       name: Build the MVP
-      depth: Hands-on · core
-      can: Develop a working product iteratively, with version control, reviews, and tests.
-      produces: A working MVP, built with disciplined process.
+      can: Develop a working MVP with a disciplined process.
     - 'n': 5
       icon: globe
       name: Ship It
-      depth: Hands-on · core
-      can: Release a working product to real users, with proper release discipline.
-      produces: A shipped product in the hands of users, and a release checklist.
+      can: Release the product to real users.
     - 'n': 6
       icon: refresh
       name: Measure & Iterate
-      depth: Hands-on
-      can: Instrument the product, learn from real use, and decide what to improve next.
-      produces: Usage data, an iteration log, and a prioritized backlog.
+      can: Learn from real use and decide what to improve next.
   gateNote: Product Studio owns the working-prototype path to MakerLaunch. Ship a working product and you have cleared the bar, often by more than the minimum. The other path, customer discovery, comes from your courses and the eHub.
-  toolkitTitle: Frameworks and tools you’ll use
-  toolkitSubtitle: Established methods, taught to apply across software, services, and hardware. The tools below are examples, not requirements.
-  toolkit:
-    - area: Scoping & definition
-      methods: Product specs, minimum viable product, definition of done, MoSCoW and RICE prioritization
-    - area: System & decisions
-      methods: System decomposition, build-versus-buy, decision records, risk identification, technology readiness levels
-    - area: Building process
-      methods: Agile, Scrum and Kanban, time-boxed sprints, Git and branching, code and design review
-    - area: Prototyping
-      methods: Risk-first prototyping, proof of concept, Wizard-of-Oz, throwaway versus evolutionary prototypes
-    - area: Shipping
-      methods: Release management, continuous integration and deployment basics, launch checklists, rollback and recovery
-    - area: Measuring & iterating
-      methods: Instrumentation and analytics, build-measure-learn, backlog prioritization, technical-debt management
-  toolsLabel: Example tools
   tools:
     - Git, GitHub & GitLab
     - Figma

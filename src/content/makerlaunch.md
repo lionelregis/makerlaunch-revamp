@@ -10,49 +10,44 @@ makerLaunch:
     - 'n': 1
       icon: shield
       name: Onboard and incorporate
-      focus: Set the company up properly, with founder agreements, basic IP, and the legal and accounting foundations in place.
-      milestone: An incorporated venture with clean foundations.
+      focus: Incorporate, with the legal, accounting, and IP basics in place.
     - 'n': 2
       icon: target
       name: Sharpen the venture
-      focus: Pressure-test the product and business model in cohort sessions and one-to-one coaching, and set a focused roadmap.
-      milestone: A sharper plan and a clear market-ready direction.
+      focus: Pressure-test the product and business model, and set a focused roadmap.
     - 'n': 3
       icon: users
       name: Build with mentors
-      focus: Work with sector-matched mentors and in-kind specialists while funding covers the real costs of building toward launch.
-      milestone: A launch-ready product, backed by expert help.
+      focus: Build toward launch with sector-matched mentors and in-kind specialists.
     - 'n': 4
       icon: rocket
       name: Reach first customers
-      focus: Go to market, run pilots, and win the first users or paying customers that prove real traction.
-      milestone: Pilots or first customers, and evidence of traction.
+      focus: Go to market and win first pilots or paying customers.
     - 'n': 5
       icon: trophy
       name: Demo Day and beyond
-      focus: Present the venture to mentors, alumni, and ecosystem partners, and get ready to raise outside money.
-      milestone: An investable venture, ready to raise and grow.
+      focus: Present at Demo Day and get ready to raise.
   supportsTitle: What the cohort gives you
   supportsSubtitle: Everything in MakerLaunch is built to make it safe and fast to go from proof to launch.
   supports:
     - icon: funding
       title: Funding, no equity taken
-      body: Direct funding to cover the real costs of building, with no equity given up in return.
+      body: Covers real build costs, with no equity taken.
     - icon: users
       title: Mentors matched to you
-      body: Personal introductions to mentors chosen for your sector, plus alumni founders who have done it before.
+      body: Sector-matched mentors and alumni founders.
     - icon: flow
       title: One-to-one coaching
-      body: Regular cohort sessions and individual coaching that keep the venture moving against clear goals.
+      body: Cohort sessions and coaching against clear goals.
     - icon: shield
       title: In-kind expert help
-      body: Legal, accounting, and design support provided in kind, so early ventures get professional help without the bill.
+      body: Legal, accounting, and design help, in kind.
     - icon: book
       title: Course credit
-      body: Count the work toward your degree through existing options like directed study, an independent project, or co-op.
+      body: Count it toward your degree through directed study, a project, or co-op.
     - icon: trophy
       title: Demo Day stage
-      body: A public showcase in front of mentors, alumni, and partners who can open doors and back what you are building.
+      body: A public showcase to mentors, alumni, and partners.
   closingNote: Graduate as an incorporated venture with traction and the support to raise outside money, then stay connected through the Founders Network.
 ---
 
