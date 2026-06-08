@@ -97,43 +97,6 @@ export default function FounderView({
         </div>
       </section>
 
-      {/* Readiness criteria */}
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="overflow-hidden rounded-3xl border border-garnet-200 bg-gradient-to-br from-garnet-900 to-garnet-800 text-white">
-          <div className="grid gap-8 p-8 md:grid-cols-[1fr_1.2fr] md:p-10">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wide">
-                <Icon name="target" className="h-4 w-4" />
-                MakerLaunch readiness
-              </span>
-              <h2 className="mt-4 font-display text-2xl font-black text-balance">{founder.readinessTitle}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-garnet-100">{founder.readinessBody}</p>
-            </div>
-            <div className="flex flex-col justify-center gap-3">
-              <div className="rounded-2xl bg-white/10 p-5 backdrop-blur">
-                <div className="flex items-start gap-3">
-                  <Icon name="checkCircle" className="mt-0.5 h-6 w-6 shrink-0 text-emerald-300" />
-                  <p className="text-sm font-medium leading-relaxed">{founder.readinessA}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="h-px flex-1 bg-white/20" />
-                <span className="text-xs font-bold uppercase tracking-widest text-garnet-200">
-                  {founder.readinessOr}
-                </span>
-                <span className="h-px flex-1 bg-white/20" />
-              </div>
-              <div className="rounded-2xl bg-white/10 p-5 backdrop-blur">
-                <div className="flex items-start gap-3">
-                  <Icon name="checkCircle" className="mt-0.5 h-6 w-6 shrink-0 text-emerald-300" />
-                  <p className="text-sm font-medium leading-relaxed">{founder.readinessB}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Steps */}
       <section className="border-t border-slate-200 bg-slate-50 py-16">
         <div className="mx-auto max-w-6xl px-6">

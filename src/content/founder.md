@@ -11,11 +11,6 @@ founder:
   finderReasonLabel: Why this stage
   pipelineTitle: See the whole path, stage by stage
   pipelineSubtitle: Four stages, clear steps, and an introduction to what’s next at every point. Select a stage to see what it offers and what it takes to move on.
-  readinessTitle: The one rule that matters most
-  readinessBody: To get into MakerLaunch you need just one of these. Product Studio gets you the working prototype; your courses and the eHub cover the discovery side.
-  readinessA: Proof from customer discovery that a real problem exists (from your courses or the eHub).
-  readinessOr: OR
-  readinessB: A working prototype that solves a real user problem (this is what Product Studio gets you to).
   stepsTitle: How to get started
   steps:
     - title: Start with Product Studio

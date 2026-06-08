@@ -202,11 +202,6 @@ export interface Founder {
   finderRecommended: string;
   pipelineTitle: string;
   pipelineSubtitle: string;
-  readinessTitle: string;
-  readinessBody: string;
-  readinessA: string;
-  readinessOr: string;
-  readinessB: string;
   stepsTitle: string;
   steps: TextStep[];
   finderCalloutTitle: string;
