@@ -3,7 +3,7 @@ makerLaunch:
   eyebrow: The Faculty’s flagship accelerator
   name: MakerLaunch Accelerator
   tagline: Turn a proven build into an incorporated, accelerating venture.
-  lead: MakerLaunch is a once-a-year cohort that takes a venture with real proof and helps it incorporate, reach first customers, and get ready to raise. You arrive having cleared the bar, with a working prototype or evidence from customer discovery, and a founder ready to commit.
+  lead: The Accelerator is the accelerate track of MakerLaunch, a once-a-year cohort that takes a venture with real proof and helps it incorporate, reach first customers, and get ready to raise. You join here if you already have a working product or evidence from customer discovery, plus a founder ready to commit.
   journeyTitle: The cohort journey
   journeySubtitle: Five steps from a proven build to a venture that is ready to raise.
   phases:

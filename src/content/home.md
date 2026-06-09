@@ -5,20 +5,20 @@ brand:
   faculty: Faculty of Engineering · University of Ottawa
   centre: Centre for Entrepreneurship and Engineering Design
 landing:
-  eyebrow: A connected path from idea to venture · starting September 2026
-  title: Engineering ideas, carried all the way to a venture.
-  subtitle: A connected path — Explore, Product Studio, MakerLaunch, Founders Network — that helps engineering and computer science students turn an idea into a real, incorporated venture, built so no promising idea stalls at the end of a course.
+  eyebrow: MakerLaunch · the Faculty’s venture-building program · starting September 2026
+  title: Turn an engineering idea into a real venture.
+  subtitle: MakerLaunch is how engineering and computer science students build ventures. Explore to find an idea and a team, join MakerLaunch through Product Studio or the Accelerator, then grow with the Founders Network.
   roleQuestion: First, who are you?
   roleHint: We’ll show you what matters for your path.
   principlesTitle: What guides every step
-  pipelineTitle: One path, four stages
-  pipelineSubtitle: Start in Explore. From there you build your way up through Product Studio, or go straight to MakerLaunch if you already have the proof. Both routes lead to the Founders Network. Select a stage to see what it offers.
-  pipelineBranchLabel: choose your route
+  pipelineTitle: One program, two ways in
+  pipelineSubtitle: Explore to find an idea and a team. Then join MakerLaunch through Product Studio if you still need to build a product, or the Accelerator if you already have one. Graduate into the Founders Network.
+  pipelineBranchLabel: two ways in
   heroImage: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=70'
   heroImageAlt: Students collaborating around a table
 heroStats:
-  - value: '4'
-    label: stages from first idea to launched venture
+  - value: '2'
+    label: 'ways into MakerLaunch: Product Studio or the Accelerator'
   - value: '6'
     label: phases from a validated idea to a shipped product
   - value: '3'

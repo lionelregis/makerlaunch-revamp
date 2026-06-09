@@ -1,11 +1,12 @@
 import Icon from './Icon';
 import { accents } from '../lib/accents';
-import { stages, landing } from '../data/content';
+import { stages, umbrella, landing } from '../data/content';
 import type { Stage, StageId } from '../data/content';
 
 const byId = Object.fromEntries(stages.map((s) => [s.id, s])) as Record<string, Stage>;
+const tracks = stages.filter((s) => s.group === 'makerlaunch');
 
-/** One stage node in the branching map. Becomes a button when onPick is given. */
+/** One stage/track node in the map. Becomes a button when onPick is given. */
 function StageNode({ stage, onPick }: { stage: Stage; onPick?: (stage: StageId) => void }) {
   const a = accents[stage.accent];
   const base = `flex h-full w-full flex-col items-center rounded-2xl border bg-white p-5 text-center shadow-sm ${a.border}`;
@@ -41,37 +42,44 @@ function Connector() {
 }
 
 /**
- * Branching path map: Explore at the top feeds two parallel routes (Product
- * Studio or MakerLaunch), which both converge into the Founders Network. This
- * reflects the real logic: you either build your way up through Product Studio,
- * or enter MakerLaunch directly once you already have the proof.
+ * The path map: Explore at the top, then the MakerLaunch umbrella holding its two
+ * entry tracks (Product Studio or the Accelerator), then the Founders Network.
+ * This shows that Product Studio and the Accelerator are two ways into the one
+ * MakerLaunch program.
  */
 export default function StageMap({ onPick }: { onPick?: (stage: StageId) => void }) {
   return (
     <div className="mx-auto max-w-3xl">
-      {/* Top: Explore — full width, mirroring Founders Network at the bottom. */}
+      {/* Top: Explore */}
       <StageNode stage={byId.explore} onPick={onPick} />
 
       <Connector />
-      <div className="flex justify-center">
-        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-500">
-          {landing.pipelineBranchLabel}
-        </span>
-      </div>
-      <div className="py-2" />
 
-      {/* Two parallel routes */}
-      <div className="grid items-center gap-3 sm:grid-cols-[1fr_auto_1fr]">
-        <StageNode stage={byId.validate} onPick={onPick} />
-        <span className="mx-auto rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-400">
-          or
-        </span>
-        <StageNode stage={byId.build} onPick={onPick} />
+      {/* Middle: the MakerLaunch umbrella holding the two tracks */}
+      <div className="rounded-3xl border-2 border-garnet-200 bg-garnet-50/40 p-4 sm:p-5">
+        <div className="mb-3 flex flex-wrap items-center justify-center gap-2">
+          <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-garnet-700 text-white">
+            <Icon name="rocket" className="h-4 w-4" />
+          </span>
+          <span className="font-display text-sm font-extrabold uppercase tracking-wide text-garnet-800">
+            {umbrella.name}
+          </span>
+          <span className="rounded-full bg-garnet-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-garnet-700">
+            {landing.pipelineBranchLabel}
+          </span>
+        </div>
+        <div className="grid items-center gap-3 sm:grid-cols-[1fr_auto_1fr]">
+          <StageNode stage={tracks[0]} onPick={onPick} />
+          <span className="mx-auto rounded-full border border-garnet-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide text-garnet-500">
+            or
+          </span>
+          <StageNode stage={tracks[1]} onPick={onPick} />
+        </div>
       </div>
 
       <Connector />
 
-      {/* Bottom: Founders Network — full width, mirroring Explore at the top. */}
+      {/* Bottom: Founders Network */}
       <StageNode stage={byId.scale} onPick={onPick} />
     </div>
   );

@@ -42,14 +42,14 @@ export function decide(answers: Record<string, StageId>): FinderResult {
 export function reasonFor({ stage, capped }: FinderResult): string {
   switch (stage) {
     case 'explore':
-      return 'Start here. Explore entrepreneurship, shape an idea, and find teammates before committing to a build.';
+      return 'Start here. Explore entrepreneurship, shape an idea, and find a team before joining MakerLaunch.';
     case 'validate':
       return capped
-        ? 'You have strong proof, but MakerLaunch needs a founder ready to commit. Product Studio is where you build it into a shipped product with a team.'
-        : 'You have a validated idea. Product Studio is where you build, test, and ship it into a working product.';
+        ? 'You have strong proof, but the Accelerator needs a founder ready to commit. Join MakerLaunch through Product Studio to build it into a shipped product with a team first.'
+        : 'Join MakerLaunch through Product Studio to build and ship your validated idea into a working product.';
     case 'build':
-      return 'You have the proof MakerLaunch looks for and a founder ready to commit, so you can go straight to the accelerator.';
+      return 'You have the proof and a founder ready to commit, so you can join MakerLaunch straight through the Accelerator.';
     case 'scale':
-      return 'You are already incorporated with traction. The Founders Network connects you to the partners who can help you grow.';
+      return 'You have graduated MakerLaunch. The Founders Network connects you to the partners who can help you grow.';
   }
 }

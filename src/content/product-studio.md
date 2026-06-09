@@ -47,7 +47,7 @@ productStudio:
       icon: refresh
       name: Measure & Iterate
       can: Learn from real use and decide what to improve next.
-  gateNote: Product Studio owns the working-prototype path to MakerLaunch. Ship a working product and you have cleared the bar, often by more than the minimum. The other path, customer discovery, comes from your courses and the eHub.
+  gateNote: Product Studio is the build track of MakerLaunch. Ship a working product here and you move straight into the Accelerator. If you already have a product or strong customer proof, you can join the Accelerator directly.
   tools:
     - Git, GitHub & GitLab
     - Figma

@@ -1,4 +1,7 @@
 ---
+umbrella:
+  name: MakerLaunch
+  tagline: The Faculty’s venture-building program. You join through Product Studio or the Accelerator, depending on where you are.
 stages:
   - id: explore
     order: 1
@@ -6,39 +9,41 @@ stages:
     icon: compass
     name: Explore
     tagline: Meet entrepreneurship, validate an idea, and find your team.
-    purpose: Meet entrepreneurship, come up with and validate ideas, and find teammates — through your courses, the eHub, hackathons, competitions, and Product Studio’s open workshops. This is where customer discovery happens. No commitment to continue; the goal is simply to start.
+    purpose: Meet entrepreneurship, come up with and validate ideas, and find teammates, through your courses, the eHub, hackathons, and competitions. This is where customer discovery happens. No commitment to continue; the goal is simply to start.
     entry: You’re a student in the Faculty of Engineering or computer science. Everyone is welcome.
-    advance: You’ve validated an idea and found a team, and you’re ready to build.
+    advance: You’ve validated an idea and you’re ready to join MakerLaunch.
     owner: Faculty & CEED
   - id: validate
     order: 2
     accent: emerald
     icon: beaker
+    group: makerlaunch
     name: Product Studio
     tagline: Build, test, and ship a validated idea into a working product.
-    purpose: Take a validated idea and build, test, and ship it into a real, working product. This is where execution happens — the working-prototype path to the accelerator. Discovery is assumed; it comes from your courses and the eHub.
-    entry: A validated idea and a committed team. Joining the Studio Cohort is open — there’s no competition to get in.
-    advance: A working, shipped product that solves a real user problem.
+    purpose: The build track of MakerLaunch. Take a validated idea and turn it into a real, working, shipped product. Finishing here takes you into the Accelerator.
+    entry: Join here if you have a validated idea but haven’t built it yet. Discovery is assumed; it comes from your courses and the eHub.
+    advance: A working, shipped product, ready for the Accelerator.
     owner: CEED
   - id: build
     order: 3
     accent: garnet
     icon: rocket
-    name: MakerLaunch
+    group: makerlaunch
+    name: Accelerator
     tagline: Accelerate a proven venture toward launch and first customers.
-    purpose: Accelerate a proven venture toward incorporation, funding, and first customers. This is the Faculty’s flagship accelerator, with clear entry criteria so every team arrives ready to build.
-    entry: Proof from customer conversations OR a working prototype, plus a founder ready to commit.
-    advance: An incorporated venture with traction, pilots, or committed funding — ready to raise outside money.
+    purpose: The accelerate track of MakerLaunch. Take a proven product to incorporation, funding, and first customers, with a clear bar to get in.
+    entry: Join here if you already have a working product or proof from customer conversations, plus a founder ready to commit.
+    advance: An incorporated venture with traction, pilots, or committed funding, ready to raise outside money.
     owner: CEED
   - id: scale
     order: 4
     accent: indigo
     icon: globe
     name: Founders Network
-    tagline: Personal introductions to the wider ecosystem — staying connected.
-    purpose: Personal introductions to the partners with the resources to help you grow. The Faculty stays connected through its community of alumni founders and Professional Engineers of Ontario — the help it’s best placed to give at this stage.
+    tagline: Personal introductions to the wider ecosystem, staying connected.
+    purpose: Personal introductions to the partners with the resources to help you grow. The Faculty stays connected through its community of alumni founders and Professional Engineers of Ontario.
     entry: A venture that has graduated from MakerLaunch.
-    advance: Active relationships with ecosystem partners — and a way back to mentor the next generation.
+    advance: Active relationships with ecosystem partners, and a way back to mentor the next generation.
     owner: Alumni & ecosystem partners
 ---
 
@@ -46,5 +51,9 @@ stages:
 Edit the text in the block above. It is YAML: keep the field names, the
 indentation, and the dashes for list items. Only change the words.
 
-The four stages (Explore, Product Studio, MakerLaunch, Founders Network). Keep id, order, accent and icon as they are; edit the names and descriptions.
+The path has three user-facing stages: Explore, MakerLaunch, and the Founders
+Network. MakerLaunch is an umbrella with two entry tracks, marked by
+"group: makerlaunch": Product Studio (the build track) and the Accelerator (the
+accelerate track). Keep the ids, accents, icons, and the group markers as they
+are; edit the names and descriptions.
 -->

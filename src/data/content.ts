@@ -90,6 +90,14 @@ export interface Stage {
   entry: string;
   advance: string;
   owner: string;
+  /** Stages that belong to the MakerLaunch umbrella carry group: "makerlaunch". */
+  group?: string;
+}
+
+/** The MakerLaunch umbrella that the Product Studio and Accelerator tracks sit under. */
+export interface Umbrella {
+  name: string;
+  tagline: string;
 }
 
 export interface Program {
@@ -467,6 +475,7 @@ export const footer = home.footer as Footer;
 export const venturesStrip = home.venturesStrip as VenturesStrip;
 
 export const stages = frontmatter(pipelineRaw).stages as Stage[];
+export const umbrella = frontmatter(pipelineRaw).umbrella as Umbrella;
 export const programs = frontmatter(programsRaw).programs as Program[];
 export const productStudio = frontmatter(productStudioRaw)
   .productStudio as ProductStudio;

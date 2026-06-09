@@ -95,7 +95,12 @@ export default function StageFinder() {
                 <Icon name={stage.icon} className="h-8 w-8" />
               </span>
               <div>
-                <h3 className="font-display text-2xl font-black">{stage.name}</h3>
+                {stage.group === 'makerlaunch' && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide">
+                    A MakerLaunch track
+                  </span>
+                )}
+                <h3 className="mt-1 font-display text-2xl font-black">{stage.name}</h3>
                 <p className="text-sm text-white/90">{stage.tagline}</p>
               </div>
             </div>

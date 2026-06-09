@@ -2,7 +2,7 @@
 founder:
   eyebrow: For potential founders
   title: A connected path from first idea to growing venture.
-  intro: Wherever you’re starting from, there’s a next step inside the Faculty — no more dead ends at the end of a course. Answer three quick questions and we’ll point you to where to begin.
+  intro: Wherever you’re starting from, there’s a next step inside MakerLaunch. Explore to find an idea, then join through Product Studio or the Accelerator. Answer three quick questions and we’ll point you to where to begin.
   finderTitle: Find your starting point
   finderSubtitle: Three quick questions. We look at the proof you have and whether a founder is ready to commit.
   finderResultTitle: We’d suggest starting at
@@ -10,17 +10,17 @@ founder:
   finderRecommended: Programs at this stage
   finderReasonLabel: Why this stage
   pipelineTitle: See the whole path, stage by stage
-  pipelineSubtitle: Four stages, clear steps, and an introduction to what’s next at every point. Select a stage to see what it offers and what it takes to move on.
+  pipelineSubtitle: Three stages, with two ways into MakerLaunch. Select a stage to see what it offers and what it takes to move on.
   stepsTitle: How to get started
   steps:
-    - title: Start with Product Studio
-      body: Drop in to a Foundations workshop or a Build Sprint — or join a pitch competition, uOttawaHack, or Design Day. No commitment required.
-    - title: Join the Studio Cohort
-      body: When you’re ready to commit, the term-long Studio Cohort takes your validated idea through every phase to a working, shipped product.
-    - title: Get into MakerLaunch
-      body: Once you’ve met the bar, MakerLaunch gives you funding, coaching, mentors, and in-kind legal, accounting, and design help.
-    - title: Grow with the ecosystem
-      body: Graduate into personal introductions with regional and national partners — then come back as a mentor yourself.
+    - title: Start in Explore
+      body: Find an idea and a team through workshops, hackathons, pitch competitions, and your courses. No commitment required.
+    - title: Join MakerLaunch through Product Studio
+      body: If you have a validated idea but no product yet, Product Studio takes you through every phase to a working, shipped product.
+    - title: Or enter the Accelerator
+      body: If you already have a working product or customer proof, the Accelerator gives you funding, coaching, mentors, and in-kind legal, accounting, and design help.
+    - title: Grow with the Founders Network
+      body: Graduate into personal introductions with regional and national partners, then come back as a mentor yourself.
   finderCalloutTitle: Not sure where to start?
   finderCalloutBody: Answer three quick questions and we’ll point you to the right stage and the programs that fit.
   finderCalloutCta: Find your starting point
