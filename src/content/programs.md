@@ -4,8 +4,8 @@ programs:
     stage: explore
     status: new
     flagship: true
-    name: Product Studio — Foundations Series
-    kind: Open workshop series · part of Product Studio
+    name: Foundations Series
+    kind: Open workshop series
     when: Fall & winter · drop-in
     forWhom: Any engineering or computer science student — no idea or tech stack needed
     summary: Open, drop-in workshops that teach the craft of building and shipping a product, one phase at a time.
@@ -18,8 +18,8 @@ programs:
   - id: sprints
     stage: explore
     status: new
-    name: Product Studio — Build Sprints
-    kind: Short intensives · part of Product Studio
+    name: Build Sprints
+    kind: Short intensives
     when: Weekends & reading weeks
     forWhom: Students who want to make fast, real progress on a build
     summary: The program’s signature. Short, intensive builds that turn intent into a working artifact.
@@ -40,7 +40,7 @@ programs:
     offers:
       - Build a real engineering solution as part of your studies
       - Teams whose projects show commercial promise are invited to keep going after the course ends
-      - A natural on-ramp into Product Studio and the rest of the path
+      - A natural on-ramp into MakerLaunch and the rest of the path
     takeaway: A finished design project — and, if you want it, a way to carry it forward instead of shelving it.
   - id: capstone
     stage: explore
@@ -137,13 +137,13 @@ programs:
       - Ends with a working, shipped product and a documented readiness summary for MakerLaunch
     takeaway: A working, shipped product — and a direct, evidence-backed introduction to MakerLaunch.
   - id: simon-nehme
-    stage: validate
+    stage: explore
     status: refreshed
     name: Simon Nehme Summer Entrepreneurship School
     kind: Summer program
     when: Summer (May–Aug)
     forWhom: Teams who want to use the summer to push an idea forward
-    summary: The summer on-ramp into Product Studio — a build and validation vehicle.
+    summary: The summer on-ramp into MakerLaunch, a build and validation vehicle.
     offers:
       - Spend the summer building and validating, with a head start on shipping
       - Milestones that line up with the Studio Cohort, so you can flow straight into the fall
