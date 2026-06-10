@@ -16,7 +16,6 @@ import founderRaw from '../content/founder.md?raw';
 import advisorRaw from '../content/advisor.md?raw';
 import mentorsRaw from '../content/mentors.md?raw';
 import launchpadRaw from '../content/launchpad.md?raw';
-import labRaw from '../content/lab.md?raw';
 
 /** Read the YAML data block (the part between the leading --- fences). */
 function frontmatter(raw: string): Record<string, unknown> {
@@ -278,67 +277,6 @@ export interface Footer {
   contact: string;
 }
 
-// --- Advanced Manufacturing Startup Lab (standalone /lab.html preview) ---
-
-export interface LabValue {
-  icon: string;
-  title: string;
-  body: string;
-}
-
-export interface LabCapability {
-  icon: string;
-  name: string;
-  body: string;
-  image?: string;
-}
-
-export interface LabPhoto {
-  src: string;
-  alt: string;
-  caption?: string;
-}
-
-export interface LabTrack {
-  icon: string;
-  name: string;
-  forWhom: string;
-  body: string;
-  steps: string[];
-}
-
-export interface LabCopy {
-  eyebrow: string;
-  name: string;
-  title: string;
-  intro: string;
-  heroImage?: string;
-  ctaLabel: string;
-  valueTitle: string;
-  valueSubtitle: string;
-  value: LabValue[];
-  audienceTitle: string;
-  audienceSubtitle: string;
-  audience: string[];
-  capabilitiesTitle: string;
-  capabilitiesSubtitle: string;
-  capabilities: LabCapability[];
-  galleryTitle: string;
-  gallerySubtitle: string;
-  gallery: LabPhoto[];
-  howTitle: string;
-  howSubtitle: string;
-  tracks: LabTrack[];
-  supportTitle: string;
-  supportBody: string;
-  supportNote: string;
-  partners: string[];
-  ctaTitle: string;
-  ctaBody: string;
-  ctaButton: string;
-  backLabel: string;
-}
-
 export interface TeamMember {
   name: string;
   role: string;
@@ -497,5 +435,3 @@ const launchpadFm = frontmatter(launchpadRaw);
 export const launchpadPage = launchpadFm.launchpadPage as LaunchpadCopy;
 export const launchpadPosts = launchpadFm.launchpadPosts as LaunchPost[];
 export const launchpadProfiles = launchpadFm.launchpadProfiles as StudentProfile[];
-
-export const labCopy = frontmatter(labRaw).lab as LabCopy;
