@@ -1,15 +1,15 @@
 ---
 umbrella:
   name: MakerLaunch
-  tagline: The Faculty’s venture-building program. You join through Product Studio or the Accelerator, depending on where you are.
+  tagline: The Faculty’s venture-building program. Most teams enter through Product Studio and progress to the Accelerator; teams that already have a working product or customer proof can enter the Accelerator directly.
 stages:
   - id: explore
     order: 1
     accent: amber
     icon: compass
     name: Explore
-    tagline: Meet entrepreneurship, validate an idea, and find your team.
-    purpose: Meet entrepreneurship, come up with and validate ideas, and find teammates, through your courses, the eHub, hackathons, and competitions. This is where customer discovery happens. No commitment to continue; the goal is simply to start.
+    tagline: Find an idea, validate the problem through customer discovery, and form your team.
+    purpose: Find an idea, validate the problem through customer discovery, and form a team — through your courses, the eHub, hackathons, competitions, and the summer school. This is where discovery happens. No commitment to continue; the goal is simply to start.
     entry: You’re a student in the Faculty of Engineering or computer science. Everyone is welcome.
     advance: You’ve validated an idea and you’re ready to join MakerLaunch.
     owner: Faculty & CEED
@@ -31,7 +31,7 @@ stages:
     group: makerlaunch
     name: Accelerator
     tagline: Accelerate a proven venture toward launch and first customers.
-    purpose: The accelerate track of MakerLaunch. Take a proven product to incorporation, funding, and first customers, with a clear bar to get in.
+    purpose: The launch track of MakerLaunch. Take a proven product to incorporation, funding, and first customers, with a clear bar to get in.
     entry: Join here if you already have a working product or proof from customer conversations, plus a founder ready to commit.
     advance: An incorporated venture with traction, pilots, or committed funding, ready to raise outside money.
     owner: CEED

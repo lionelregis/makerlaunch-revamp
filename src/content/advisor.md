@@ -17,7 +17,7 @@ advisor:
   ways:
     - icon: compass
       title: Mentor a team
-      body: Hold office hours for Studio Cohort teams, or take a curated match with a MakerLaunch venture in your sector.
+      body: Hold office hours for Product Studio teams, or take a curated match with an Accelerator venture in your sector.
     - icon: trophy
       title: Review at Demo Day
       body: Help mark progress and connect ventures to partners and capital at the cohort showcase.
@@ -28,8 +28,8 @@ advisor:
       title: Support as a P.Eng.
       body: PEO-licensed engineers bring technical credibility and regulated-industry experience that general business mentors can’t.
     - icon: spark
-      title: Lead a workshop or sprint
-      body: Run a Foundations workshop or a Build Sprint — a low-lift, high-impact way to teach the craft you know best.
+      title: Lead a session
+      body: Teach a Product Studio session or speak in the speaker series — a low-lift, high-impact way to share the craft you know best.
     - icon: funding
       title: Open doors
       body: Make introductions, share leads, and help connect graduating ventures to the wider ecosystem.
@@ -39,13 +39,13 @@ advisor:
   goalsSubtitle: Where we’re aiming to be by 2029.
   goals:
     - value: 8+
-      label: qualified MakerLaunch applicants per cycle (from 1 today)
+      label: accelerator-ready applicants per cycle (from 1 today)
     - value: 8–10
       label: student-led ventures launched per year (from 3–5)
     - value: 20+
       label: alumni returning each year as mentors and contributors
     - value: 16+
-      label: teams in the Studio Cohort each year
+      label: teams in Product Studio each year
   recognitionTitle: What you get back
   recognition:
     - title: Genuine recognition
@@ -58,7 +58,7 @@ advisor:
   mentorsSubtitle: Alumni founders and Professional Engineers who come back to build the next generation.
   mentorsNote: Mentor profiles shown here are illustrative examples.
   ctaTitle: Ready to give back?
-  ctaBody: Mentor recruitment opens ahead of the first Studio Cohort. Register your interest and we’ll match you to where you can have the most impact.
+  ctaBody: Mentor recruitment opens ahead of the first Product Studio cohort. Register your interest and we’ll match you to where you can have the most impact.
   ctaButton: Register your interest
   headerImage: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=70'
   headerImageAlt: A mentor meeting with a founder

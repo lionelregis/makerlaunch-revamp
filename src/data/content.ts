@@ -113,13 +113,6 @@ export interface Program {
   flagship?: boolean;
 }
 
-export interface StudioFormat {
-  icon: string;
-  name: string;
-  commitment: string;
-  body: string;
-}
-
 export interface StudioPhase {
   n: number;
   icon: string;
@@ -132,13 +125,8 @@ export interface ProductStudio {
   eyebrow: string;
   name: string;
   tagline: string;
-  intro: string;
-  forWhom: string;
-  formatsTitle: string;
-  formatsSubtitle: string;
-  formats: StudioFormat[];
-  phasesTitle: string;
-  phasesSubtitle: string;
+  /** One line describing the cohort format (length, entry, funding). */
+  formatNote: string;
   phases: StudioPhase[];
   gateNote: string;
   tools: string[];

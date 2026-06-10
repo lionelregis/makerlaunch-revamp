@@ -14,8 +14,8 @@ export default function ProductStudio() {
         {ps.tagline} It works for software, a service, or hardware, and assumes your discovery is already done.
       </p>
       <p className="mt-2 text-sm text-slate-600">
-        <span className="font-semibold text-slate-800">Three formats: </span>
-        {ps.formats.map((f) => f.name).join(', ')}.
+        <span className="font-semibold text-slate-800">The format: </span>
+        {ps.formatNote}
       </p>
 
       {/* Six phases, one line each */}

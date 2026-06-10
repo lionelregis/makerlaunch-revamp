@@ -18,7 +18,7 @@ founder:
     - title: Join MakerLaunch through Product Studio
       body: If you have a validated idea but no product yet, Product Studio takes you through every phase to a working, shipped product.
     - title: Or enter the Accelerator
-      body: If you already have a working product or customer proof, the Accelerator gives you funding, coaching, mentors, and in-kind legal, accounting, and design help.
+      body: If you already have a working product or customer proof, the Accelerator gives you funding, coaching, mentors, and in-kind legal, accounting, and IP help.
     - title: Grow with the Founders Network
       body: Graduate into personal introductions with regional and national partners, then come back as a mentor yourself.
   finderCalloutTitle: Not sure where to start?

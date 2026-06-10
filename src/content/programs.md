@@ -1,34 +1,5 @@
 ---
 programs:
-  - id: foundations
-    stage: explore
-    status: new
-    flagship: true
-    name: Foundations Series
-    kind: Open workshop series
-    when: Fall & winter · drop-in
-    forWhom: Any engineering or computer science student — no idea or tech stack needed
-    summary: Open, drop-in workshops that teach the craft of building and shipping a product, one phase at a time.
-    offers:
-      - No application and no obligation — come to one workshop or all of them
-      - Each session covers one phase of building and shipping, from a product definition to release
-      - 'Hands-on: every workshop ends with something concrete you take away and act on'
-      - Often led by alumni founders and working engineers who ship products
-    takeaway: The core skills to build and ship — and a clear sense of whether you want to go further.
-  - id: sprints
-    stage: explore
-    status: new
-    name: Build Sprints
-    kind: Short intensives
-    when: Weekends & reading weeks
-    forWhom: Students who want to make fast, real progress on a build
-    summary: The program’s signature. Short, intensive builds that turn intent into a working artifact.
-    offers:
-      - One phase of building and shipping, compressed into a weekend or reading-week intensive
-      - Formats like a Prototype Sprint, an MVP Build Weekend, or a Ship Sprint
-      - A real deadline and a finished, working artifact to show for it
-      - A great way to test-drive the work before committing to the full cohort
-    takeaway: Momentum, a working artifact, and proof to yourself that you can ship.
   - id: gng4120
     stage: explore
     status: ''
@@ -92,7 +63,7 @@ programs:
     offers:
       - Practice framing your idea clearly and telling its story
       - Get feedback from judges and peers
-      - Good preparation for talking to customers and for the Studio Cohort
+      - Good preparation for talking to customers and for MakerLaunch
     takeaway: A tighter story for your idea — and the confidence to tell it.
   - id: speaker
     stage: explore
@@ -120,37 +91,21 @@ programs:
       - See what hundreds of other teams are working on
       - A place where promising projects get noticed and invited to keep going
     takeaway: Visibility for your work — and, for the strongest projects, an invitation into the path.
-  - id: studio-cohort
-    stage: validate
-    status: new
-    flagship: true
-    name: Product Studio — Studio Cohort
-    kind: Term-long cohort · the Validation Program
-    when: Fall–winter · milestone by milestone
-    forWhom: Committed teams with a validated idea, ready to build it outside class
-    summary: The full Product Studio experience — a term-long cohort that takes a validated idea all the way to a shipped product.
-    offers:
-      - Work through all six phases, from a product definition to a shipped product, against clear milestones
-      - Direct mentorship from the program lead, plus alumni and industry mentors
-      - Micro-funding of $500–$2,500 per team, with no equity taken, to cover real build costs
-      - Open to join — the goal is to make it safe and cheap to build and ship, not to pick winners
-      - Ends with a working, shipped product and a documented readiness summary for MakerLaunch
-    takeaway: A working, shipped product — and a direct, evidence-backed introduction to MakerLaunch.
   - id: simon-nehme
     stage: explore
     status: refreshed
     name: Simon Nehme Summer Entrepreneurship School
-    kind: Summer program
+    kind: Summer program · extended format
     when: Summer (May–Aug)
-    forWhom: Teams who want to use the summer to push an idea forward
-    summary: The summer on-ramp into MakerLaunch, a build and validation vehicle.
+    forWhom: Teams who want to use the summer to get ready for MakerLaunch
+    summary: An extended summer on-ramp — find an idea, do your customer discovery, and form a team before entering MakerLaunch.
     offers:
-      - Spend the summer building and validating, with a head start on shipping
-      - Milestones that line up with the Studio Cohort, so you can flow straight into the fall
-      - A head start toward being MakerLaunch-ready
-    takeaway: A summer of real progress — and a strong position heading into the fall cohort.
+      - A full summer to find an idea, talk to customers, and validate the problem
+      - Form and commit a team, with support along the way
+      - Finish ready to enter MakerLaunch in the fall
+    takeaway: A validated idea, a committed team, and a running start into MakerLaunch.
   - id: gng-stream
-    stage: validate
+    stage: explore
     status: new
     name: GNG 4120 Entrepreneurial Stream
     kind: Course continuation
@@ -159,11 +114,11 @@ programs:
     summary: A way to continue a promising design-course project instead of shelving it.
     offers:
       - Designed with the course professor, so it counts and keeps its academic credibility
-      - A clear path from coursework into Product Studio
+      - A clear off-ramp from the classroom into MakerLaunch
       - Keeps your momentum going past the end of the term
     takeaway: A bridge from a great course project into a real venture path.
   - id: capstone-stream
-    stage: validate
+    stage: explore
     status: new
     name: Capstone Entrepreneurial Stream
     kind: Course continuation
@@ -172,22 +127,38 @@ programs:
     summary: The same continuation option, extended to capstone teams.
     offers:
       - An optional track across the capstone streams for teams who want to keep going
-      - Structured support to move from capstone into the Studio Cohort
+      - Structured off-ramps from capstone into MakerLaunch
       - A way to turn a final-year project into something lasting
     takeaway: A route from capstone to venture, without losing a year of momentum.
   - id: ehub
-    stage: validate
+    stage: explore
     status: new
-    name: uOttawa Entrepreneurship Hub
-    kind: Campus-wide programming · coordinated
+    name: uOttawa Entrepreneurship Hub Advisory
+    kind: Advisory partnership
     when: Year-round
-    forWhom: Engineering founders who want broader, campus-wide programming too
-    summary: The campus-wide hub, coordinated with Product Studio rather than competing with it.
+    forWhom: Engineering-affiliated founders coming through campus-wide programming
+    summary: CEED advises engineering founders coming out of Hub programming and points them into MakerLaunch.
     offers:
       - Access to entrepreneurship programming open to all faculties
-      - Coordinated with Product Studio so the two complement each other
       - CEED stays your advisor as an engineering founder along the way
-    takeaway: 'The best of both: engineering-focused support, plus the wider campus community.'
+      - A clear route from Hub programming into MakerLaunch
+    takeaway: 'The best of both: the wider campus community, with a path back into the Faculty pipeline.'
+  - id: studio-cohort
+    stage: validate
+    status: new
+    flagship: true
+    name: Product Studio Cohort
+    kind: Fall–winter cohort · 12 to 16 weeks
+    when: Fall–winter · milestone by milestone
+    forWhom: Committed teams with a validated idea, ready to build it outside class
+    summary: The Product Studio cohort takes a validated idea all the way to a shipped product, milestone by milestone.
+    offers:
+      - Work through all six phases, from a product definition to a shipped product, against clear milestones
+      - Direct mentorship from the program lead, plus alumni and industry mentors
+      - Micro-funding of $500–$2,500 per team, with no equity taken, to cover real build costs
+      - Non-competitive entry — the goal is to make it safe and cheap to build and ship, not to pick winners
+      - Ends with a working, shipped product and a direct introduction to the Accelerator
+    takeaway: A working, shipped product — and a direct, evidence-backed introduction to the Accelerator.
   - id: makerlaunch
     stage: build
     status: refreshed
@@ -201,7 +172,7 @@ programs:
       - Join by showing proof from customer conversations or a working prototype
       - Cohort sessions and one-to-one coaching
       - Personal introductions to mentors matched to your sector
-      - Funding with no equity taken, plus in-kind legal, accounting, and design help
+      - Funding with no equity taken, plus in-kind legal, accounting, and IP help
       - Course credit available through existing options (directed study, independent project, or co-op)
     takeaway: An incorporated, accelerating venture — with the support to reach your first customers.
   - id: demoday
@@ -210,8 +181,8 @@ programs:
     name: Demo Day
     kind: Showcase
     when: End of the cohort (spring)
-    forWhom: MakerLaunch teams, and the mentors, alumni, and partners who support them
-    summary: The public showcase that caps off the MakerLaunch cohort.
+    forWhom: Accelerator teams, and the mentors, alumni, and partners who support them
+    summary: The public showcase that caps off the Accelerator cohort.
     offers:
       - Present your venture to mentors, alumni, and ecosystem partners
       - Get in front of people who can open doors and write cheques
@@ -226,7 +197,7 @@ programs:
     forWhom: Graduating ventures ready to grow beyond the Faculty
     summary: Personal introductions to the partners with the resources to help you grow.
     offers:
-      - Introductions to partners like Invest Ottawa, the Capital Angel Network, L-SPARK, BDC Climate Tech, and NRC IRAP
+      - Introductions to partners like Invest Ottawa, L-SPARK, BDC Climate Tech, NRC IRAP, and sector-specific accelerators
       - The Faculty connects you to the ecosystem rather than duplicating it
       - A relationship that continues through the alumni community
     takeaway: A running start with the partners who can fund and support real growth.
@@ -237,9 +208,10 @@ programs:
     kind: Community
     when: Year-round
     forWhom: Founders past and present, and the engineers who support them
-    summary: Alumni come back as mentors and reviewers; Professional Engineers support ventures in regulated fields.
+    summary: Alumni come back as mentors, reviewers, judges, and case contributors; Professional Engineers support ventures in regulated fields.
     offers:
       - Stay connected to a community of founders, engineers, and builders
+      - A source of warm introductions, judges, and mentors for every cohort
       - Professional Engineers of Ontario lend technical credibility in regulated industries
       - Today’s founders become tomorrow’s mentors
     takeaway: A lasting community that keeps supporting you — and that you can give back to.

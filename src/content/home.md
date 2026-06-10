@@ -21,8 +21,8 @@ heroStats:
     label: 'ways into MakerLaunch: Product Studio or the Accelerator'
   - value: '6'
     label: phases from a validated idea to a shipped product
-  - value: '3'
-    label: 'ways in: drop-in workshops, sprints, or the full cohort'
+  - value: 12–16
+    label: weeks in the Product Studio build cohort
   - value: $500–$2.5k
     label: micro-funding per team — no equity taken
 principles:
@@ -34,7 +34,7 @@ principles:
     body: You progress by showing real evidence — conversations with customers, a working prototype — not just enthusiasm. The bar is clear and the same for everyone.
   - icon: beaker
     title: Made to lower the risk of trying
-    body: Joining the Studio Cohort is open to everyone, with small grants and no equity taken. The point is to make it safe and cheap to test an idea.
+    body: Joining Product Studio is open to everyone, with small grants and no equity taken. The point is to make it safe and cheap to build an idea.
   - icon: users
     title: Powered by people who’ve done it
     body: Alumni founders and Professional Engineers of Ontario come back to mentor the next generation — the Faculty’s greatest strength.
