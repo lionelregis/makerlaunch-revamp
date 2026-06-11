@@ -19,7 +19,7 @@ export default function Landing({
   onPickStage,
 }: {
   onSelectRole: (role: Role) => void;
-  onPickStage: (stage: StageId) => void;
+  onPickStage: (stage: StageId, exploreTrack?: string) => void;
 }) {
   const founders = mentors.filter((m) => m.venture);
 

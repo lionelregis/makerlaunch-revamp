@@ -2,6 +2,15 @@
 umbrella:
   name: MakerLaunch
   tagline: The Faculty’s venture-building program. Most teams enter through Product Studio and progress to the Accelerator; teams that already have a working product or customer proof can enter the Accelerator directly.
+exploreTracks:
+  - id: courses
+    name: Courses
+    icon: book
+    tagline: Credit-bearing courses where engineering ideas first take shape.
+  - id: extracurricular
+    name: Extracurricular
+    icon: trophy
+    tagline: Competitions, talks, and programs you join outside of class.
 stages:
   - id: explore
     order: 1

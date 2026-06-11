@@ -2,6 +2,7 @@
 programs:
   - id: gng4120
     stage: explore
+    track: courses
     status: ''
     name: GNG 4120 — Engineering Design
     kind: Course
@@ -10,11 +11,12 @@ programs:
     summary: The Faculty’s core design course, where many engineering ideas first take shape.
     offers:
       - Build a real engineering solution as part of your studies
-      - Teams whose projects show commercial promise are invited to keep going after the course ends
-      - A natural on-ramp into MakerLaunch and the rest of the path
+      - An optional entrepreneurial stream, co-designed with the professor, carries commercially promising teams past the course
+      - A clear off-ramp from the classroom into MakerLaunch
     takeaway: A finished design project — and, if you want it, a way to carry it forward instead of shelving it.
   - id: capstone
     stage: explore
+    track: courses
     status: ''
     name: Engineering Capstone Projects
     kind: Course
@@ -23,11 +25,12 @@ programs:
     summary: Year-long projects that solve real engineering problems.
     offers:
       - Tackle a substantial engineering project across five to six concentrations
-      - From 2027, an optional entrepreneurial track lets commercially promising teams continue past the course
-      - A structured way to turn a strong capstone into the start of a venture
+      - From 2027, an optional entrepreneurial stream lets commercially promising teams continue past the course
+      - A structured off-ramp from a strong capstone into MakerLaunch
     takeaway: A demonstrated, real-world project — and an option to keep building if there’s something there.
   - id: cases
     stage: explore
+    track: extracurricular
     status: ''
     name: Engineering Case Competitions
     kind: Competition · with Telfer
@@ -41,6 +44,7 @@ programs:
     takeaway: New teammates, sharper instincts, and experience competing beyond your own faculty.
   - id: uohack
     stage: explore
+    track: extracurricular
     status: ''
     name: uOttawaHack
     kind: Hackathon · partnership
@@ -54,6 +58,7 @@ programs:
     takeaway: A weekend prototype, new collaborators, and maybe the seed of something bigger.
   - id: pitch
     stage: explore
+    track: extracurricular
     status: ''
     name: Engineering Pitch Competition
     kind: Competition
@@ -67,6 +72,7 @@ programs:
     takeaway: A tighter story for your idea — and the confidence to tell it.
   - id: speaker
     stage: explore
+    track: extracurricular
     status: ''
     name: Professional Development Speaker Series
     kind: Talks
@@ -80,6 +86,7 @@ programs:
     takeaway: A clearer, more realistic picture of entrepreneurship — and a bit of inspiration.
   - id: designday
     stage: explore
+    track: courses
     status: ''
     name: Design Day
     kind: Showcase
@@ -93,6 +100,7 @@ programs:
     takeaway: Visibility for your work — and, for the strongest projects, an invitation into the path.
   - id: simon-nehme
     stage: explore
+    track: extracurricular
     status: refreshed
     name: Simon Nehme Summer Entrepreneurship School
     kind: Summer program · extended format
@@ -104,34 +112,9 @@ programs:
       - Form and commit a team, with support along the way
       - Finish ready to enter MakerLaunch in the fall
     takeaway: A validated idea, a committed team, and a running start into MakerLaunch.
-  - id: gng-stream
-    stage: explore
-    status: new
-    name: GNG 4120 Entrepreneurial Stream
-    kind: Course continuation
-    when: Pilots in the academic year
-    forWhom: GNG 4120 teams whose projects show commercial promise
-    summary: A way to continue a promising design-course project instead of shelving it.
-    offers:
-      - Designed with the course professor, so it counts and keeps its academic credibility
-      - A clear off-ramp from the classroom into MakerLaunch
-      - Keeps your momentum going past the end of the term
-    takeaway: A bridge from a great course project into a real venture path.
-  - id: capstone-stream
-    stage: explore
-    status: new
-    name: Capstone Entrepreneurial Stream
-    kind: Course continuation
-    when: From September 2027
-    forWhom: Capstone teams with entrepreneurial intent
-    summary: The same continuation option, extended to capstone teams.
-    offers:
-      - An optional track across the capstone streams for teams who want to keep going
-      - Structured off-ramps from capstone into MakerLaunch
-      - A way to turn a final-year project into something lasting
-    takeaway: A route from capstone to venture, without losing a year of momentum.
   - id: ehub
     stage: explore
+    track: extracurricular
     status: new
     name: uOttawa Entrepreneurship Hub Advisory
     kind: Advisory partnership

@@ -99,6 +99,14 @@ export interface Umbrella {
   tagline: string;
 }
 
+/** A sub-track of the Explore stage (Courses or Extracurricular). */
+export interface ExploreTrack {
+  id: string;
+  name: string;
+  icon: string;
+  tagline: string;
+}
+
 export interface Program {
   id: string;
   stage: StageId;
@@ -111,6 +119,8 @@ export interface Program {
   offers: string[];
   takeaway: string;
   flagship?: boolean;
+  /** For Explore-stage programs: which sub-track they belong to (courses | extracurricular). */
+  track?: string;
 }
 
 export interface StudioPhase {
@@ -402,6 +412,7 @@ export const venturesStrip = home.venturesStrip as VenturesStrip;
 
 export const stages = frontmatter(pipelineRaw).stages as Stage[];
 export const umbrella = frontmatter(pipelineRaw).umbrella as Umbrella;
+export const exploreTracks = frontmatter(pipelineRaw).exploreTracks as ExploreTrack[];
 export const programs = frontmatter(programsRaw).programs as Program[];
 export const productStudio = frontmatter(productStudioRaw)
   .productStudio as ProductStudio;

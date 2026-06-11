@@ -1,33 +1,104 @@
+import type { ReactNode } from 'react';
 import Icon from './Icon';
 import { accents } from '../lib/accents';
-import { stages, umbrella, landing } from '../data/content';
-import type { Stage, StageId } from '../data/content';
+import { stages, umbrella, landing, exploreTracks } from '../data/content';
+import type { Accent, Stage, StageId } from '../data/content';
 
 const byId = Object.fromEntries(stages.map((s) => [s.id, s])) as Record<string, Stage>;
-const tracks = stages.filter((s) => s.group === 'makerlaunch');
+const makerTracks = stages.filter((s) => s.group === 'makerlaunch');
 
-/** One stage/track node in the map. Becomes a button when onPick is given. */
-function StageNode({ stage, onPick }: { stage: Stage; onPick?: (stage: StageId) => void }) {
-  const a = accents[stage.accent];
+/** Pick callback: a stage id, plus (for Explore track cards) which sub-track. */
+type Pick = (stage: StageId, exploreTrack?: string) => void;
+
+/** One card in the map. Becomes a button when onClick is given. */
+function TrackCard({
+  accent,
+  icon,
+  name,
+  tagline,
+  onClick,
+}: {
+  accent: Accent;
+  icon: string;
+  name: string;
+  tagline: string;
+  onClick?: () => void;
+}) {
+  const a = accents[accent];
   const base = `flex h-full w-full flex-col items-center rounded-2xl border bg-white p-5 text-center shadow-sm ${a.border}`;
   const inner = (
     <>
       <span className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br text-white ${a.gradient}`}>
-        <Icon name={stage.icon} className="h-6 w-6" />
+        <Icon name={icon} className="h-6 w-6" />
       </span>
-      <h3 className="mt-3 font-display text-lg font-bold text-slate-900">{stage.name}</h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{stage.tagline}</p>
+      <h3 className="mt-3 font-display text-lg font-bold text-slate-900">{name}</h3>
+      <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{tagline}</p>
     </>
   );
-
-  if (onPick) {
+  if (onClick) {
     return (
-      <button onClick={() => onPick(stage.id)} className={`group ${base} transition hover:-translate-y-0.5 hover:shadow-md`}>
+      <button onClick={onClick} className={`group ${base} transition hover:-translate-y-0.5 hover:shadow-md`}>
         {inner}
       </button>
     );
   }
   return <div className={base}>{inner}</div>;
+}
+
+const BOX: Record<string, string> = {
+  amber: 'border-amber-200 bg-amber-50/40',
+  garnet: 'border-garnet-200 bg-garnet-50/40',
+};
+
+/** An umbrella box holding two track cards, with a labelled header. */
+function UmbrellaBox({
+  accent,
+  icon,
+  name,
+  label,
+  separator,
+  left,
+  right,
+}: {
+  accent: 'amber' | 'garnet';
+  icon: string;
+  name: string;
+  label: string;
+  /** Shown between the two cards (e.g. "or"); omit for non-exclusive tracks. */
+  separator?: string;
+  left: ReactNode;
+  right: ReactNode;
+}) {
+  const tone = accent === 'garnet' ? 'garnet' : 'amber';
+  return (
+    <div className={`rounded-3xl border-2 p-4 sm:p-5 ${BOX[accent]}`}>
+      <div className="mb-3 flex flex-wrap items-center justify-center gap-2">
+        <span className={`flex h-7 w-7 items-center justify-center rounded-lg text-white ${tone === 'garnet' ? 'bg-garnet-700' : 'bg-amber-500'}`}>
+          <Icon name={icon} className="h-4 w-4" />
+        </span>
+        <span className={`font-display text-sm font-extrabold uppercase tracking-wide ${tone === 'garnet' ? 'text-garnet-800' : 'text-amber-800'}`}>
+          {name}
+        </span>
+        <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${tone === 'garnet' ? 'bg-garnet-100 text-garnet-700' : 'bg-amber-100 text-amber-800'}`}>
+          {label}
+        </span>
+      </div>
+      {separator ? (
+        <div className="grid items-center gap-3 sm:grid-cols-[1fr_auto_1fr]">
+          {left}
+          <span className={`mx-auto rounded-full border bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide ${tone === 'garnet' ? 'border-garnet-200 text-garnet-500' : 'border-amber-200 text-amber-600'}`}>
+            {separator}
+          </span>
+          {right}
+        </div>
+      ) : (
+        <div className="grid gap-3 sm:grid-cols-2">
+          {left}
+          {right}
+        </div>
+      )}
+    </div>
+  );
 }
 
 /** A short vertical connector with a down chevron. */
@@ -42,45 +113,78 @@ function Connector() {
 }
 
 /**
- * The path map: Explore at the top, then the MakerLaunch umbrella holding its two
- * entry tracks (Product Studio or the Accelerator), then the Founders Network.
- * This shows that Product Studio and the Accelerator are two ways into the one
- * MakerLaunch program.
+ * The path map: the Explore stage (holding the Courses and Extracurricular
+ * tracks), then the MakerLaunch umbrella (holding the Product Studio and
+ * Accelerator tracks), then the Founders Network.
  */
-export default function StageMap({ onPick }: { onPick?: (stage: StageId) => void }) {
+export default function StageMap({ onPick }: { onPick?: Pick }) {
   return (
     <div className="mx-auto max-w-3xl">
-      {/* Top: Explore */}
-      <StageNode stage={byId.explore} onPick={onPick} />
+      {/* Explore: two activity tracks */}
+      <UmbrellaBox
+        accent="amber"
+        icon={byId.explore.icon}
+        name={byId.explore.name}
+        label="two tracks"
+        left={
+          <TrackCard
+            accent="amber"
+            icon={exploreTracks[0].icon}
+            name={exploreTracks[0].name}
+            tagline={exploreTracks[0].tagline}
+            onClick={onPick && (() => onPick('explore', exploreTracks[0].id))}
+          />
+        }
+        right={
+          <TrackCard
+            accent="amber"
+            icon={exploreTracks[1].icon}
+            name={exploreTracks[1].name}
+            tagline={exploreTracks[1].tagline}
+            onClick={onPick && (() => onPick('explore', exploreTracks[1].id))}
+          />
+        }
+      />
 
       <Connector />
 
-      {/* Middle: the MakerLaunch umbrella holding the two tracks */}
-      <div className="rounded-3xl border-2 border-garnet-200 bg-garnet-50/40 p-4 sm:p-5">
-        <div className="mb-3 flex flex-wrap items-center justify-center gap-2">
-          <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-garnet-700 text-white">
-            <Icon name="rocket" className="h-4 w-4" />
-          </span>
-          <span className="font-display text-sm font-extrabold uppercase tracking-wide text-garnet-800">
-            {umbrella.name}
-          </span>
-          <span className="rounded-full bg-garnet-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-garnet-700">
-            {landing.pipelineBranchLabel}
-          </span>
-        </div>
-        <div className="grid items-center gap-3 sm:grid-cols-[1fr_auto_1fr]">
-          <StageNode stage={tracks[0]} onPick={onPick} />
-          <span className="mx-auto rounded-full border border-garnet-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide text-garnet-500">
-            or
-          </span>
-          <StageNode stage={tracks[1]} onPick={onPick} />
-        </div>
-      </div>
+      {/* MakerLaunch: two entry tracks */}
+      <UmbrellaBox
+        accent="garnet"
+        icon="rocket"
+        name={umbrella.name}
+        label={landing.pipelineBranchLabel}
+        separator="or"
+        left={
+          <TrackCard
+            accent={makerTracks[0].accent}
+            icon={makerTracks[0].icon}
+            name={makerTracks[0].name}
+            tagline={makerTracks[0].tagline}
+            onClick={onPick && (() => onPick(makerTracks[0].id))}
+          />
+        }
+        right={
+          <TrackCard
+            accent={makerTracks[1].accent}
+            icon={makerTracks[1].icon}
+            name={makerTracks[1].name}
+            tagline={makerTracks[1].tagline}
+            onClick={onPick && (() => onPick(makerTracks[1].id))}
+          />
+        }
+      />
 
       <Connector />
 
-      {/* Bottom: Founders Network */}
-      <StageNode stage={byId.scale} onPick={onPick} />
+      {/* Founders Network */}
+      <TrackCard
+        accent={byId.scale.accent}
+        icon={byId.scale.icon}
+        name={byId.scale.name}
+        tagline={byId.scale.tagline}
+        onClick={onPick && (() => onPick(byId.scale.id))}
+      />
     </div>
   );
 }

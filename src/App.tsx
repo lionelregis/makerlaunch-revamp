@@ -13,8 +13,9 @@ type View = 'home' | Role | 'mentors' | 'launchpad' | 'finder';
 
 export default function App() {
   const [view, setView] = useState<View>('home');
-  // A stage chosen from the landing pipeline strip, carried into the founder view.
+  // A stage chosen from the landing path map, carried into the founder view.
   const [pickedStage, setPickedStage] = useState<StageId | undefined>(undefined);
+  const [pickedExploreTrack, setPickedExploreTrack] = useState<string | undefined>(undefined);
 
   // Scroll to the top whenever the top-level view changes.
   useEffect(() => {
@@ -23,11 +24,13 @@ export default function App() {
 
   function navigate(next: View) {
     setPickedStage(undefined);
+    setPickedExploreTrack(undefined);
     setView(next);
   }
 
-  function pickStage(stage: StageId) {
+  function pickStage(stage: StageId, exploreTrack?: string) {
     setPickedStage(stage);
+    setPickedExploreTrack(exploreTrack);
     setView('founder');
   }
 
@@ -41,8 +44,9 @@ export default function App() {
         )}
         {view === 'founder' && (
           <FounderView
-            key={pickedStage ?? 'default'}
+            key={`${pickedStage ?? 'default'}-${pickedExploreTrack ?? ''}`}
             initialStage={pickedStage}
+            initialExploreTrack={pickedExploreTrack}
             onOpenLaunchpad={() => navigate('launchpad')}
             onOpenFinder={() => navigate('finder')}
           />

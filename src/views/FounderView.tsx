@@ -8,10 +8,12 @@ import type { StageId } from '../data/content';
 
 export default function FounderView({
   initialStage,
+  initialExploreTrack,
   onOpenLaunchpad,
   onOpenFinder,
 }: {
   initialStage?: StageId;
+  initialExploreTrack?: string;
   onOpenLaunchpad: () => void;
   onOpenFinder: () => void;
 }) {
@@ -50,7 +52,7 @@ export default function FounderView({
             subtitle={founder.pipelineSubtitle}
           />
           <div className="mt-8">
-            <PipelineExplorer initialStage={initialStage} />
+            <PipelineExplorer initialStage={initialStage} initialExploreTrack={initialExploreTrack} />
           </div>
         </div>
       </section>
