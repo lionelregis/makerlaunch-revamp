@@ -34,6 +34,22 @@ export interface ProjectPost {
   local?: boolean;
 }
 
+export interface ProjectHighlight {
+  id: string;
+  title: string;
+  course: string;
+  semester: string;
+  /** Student team working on it, e.g. "Team Cartonix · 4 students". */
+  team: string;
+  /** Completion percentage shown on the progress bar (0-100). */
+  progress: number;
+  /** A short note on what is happening now. */
+  update: string;
+  /** Progress photo (illustrative placeholder); falls back to a gradient. */
+  image?: string;
+  imageAlt?: string;
+}
+
 export interface BoardCopy {
   eyebrow: string;
   title: string;
@@ -75,8 +91,16 @@ export interface BoardCopy {
   yourPostBadge: string;
   removeLabel: string;
   footerLine: string;
+  // Project highlights section
+  highlightsTitle: string;
+  highlightsSubtitle: string;
+  highlightStatusLabel: string;
+  highlightProgressLabel: string;
+  highlightUpdateLabel: string;
+  highlightNote: string;
 }
 
 const fm = frontmatter(boardRaw);
 export const boardCopy = fm.board as BoardCopy;
 export const seededProjects = fm.projects as ProjectPost[];
+export const highlightProjects = fm.highlights as ProjectHighlight[];

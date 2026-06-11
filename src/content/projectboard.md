@@ -38,6 +38,12 @@ board:
   yourPostBadge: Your post
   removeLabel: Remove
   footerLine: Faculty of Engineering · University of Ottawa
+  highlightsTitle: Project highlights
+  highlightsSubtitle: A look at student teams whose projects are currently in progress this term.
+  highlightStatusLabel: In progress
+  highlightProgressLabel: Progress
+  highlightUpdateLabel: Latest update
+  highlightNote: Progress photos shown are illustrative placeholders.
 projects:
   - id: pb-grid-sensors
     title: Wireless sensor retrofit for a hydro substation
@@ -111,6 +117,34 @@ projects:
       - Cloud services
       - SQL
     contact: j.martel@uottawa.ca
+highlights:
+  - id: ph-packaging-vision
+    title: Vision system for packaging-line quality control
+    course: GNG 4120
+    semester: Winter 2027
+    team: Team Cartonix · 4 students
+    progress: 60
+    update: First camera rig is mounted over the test conveyor and now flags 8 of 10 seeded defects.
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=70'
+    imageAlt: A camera and electronics rig set up over a test bench
+  - id: ph-assistive-arm
+    title: Assistive feeding arm for a rehabilitation centre
+    course: BMG 4900 — Capstone
+    semester: Fall 2026
+    team: Team Reach · 5 students
+    progress: 45
+    update: Third printed prototype of the gripper is in user testing with two occupational therapists.
+    image: 'https://images.unsplash.com/photo-1611117775350-ac3950990985?auto=format&fit=crop&w=900&q=70'
+    imageAlt: A 3D printer producing a small mechanical part
+  - id: ph-fleet-telemetry
+    title: Telemetry pipeline for an electric delivery fleet
+    course: CSI 4900 — Honours Project
+    semester: Winter 2027
+    team: Team Voltaire · 3 students
+    progress: 75
+    update: Live battery and route data from 12 vehicles is flowing; the charging-plan dashboard is in review.
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=70'
+    imageAlt: A data dashboard on a laptop screen
 ---
 
 <!--

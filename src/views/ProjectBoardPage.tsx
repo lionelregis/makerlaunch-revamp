@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
 import Icon from '../components/Icon';
-import { boardCopy as copy, seededProjects } from '../data/projectboard';
-import type { ProjectPost } from '../data/projectboard';
+import Image from '../components/Image';
+import { boardCopy as copy, seededProjects, highlightProjects } from '../data/projectboard';
+import type { ProjectPost, ProjectHighlight } from '../data/projectboard';
 import { newId, parseTags, tagUnion, useStoredCollection } from '../lib/board';
 
 const STORAGE_KEY = 'uottawa.projectboard.posts.v1';
@@ -55,6 +56,43 @@ function ProjectCard({ post, onRemove }: { post: ProjectPost; onRemove?: () => v
             {copy.removeLabel}
           </button>
         )}
+      </div>
+    </article>
+  );
+}
+
+function HighlightCard({ item }: { item: ProjectHighlight }) {
+  return (
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="relative">
+        <Image src={item.image} alt={item.imageAlt ?? ''} gradient="from-blue-500 to-indigo-700" className="aspect-[16/9] w-full" />
+        <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-bold text-blue-700 shadow-sm backdrop-blur">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blue-600" />
+          {copy.highlightStatusLabel}
+        </span>
+      </div>
+      <div className="flex flex-1 flex-col p-5">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-bold text-blue-700">{item.course}</span>
+          <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600">{item.semester}</span>
+        </div>
+        <h3 className="mt-3 font-display text-base font-bold leading-snug text-slate-900">{item.title}</h3>
+        <p className="mt-1 text-sm font-medium text-slate-500">{item.team}</p>
+
+        <div className="mt-4">
+          <div className="flex items-center justify-between text-xs font-semibold text-slate-500">
+            <span className="uppercase tracking-wide">{copy.highlightProgressLabel}</span>
+            <span className="text-blue-700">{item.progress}%</span>
+          </div>
+          <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-slate-100">
+            <div className="h-full rounded-full bg-blue-600 transition-all" style={{ width: `${item.progress}%` }} />
+          </div>
+        </div>
+
+        <p className="mt-4 flex-1 text-sm leading-relaxed text-slate-600">
+          <span className="font-semibold text-slate-800">{copy.highlightUpdateLabel}: </span>
+          {item.update}
+        </p>
       </div>
     </article>
   );
@@ -139,6 +177,22 @@ export default function ProjectBoardPage() {
             <p className="mt-3 max-w-2xl text-lg leading-relaxed text-slate-700">{copy.subtitle}</p>
           </div>
         </section>
+
+        {/* Project highlights — projects currently in progress */}
+        {highlightProjects.length > 0 && (
+          <section className="border-b border-slate-200 bg-white">
+            <div className="mx-auto max-w-6xl px-6 py-12">
+              <h2 className="font-display text-2xl font-black text-slate-900">{copy.highlightsTitle}</h2>
+              <p className="mt-2 max-w-2xl text-slate-600">{copy.highlightsSubtitle}</p>
+              <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {highlightProjects.map((h) => (
+                  <HighlightCard key={h.id} item={h} />
+                ))}
+              </div>
+              <p className="mt-6 text-xs text-slate-400">{copy.highlightNote}</p>
+            </div>
+          </section>
+        )}
 
         <section className="mx-auto max-w-6xl px-6 py-10">
           <p className="text-sm font-semibold text-slate-500">
