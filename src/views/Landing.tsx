@@ -4,6 +4,7 @@ import SectionHeading from '../components/SectionHeading';
 import Image from '../components/Image';
 import Avatar from '../components/Avatar';
 import StageMap from '../components/StageMap';
+import { navigate } from '../lib/router';
 import {
   heroStats,
   landing,
@@ -12,16 +13,13 @@ import {
   roleCards,
   venturesStrip,
 } from '../data/content';
-import type { Role, StageId } from '../data/content';
+import type { StageId } from '../data/content';
 
-export default function Landing({
-  onSelectRole,
-  onPickStage,
-}: {
-  onSelectRole: (role: Role) => void;
-  onPickStage: (stage: StageId, exploreTrack?: string) => void;
-}) {
+export default function Landing() {
   const founders = mentors.filter((m) => m.venture);
+  const onSelectRole = (role: 'founder' | 'advisor') => navigate(role);
+  const onPickStage = (stage: StageId, exploreTrack?: string) =>
+    navigate('founder', { stage, track: exploreTrack });
 
   return (
     <div>
@@ -35,6 +33,7 @@ export default function Landing({
             alt=""
             gradient="from-garnet-800 to-garnet-950"
             className="absolute inset-0 opacity-30"
+            priority
           />
         )}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-garnet-900 via-garnet-900/80 to-garnet-900/50" />

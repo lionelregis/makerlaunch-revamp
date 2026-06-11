@@ -3,20 +3,19 @@ import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
 import Image from '../components/Image';
 import { PipelineExplorer } from '../components/Pipeline';
+import { navigate } from '../lib/router';
 import { founder, launchpadPage } from '../data/content';
 import type { StageId } from '../data/content';
 
 export default function FounderView({
   initialStage,
   initialExploreTrack,
-  onOpenLaunchpad,
-  onOpenFinder,
 }: {
   initialStage?: StageId;
   initialExploreTrack?: string;
-  onOpenLaunchpad: () => void;
-  onOpenFinder: () => void;
 }) {
+  const onOpenFinder = () => navigate('finder');
+  const onOpenLaunchpad = () => navigate('launchpad');
   return (
     <div>
       {/* Header */}
@@ -31,11 +30,20 @@ export default function FounderView({
                 {founder.title}
               </h1>
               <p className="mt-4 text-lg leading-relaxed text-slate-700">{founder.intro}</p>
+              <button
+                onClick={onOpenFinder}
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-garnet-700 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-garnet-800"
+              >
+                <Icon name="compass" className="h-4 w-4" />
+                {founder.finderCalloutCta}
+                <span className="font-normal text-garnet-200">· 30 seconds</span>
+              </button>
             </div>
             {founder.headerImage && (
               <Image
                 src={founder.headerImage}
                 alt={founder.headerImageAlt ?? ''}
+                sizes="(min-width: 1024px) 40vw, 100vw"
                 className="aspect-[4/3] w-full rounded-2xl shadow-sm"
               />
             )}

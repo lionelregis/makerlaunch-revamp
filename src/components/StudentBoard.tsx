@@ -91,11 +91,11 @@ export default function StudentBoard() {
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <div className="sm:col-span-2">
               <label htmlFor="sp-name" className={label}>{copy.nameLabel}</label>
-              <input id="sp-name" className={field} value={fName} onChange={(e) => setFName(e.target.value)} placeholder={copy.namePlaceholder} />
+              <input id="sp-name" required className={field} value={fName} onChange={(e) => setFName(e.target.value)} placeholder={copy.namePlaceholder} />
             </div>
             <div>
               <label htmlFor="sp-degree" className={label}>{copy.degreeLabel}</label>
-              <input id="sp-degree" className={field} value={fDegree} onChange={(e) => setFDegree(e.target.value)} placeholder={copy.degreePlaceholder} />
+              <input id="sp-degree" required className={field} value={fDegree} onChange={(e) => setFDegree(e.target.value)} placeholder={copy.degreePlaceholder} />
             </div>
             <div>
               <label htmlFor="sp-concentration" className={label}>{copy.concentrationLabel}</label>
@@ -107,7 +107,7 @@ export default function StudentBoard() {
             </div>
             <div>
               <label htmlFor="sp-interests" className={label}>{copy.interestsLabel}</label>
-              <input id="sp-interests" className={field} value={fInterests} onChange={(e) => setFInterests(e.target.value)} placeholder={copy.interestsPlaceholder} />
+              <input id="sp-interests" required className={field} value={fInterests} onChange={(e) => setFInterests(e.target.value)} placeholder={copy.interestsPlaceholder} />
               <p className={hint}>{copy.interestsHint}</p>
             </div>
             <div className="sm:col-span-2">
@@ -138,6 +138,7 @@ export default function StudentBoard() {
           <button
             key={s}
             onClick={() => setActive(s)}
+            aria-pressed={s === effectiveActive}
             className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
               s === effectiveActive
                 ? 'border-transparent bg-indigo-600 text-white'

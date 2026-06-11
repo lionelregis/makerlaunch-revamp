@@ -1,8 +1,10 @@
 import Icon from '../components/Icon';
 import StageFinder from '../components/StageFinder';
+import { navigate } from '../lib/router';
 import { founder } from '../data/content';
 
-export default function FinderPage({ onBack }: { onBack: () => void }) {
+export default function FinderPage() {
+  const onBack = () => navigate('founder');
   return (
     <div>
       <section className="border-b border-slate-200 bg-gradient-to-b from-garnet-50 to-white">

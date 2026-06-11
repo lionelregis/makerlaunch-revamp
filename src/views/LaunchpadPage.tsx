@@ -2,12 +2,14 @@ import { useState } from 'react';
 import Icon from '../components/Icon';
 import VentureBoard from '../components/VentureBoard';
 import StudentBoard from '../components/StudentBoard';
+import { navigate } from '../lib/router';
 import { launchpadPage as copy } from '../data/content';
 
 type Side = 'ventures' | 'students';
 
-export default function LaunchpadPage({ onBack }: { onBack: () => void }) {
+export default function LaunchpadPage() {
   const [side, setSide] = useState<Side>('ventures');
+  const onBack = () => navigate('home');
 
   const tab = (key: Side, text: string) => (
     <button
@@ -32,7 +34,7 @@ export default function LaunchpadPage({ onBack }: { onBack: () => void }) {
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 transition hover:text-slate-800"
           >
             <Icon name="arrowLeft" className="h-4 w-4" />
-            Back to the founder path
+            Back to home
           </button>
           <div className="mt-4 max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-wider text-indigo-700">

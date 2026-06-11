@@ -3,9 +3,11 @@ import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
 import Image from '../components/Image';
 import Mentors from '../components/Mentors';
+import { navigate } from '../lib/router';
 import { advisor, partners } from '../data/content';
 
-export default function AdvisorView({ onSeeMentors }: { onSeeMentors: () => void }) {
+export default function AdvisorView() {
+  const onSeeMentors = () => navigate('mentors');
   return (
     <div>
       {/* Header */}
@@ -26,6 +28,7 @@ export default function AdvisorView({ onSeeMentors }: { onSeeMentors: () => void
                 src={advisor.headerImage}
                 alt={advisor.headerImageAlt ?? ''}
                 gradient="from-indigo-500 to-violet-700"
+                sizes="(min-width: 1024px) 40vw, 100vw"
                 className="aspect-[4/3] w-full rounded-2xl shadow-sm"
               />
             )}

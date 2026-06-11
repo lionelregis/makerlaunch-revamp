@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react';
 import Icon from '../components/Icon';
 import MentorCard from '../components/MentorCard';
+import { navigate } from '../lib/router';
 import { advisor, mentors, mentorsPage as copy } from '../data/content';
 
-export default function MentorsPage({ onBack }: { onBack: () => void }) {
+export default function MentorsPage() {
+  const onBack = () => navigate('advisor');
   const fields = useMemo(
     () => [copy.filterAll, ...Array.from(new Set(mentors.map((m) => m.field)))],
     [],
@@ -53,6 +55,7 @@ export default function MentorsPage({ onBack }: { onBack: () => void }) {
               <button
                 key={f}
                 onClick={() => setActive(f)}
+                aria-pressed={isActive}
                 className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
                   isActive
                     ? 'border-transparent bg-indigo-600 text-white'

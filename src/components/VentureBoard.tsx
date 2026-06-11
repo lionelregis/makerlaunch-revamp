@@ -98,11 +98,11 @@ export default function VentureBoard() {
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <div className="sm:col-span-2">
               <label htmlFor="lp-title" className={label}>{copy.titleLabel}</label>
-              <input id="lp-title" className={field} value={fTitle} onChange={(e) => setFTitle(e.target.value)} placeholder={copy.titlePlaceholder} />
+              <input id="lp-title" required className={field} value={fTitle} onChange={(e) => setFTitle(e.target.value)} placeholder={copy.titlePlaceholder} />
             </div>
             <div className="sm:col-span-2">
               <label htmlFor="lp-vision" className={label}>{copy.visionLabel}</label>
-              <textarea id="lp-vision" rows={3} className={field} value={fVision} onChange={(e) => setFVision(e.target.value)} placeholder={copy.visionPlaceholder} />
+              <textarea id="lp-vision" required rows={3} className={field} value={fVision} onChange={(e) => setFVision(e.target.value)} placeholder={copy.visionPlaceholder} />
             </div>
             <div>
               <label htmlFor="lp-team" className={label}>{copy.teamLabel}</label>
@@ -111,7 +111,7 @@ export default function VentureBoard() {
             </div>
             <div>
               <label htmlFor="lp-seeking" className={label}>{copy.seekingLabel}</label>
-              <input id="lp-seeking" className={field} value={fSeeking} onChange={(e) => setFSeeking(e.target.value)} placeholder={copy.seekingPlaceholder} />
+              <input id="lp-seeking" required className={field} value={fSeeking} onChange={(e) => setFSeeking(e.target.value)} placeholder={copy.seekingPlaceholder} />
               <p className={hint}>{copy.seekingHint}</p>
             </div>
             <div className="sm:col-span-2">
@@ -138,6 +138,7 @@ export default function VentureBoard() {
           <button
             key={s}
             onClick={() => setActive(s)}
+            aria-pressed={s === effectiveActive}
             className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
               s === effectiveActive
                 ? 'border-transparent bg-indigo-600 text-white'

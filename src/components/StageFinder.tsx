@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import Icon from './Icon';
 import { accents } from '../lib/accents';
+import { navigate } from '../lib/router';
 import { decide, reasonFor } from '../lib/finder';
 import {
   finderQuestions as questions,
@@ -86,7 +87,7 @@ export default function StageFinder() {
             )}
           </div>
         ) : (
-          <div className="animate-fade-in">
+          <div className="animate-fade-in" role="status" aria-live="polite">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
               {founder.finderResultTitle}
             </span>
@@ -113,7 +114,15 @@ export default function StageFinder() {
               <p className="mt-1 text-sm leading-relaxed text-slate-700">{reasonFor(result)}</p>
             </div>
 
-            <p className="mt-5 text-sm font-bold uppercase tracking-wide text-slate-500">
+            <button
+              onClick={() => navigate('founder', { stage: result.stage })}
+              className={`mt-4 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold text-white transition ${a.solid} hover:opacity-90`}
+            >
+              See {stage.name} on your path
+              <Icon name="arrowRight" className="h-4 w-4" />
+            </button>
+
+            <p className="mt-6 text-sm font-bold uppercase tracking-wide text-slate-500">
               {founder.finderRecommended}
             </p>
             <div className="mt-3 space-y-2.5">

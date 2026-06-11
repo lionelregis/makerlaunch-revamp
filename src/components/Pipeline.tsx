@@ -92,6 +92,7 @@ function ExploreDetail({ initialTrack }: { initialTrack?: string }) {
               <button
                 key={t.id}
                 onClick={() => setTrack(t.id)}
+                aria-pressed={isActive}
                 className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${
                   isActive ? `${a.solid} border-transparent` : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
                 }`}
@@ -165,13 +166,17 @@ export function PipelineExplorer({
   return (
     <div>
       {/* Top-level stage tabs */}
-      <div className="flex flex-wrap gap-2">
+      <div role="tablist" aria-label="Pipeline stages" className="flex flex-wrap gap-2">
         {tabs.map((t) => {
           const sa = accents[t.accent];
           const isActive = t.key === active;
           return (
             <button
               key={t.key}
+              role="tab"
+              id={`stage-tab-${t.key}`}
+              aria-selected={isActive}
+              aria-controls="stage-panel"
               onClick={() => setActive(t.key)}
               className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${
                 isActive ? `${sa.solid} border-transparent` : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
@@ -184,7 +189,7 @@ export function PipelineExplorer({
         })}
       </div>
 
-      <div className="mt-6">
+      <div id="stage-panel" role="tabpanel" aria-labelledby={`stage-tab-${active}`} className="mt-6">
         {active === 'explore' && <ExploreDetail initialTrack={initialExploreTrack} />}
         {active === 'scale' && <StageDetail stage={byId.scale} />}
 
@@ -205,6 +210,7 @@ export function PipelineExplorer({
                   <button
                     key={tr.id}
                     onClick={() => setTrack(tr.id)}
+                    aria-pressed={isActive}
                     className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${
                       isActive ? `${ta.solid} border-transparent` : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
                     }`}

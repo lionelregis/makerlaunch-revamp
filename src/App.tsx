@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Landing from './views/Landing';
@@ -7,54 +7,51 @@ import AdvisorView from './views/AdvisorView';
 import MentorsPage from './views/MentorsPage';
 import LaunchpadPage from './views/LaunchpadPage';
 import FinderPage from './views/FinderPage';
-import type { Role, StageId } from './data/content';
+import { useRoute } from './lib/router';
+import { brand } from './data/content';
+import type { StageId } from './data/content';
 
-type View = 'home' | Role | 'mentors' | 'launchpad' | 'finder';
+/** Per-view document title suffixes (empty = home). */
+const TITLES: Record<string, string> = {
+  home: '',
+  founder: 'For founders',
+  advisor: 'For advisors & alumni',
+  mentors: 'Mentors',
+  launchpad: 'Launchpad',
+  finder: 'Find your starting point',
+};
 
 export default function App() {
-  const [view, setView] = useState<View>('home');
-  // A stage chosen from the landing path map, carried into the founder view.
-  const [pickedStage, setPickedStage] = useState<StageId | undefined>(undefined);
-  const [pickedExploreTrack, setPickedExploreTrack] = useState<string | undefined>(undefined);
+  const { view, params } = useRoute();
 
-  // Scroll to the top whenever the top-level view changes.
+  // Scroll to top and update the document title on every route change.
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
+    const base = `${brand.programName} · ${brand.short} · uOttawa Engineering`;
+    const section = TITLES[view];
+    document.title = section ? `${section} · ${base}` : base;
   }, [view]);
 
-  function navigate(next: View) {
-    setPickedStage(undefined);
-    setPickedExploreTrack(undefined);
-    setView(next);
-  }
-
-  function pickStage(stage: StageId, exploreTrack?: string) {
-    setPickedStage(stage);
-    setPickedExploreTrack(exploreTrack);
-    setView('founder');
-  }
+  const stage = (params.get('stage') as StageId | null) ?? undefined;
+  const exploreTrack = params.get('track') ?? undefined;
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-900">
-      <Nav view={view} onNavigate={navigate} />
+      <Nav view={view} />
 
       <main className="flex-1">
-        {view === 'home' && (
-          <Landing onSelectRole={navigate} onPickStage={pickStage} />
-        )}
+        {view === 'home' && <Landing />}
         {view === 'founder' && (
           <FounderView
-            key={`${pickedStage ?? 'default'}-${pickedExploreTrack ?? ''}`}
-            initialStage={pickedStage}
-            initialExploreTrack={pickedExploreTrack}
-            onOpenLaunchpad={() => navigate('launchpad')}
-            onOpenFinder={() => navigate('finder')}
+            key={`${stage ?? 'default'}-${exploreTrack ?? ''}`}
+            initialStage={stage}
+            initialExploreTrack={exploreTrack}
           />
         )}
-        {view === 'advisor' && <AdvisorView onSeeMentors={() => navigate('mentors')} />}
-        {view === 'mentors' && <MentorsPage onBack={() => navigate('advisor')} />}
-        {view === 'launchpad' && <LaunchpadPage onBack={() => navigate('founder')} />}
-        {view === 'finder' && <FinderPage onBack={() => navigate('founder')} />}
+        {view === 'advisor' && <AdvisorView />}
+        {view === 'mentors' && <MentorsPage />}
+        {view === 'launchpad' && <LaunchpadPage />}
+        {view === 'finder' && <FinderPage />}
       </main>
 
       <Footer />
