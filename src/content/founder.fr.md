@@ -41,11 +41,11 @@ finderQuestions:
   - id: evidence
     prompt: Quelles preuves avez-vous jusqu’à présent?
     options:
-      - label: Rien de concret pour l’instant
+      - label: Une simple idée, pas encore validée
         stage: explore
-      - label: Une idée en laquelle je crois, mais sans preuve encore
+      - label: Des preuves de découverte client sur un vrai problème
         stage: validate
-      - label: Des preuves de découverte client, ou un prototype fonctionnel
+      - label: Un prototype fonctionnel ou un produit livré
         stage: build
       - label: Des clients payants, des projets pilotes ou du financement confirmé
         stage: scale

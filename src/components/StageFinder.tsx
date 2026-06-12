@@ -113,11 +113,7 @@ export default function StageFinder() {
                 {founder.finderReasonLabel}
               </p>
               <p className="mt-1 text-sm leading-relaxed text-slate-700">
-                {result.stage === 'validate'
-                  ? result.capped
-                    ? ui.finder.reasons.validateCapped
-                    : ui.finder.reasons.validate
-                  : ui.finder.reasons[result.stage]}
+                {ui.finder.reasons[result.reasonKey]}
               </p>
             </div>
 

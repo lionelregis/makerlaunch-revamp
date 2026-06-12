@@ -41,11 +41,11 @@ finderQuestions:
   - id: evidence
     prompt: What proof do you have so far?
     options:
-      - label: Nothing concrete yet
+      - label: Just an idea, not validated yet
         stage: explore
-      - label: An idea I believe in, but no proof yet
+      - label: Customer-discovery proof of a real problem
         stage: validate
-      - label: Customer-discovery proof, or a working prototype
+      - label: A working prototype or shipped product
         stage: build
       - label: Paying customers, pilots, or committed funding
         stage: scale

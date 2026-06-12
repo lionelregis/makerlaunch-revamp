@@ -51,11 +51,12 @@ const en = {
     back: 'Back',
     seeCta: (name: string) => `See ${name} on your path`,
     reasons: {
-      explore: 'Start here. Explore entrepreneurship, shape an idea, and find a team before joining MakerLaunch.',
-      validate: 'Join MakerLaunch through Product Studio to build and ship your validated idea into a working product.',
+      explore: 'Start here. Explore entrepreneurship, shape an idea, do your customer discovery, and find a team before joining MakerLaunch.',
+      exploreTeam: 'You have a validated idea, but Product Studio runs as committed teams. Start in Explore to find teammates, then join MakerLaunch through Product Studio.',
+      validate: 'You have a validated idea. Join MakerLaunch through Product Studio to build and ship it into a working product.',
       validateCapped:
-        'You have strong proof, but the Accelerator needs a founder ready to commit. Join MakerLaunch through Product Studio to build it into a shipped product with a team first.',
-      build: 'You have the proof and a founder ready to commit, so you can join MakerLaunch straight through the Accelerator.',
+        'You have real proof, but the Accelerator needs a founder ready to commit. Join MakerLaunch through Product Studio to build with a team and get accelerator-ready first.',
+      build: 'You have a working product and a founder ready to commit, so you can join MakerLaunch straight through the Accelerator.',
       scale: 'You have graduated MakerLaunch. The Founders Network connects you to the partners who can help you grow.',
     },
   },
@@ -127,11 +128,12 @@ const fr: typeof en = {
     back: 'Retour',
     seeCta: (name: string) => `Voir « ${name} » dans votre parcours`,
     reasons: {
-      explore: 'Commencez ici. Explorez l’entrepreneuriat, précisez une idée et formez une équipe avant de joindre MakerLaunch.',
-      validate: 'Joignez MakerLaunch par Product Studio pour bâtir et livrer votre idée validée sous la forme d’un produit fonctionnel.',
+      explore: 'Commencez ici. Explorez l’entrepreneuriat, précisez une idée, faites votre découverte client et formez une équipe avant de joindre MakerLaunch.',
+      exploreTeam: 'Vous avez une idée validée, mais Product Studio fonctionne en équipes engagées. Commencez par l’Exploration pour trouver des coéquipiers, puis joignez MakerLaunch par Product Studio.',
+      validate: 'Vous avez une idée validée. Joignez MakerLaunch par Product Studio pour la bâtir et la livrer sous la forme d’un produit fonctionnel.',
       validateCapped:
-        'Vous avez de bonnes preuves, mais l’Accelerator exige un fondateur prêt à s’engager. Joignez MakerLaunch par Product Studio pour en faire d’abord un produit livré, en équipe.',
-      build: 'Vous avez les preuves et un fondateur prêt à s’engager : vous pouvez joindre MakerLaunch directement par l’Accelerator.',
+        'Vous avez de vraies preuves, mais l’Accelerator exige un fondateur prêt à s’engager. Joignez MakerLaunch par Product Studio pour bâtir en équipe et vous préparer d’abord.',
+      build: 'Vous avez un produit fonctionnel et un fondateur prêt à s’engager : vous pouvez joindre MakerLaunch directement par l’Accelerator.',
       scale: 'Vous êtes diplômé de MakerLaunch. Le Founders Network vous met en lien avec les partenaires qui peuvent vous aider à grandir.',
     },
   },
