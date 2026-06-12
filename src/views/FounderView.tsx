@@ -29,7 +29,7 @@ export default function FounderView({
               <h1 className="mt-3 font-display text-3xl font-black leading-tight text-slate-900 text-balance sm:text-4xl">
                 {founder.title}
               </h1>
-              <p className="mt-4 text-lg leading-relaxed text-slate-700">{founder.intro}</p>
+              <p className="font-accent mt-4 text-lg leading-relaxed text-slate-700">{founder.intro}</p>
               <button
                 onClick={onOpenFinder}
                 className="mt-5 inline-flex items-center gap-2 rounded-full bg-ember-700 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-ember-800"

@@ -21,7 +21,7 @@ export default function AdvisorView() {
               <h1 className="mt-3 font-display text-3xl font-black leading-tight text-slate-900 text-balance sm:text-4xl">
                 {advisor.title}
               </h1>
-              <p className="mt-4 text-lg leading-relaxed text-slate-700">{advisor.intro}</p>
+              <p className="font-accent mt-4 text-lg leading-relaxed text-slate-700">{advisor.intro}</p>
             </div>
             {advisor.headerImage && (
               <Image

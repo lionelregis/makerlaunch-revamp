@@ -50,7 +50,7 @@ export default function Landing() {
             <h1 className="mt-6 font-display text-4xl font-black leading-[1.05] text-balance sm:text-5xl md:text-6xl">
               {landing.title}
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-ember-100">
+            <p className="font-accent mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-ink-100 sm:text-xl">
               {landing.subtitle}
             </p>
           </div>

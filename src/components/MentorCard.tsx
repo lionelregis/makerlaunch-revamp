@@ -29,7 +29,7 @@ export default function MentorCard({ mentor }: { mentor: Mentor }) {
 
       <blockquote className="mt-5 flex-1 border-t border-slate-100 pt-4">
         <Icon name="spark" className="h-5 w-5 text-indigo-400" />
-        <p className="mt-2 text-sm italic leading-relaxed text-slate-700">“{mentor.quote}”</p>
+        <p className="font-accent mt-2 text-sm italic leading-relaxed text-slate-700">“{mentor.quote}”</p>
       </blockquote>
     </figure>
   );

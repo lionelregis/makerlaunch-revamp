@@ -14,7 +14,7 @@ export default function SectionHeading({
     <div className={centered ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}>
       {eyebrow && (
         <div
-          className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-ember-700 ${
+          className={`font-accent flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-ember-700 ${
             centered ? 'justify-center' : ''
           }`}
         >

@@ -8,7 +8,8 @@
 /* ------------------------------------------------------------------ */
 @theme {
   --font-sans: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Spectral", Georgia, "Times New Roman", serif;
+  --font-display: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-accent: "Spectral", Georgia, "Times New Roman", serif;
 
   /* Ember — vermillion orange (the rocket / brand accent) */
   --color-ember-50: #fff4ef;
@@ -52,7 +53,12 @@ body {
 
 h1, h2, h3, .font-display {
   font-family: var(--font-display);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+}
+
+/* Spectral accent (eyebrows, leads, quotes). */
+.font-accent {
+  font-family: var(--font-accent);
 }
 
 /* Respect users who prefer reduced motion. */
