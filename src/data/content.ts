@@ -57,7 +57,7 @@ function frontmatter(raw: string): Record<string, unknown> {
 
 export type Role = 'founder' | 'advisor';
 export type StageId = 'explore' | 'validate' | 'build' | 'scale';
-export type Accent = 'amber' | 'emerald' | 'garnet' | 'indigo';
+export type Accent = 'amber' | 'emerald' | 'ember' | 'indigo';
 
 export interface Brand {
   short: string;

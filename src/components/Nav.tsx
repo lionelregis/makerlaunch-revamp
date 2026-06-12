@@ -38,7 +38,7 @@ export default function Nav({ view }: { view: View }) {
 
   function linkClass(active: boolean, block = false) {
     return `${block ? 'block w-full text-left' : ''} rounded-full px-3.5 py-1.5 text-sm font-semibold transition ${
-      active ? 'bg-garnet-50 text-garnet-700' : 'text-slate-700 hover:bg-slate-100'
+      active ? 'bg-ember-50 text-ember-700' : 'text-slate-700 hover:bg-slate-100'
     }`;
   }
 
@@ -49,7 +49,7 @@ export default function Nav({ view }: { view: View }) {
           onClick={() => go('home')}
           aria-label={ui.nav.home}
           aria-current={view === 'home' ? 'page' : undefined}
-          className="rounded-lg transition hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-garnet-400"
+          className="rounded-lg transition hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400"
         >
           <Logo />
         </button>
@@ -77,7 +77,7 @@ export default function Nav({ view }: { view: View }) {
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? ui.nav.closeMenu : ui.nav.openMenu}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 transition hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-garnet-400 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 transition hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400 md:hidden"
         >
           <Icon name={open ? 'close' : 'menu'} className="h-6 w-6" />
         </button>

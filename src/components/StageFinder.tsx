@@ -45,7 +45,7 @@ export default function StageFinder() {
       {/* Progress bar */}
       <div className="h-1.5 w-full bg-slate-100">
         <div
-          className="h-full bg-garnet-600 transition-all duration-500"
+          className="h-full bg-ember-600 transition-all duration-500"
           style={{ width: `${(Math.min(step, questions.length) / questions.length) * 100}%` }}
         />
       </div>
@@ -54,7 +54,7 @@ export default function StageFinder() {
         {!done ? (
           <div key={step} className="animate-fade-in">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-garnet-700">
+              <span className="text-xs font-bold uppercase tracking-wider text-ember-700">
                 {founder.finderTitle}
               </span>
               <span className="text-xs font-semibold text-slate-400">
@@ -67,12 +67,12 @@ export default function StageFinder() {
                 <button
                   key={opt.label}
                   onClick={() => choose(q.id, opt.stage)}
-                  className="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 px-4 py-3.5 text-left text-sm font-medium text-slate-700 transition hover:border-garnet-300 hover:bg-garnet-50"
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 px-4 py-3.5 text-left text-sm font-medium text-slate-700 transition hover:border-ember-300 hover:bg-ember-50"
                 >
                   {opt.label}
                   <Icon
                     name="arrowRight"
-                    className="h-4 w-4 shrink-0 text-slate-300 transition group-hover:translate-x-1 group-hover:text-garnet-600"
+                    className="h-4 w-4 shrink-0 text-slate-300 transition group-hover:translate-x-1 group-hover:text-ember-600"
                   />
                 </button>
               ))}
@@ -142,7 +142,7 @@ export default function StageFinder() {
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="font-display text-sm font-bold text-slate-900">{p.name}</span>
                       {p.flagship && (
-                        <span className="rounded-full bg-garnet-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                        <span className="rounded-full bg-ember-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
                           {ui.program.flagship}
                         </span>
                       )}

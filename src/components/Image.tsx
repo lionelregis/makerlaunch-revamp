@@ -27,7 +27,7 @@ export default function Image({
   src,
   alt = '',
   className = '',
-  gradient = 'from-garnet-700 to-garnet-900',
+  gradient = 'from-ember-700 to-ember-900',
   sizes = '100vw',
   priority = false,
 }: {

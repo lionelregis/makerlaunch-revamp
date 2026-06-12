@@ -19,11 +19,11 @@ export default function FounderView({
   return (
     <div>
       {/* Header */}
-      <section className="border-b border-slate-200 bg-gradient-to-b from-garnet-50 to-white">
+      <section className="border-b border-slate-200 bg-gradient-to-b from-ember-50 to-white">
         <div className="mx-auto max-w-6xl px-6 py-14">
           <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_1fr]">
             <div className="max-w-2xl">
-              <span className="text-xs font-bold uppercase tracking-wider text-garnet-700">
+              <span className="text-xs font-bold uppercase tracking-wider text-ember-700">
                 {founder.eyebrow}
               </span>
               <h1 className="mt-3 font-display text-3xl font-black leading-tight text-slate-900 text-balance sm:text-4xl">
@@ -32,11 +32,11 @@ export default function FounderView({
               <p className="mt-4 text-lg leading-relaxed text-slate-700">{founder.intro}</p>
               <button
                 onClick={onOpenFinder}
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-garnet-700 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-garnet-800"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-ember-700 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-ember-800"
               >
                 <Icon name="compass" className="h-4 w-4" />
                 {founder.finderCalloutCta}
-                <span className="font-normal text-garnet-200">{ui.founder.seconds}</span>
+                <span className="font-normal text-ember-200">{ui.founder.seconds}</span>
               </button>
             </div>
             {founder.headerImage && (
@@ -68,8 +68,8 @@ export default function FounderView({
       {/* Quick links: find your starting point, and find a cofounder */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="flex h-full flex-col items-start gap-3 rounded-2xl border border-garnet-200 bg-garnet-50 p-6">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-garnet-700 text-white">
+          <div className="flex h-full flex-col items-start gap-3 rounded-2xl border border-ember-200 bg-ember-50 p-6">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-ember-700 text-white">
               <Icon name="compass" className="h-6 w-6" />
             </span>
             <h3 className="font-display text-base font-bold text-slate-900">
@@ -80,7 +80,7 @@ export default function FounderView({
             </p>
             <button
               onClick={onOpenFinder}
-              className="inline-flex items-center gap-2 rounded-full bg-garnet-700 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-garnet-800"
+              className="inline-flex items-center gap-2 rounded-full bg-ember-700 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-ember-800"
             >
               {founder.finderCalloutCta}
               <Icon name="arrowRight" className="h-4 w-4" />
@@ -115,7 +115,7 @@ export default function FounderView({
             {founder.steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 90} as="li">
                 <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-garnet-700 font-display text-sm font-extrabold text-white">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ember-700 font-display text-sm font-extrabold text-white">
                     {i + 1}
                   </span>
                   <h3 className="mt-4 font-display text-base font-bold text-slate-900">{step.title}</h3>

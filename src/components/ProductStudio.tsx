@@ -46,9 +46,9 @@ export default function ProductStudio() {
       </div>
 
       {/* Gate note */}
-      <div className="mt-6 flex items-start gap-3 rounded-2xl bg-garnet-900 p-4 text-white">
+      <div className="mt-6 flex items-start gap-3 rounded-2xl bg-ink-900 p-4 text-white">
         <Icon name="target" className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
-        <p className="text-sm leading-relaxed text-garnet-50">{ps.gateNote}</p>
+        <p className="text-sm leading-relaxed text-ink-50">{ps.gateNote}</p>
       </div>
     </div>
   );

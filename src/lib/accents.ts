@@ -39,14 +39,14 @@ export const accents: Record<Accent, AccentClasses> = {
     gradient: 'from-emerald-500 to-teal-600',
     ring: 'ring-emerald-400',
   },
-  garnet: {
-    solid: 'bg-garnet-700 text-white',
-    soft: 'bg-garnet-50',
-    text: 'text-garnet-700',
-    border: 'border-garnet-200',
-    dot: 'bg-garnet-700',
-    gradient: 'from-garnet-600 to-garnet-800',
-    ring: 'ring-garnet-400',
+  ember: {
+    solid: 'bg-ember-700 text-white',
+    soft: 'bg-ember-50',
+    text: 'text-ember-700',
+    border: 'border-ember-200',
+    dot: 'bg-ember-700',
+    gradient: 'from-ember-600 to-ember-800',
+    ring: 'ring-ember-400',
   },
   indigo: {
     solid: 'bg-indigo-500 text-white',

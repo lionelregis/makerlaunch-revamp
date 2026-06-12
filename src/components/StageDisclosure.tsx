@@ -17,11 +17,11 @@ const STYLES: Record<Accent, { wrap: string; iconBg: string; toggle: string; rul
     toggle: 'border-emerald-300 text-emerald-700',
     rule: 'border-emerald-100',
   },
-  garnet: {
-    wrap: 'border-garnet-200 bg-garnet-50/40',
-    iconBg: 'bg-garnet-700',
-    toggle: 'border-garnet-300 text-garnet-700',
-    rule: 'border-garnet-100',
+  ember: {
+    wrap: 'border-ember-200 bg-ember-50/40',
+    iconBg: 'bg-ember-700',
+    toggle: 'border-ember-300 text-ember-700',
+    rule: 'border-ember-100',
   },
   indigo: {
     wrap: 'border-indigo-200 bg-indigo-50/40',

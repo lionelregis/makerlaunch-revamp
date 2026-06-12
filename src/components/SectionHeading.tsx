@@ -14,11 +14,11 @@ export default function SectionHeading({
     <div className={centered ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}>
       {eyebrow && (
         <div
-          className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-garnet-700 ${
+          className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-ember-700 ${
             centered ? 'justify-center' : ''
           }`}
         >
-          <span className="h-px w-6 bg-garnet-300" />
+          <span className="h-px w-6 bg-ember-300" />
           {eyebrow}
         </div>
       )}

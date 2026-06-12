@@ -7,7 +7,7 @@ export default function FinderPage() {
   const onBack = () => navigate('founder');
   return (
     <div>
-      <section className="border-b border-slate-200 bg-gradient-to-b from-garnet-50 to-white">
+      <section className="border-b border-slate-200 bg-gradient-to-b from-ember-50 to-white">
         <div className="mx-auto max-w-6xl px-6 py-14">
           <button
             onClick={onBack}
@@ -17,7 +17,7 @@ export default function FinderPage() {
             {ui.back.toFounder}
           </button>
           <div className="mt-4 max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-wider text-garnet-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-ember-700">
               {founder.eyebrow}
             </span>
             <h1 className="mt-3 font-display text-3xl font-black leading-tight text-slate-900 text-balance sm:text-4xl">

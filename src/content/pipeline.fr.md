@@ -35,7 +35,7 @@ stages:
     owner: CEED
   - id: build
     order: 3
-    accent: garnet
+    accent: ember
     icon: rocket
     group: makerlaunch
     name: Accelerator

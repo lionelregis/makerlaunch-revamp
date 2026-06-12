@@ -47,7 +47,7 @@ function TrackCard({
 
 const BOX: Record<string, string> = {
   amber: 'border-amber-200 bg-amber-50/40',
-  garnet: 'border-garnet-200 bg-garnet-50/40',
+  ember: 'border-ember-200 bg-ember-50/40',
 };
 
 /** An umbrella box holding two track cards, with a labelled header. */
@@ -60,7 +60,7 @@ function UmbrellaBox({
   left,
   right,
 }: {
-  accent: 'amber' | 'garnet';
+  accent: 'amber' | 'ember';
   icon: string;
   name: string;
   label: string;
@@ -69,24 +69,24 @@ function UmbrellaBox({
   left: ReactNode;
   right: ReactNode;
 }) {
-  const tone = accent === 'garnet' ? 'garnet' : 'amber';
+  const tone = accent === 'ember' ? 'ember' : 'amber';
   return (
     <div className={`rounded-3xl border-2 p-4 sm:p-5 ${BOX[accent]}`}>
       <div className="mb-3 flex flex-wrap items-center justify-center gap-2">
-        <span className={`flex h-7 w-7 items-center justify-center rounded-lg text-white ${tone === 'garnet' ? 'bg-garnet-700' : 'bg-amber-500'}`}>
+        <span className={`flex h-7 w-7 items-center justify-center rounded-lg text-white ${tone === 'ember' ? 'bg-ember-700' : 'bg-amber-500'}`}>
           <Icon name={icon} className="h-4 w-4" />
         </span>
-        <span className={`font-display text-sm font-extrabold uppercase tracking-wide ${tone === 'garnet' ? 'text-garnet-800' : 'text-amber-800'}`}>
+        <span className={`font-display text-sm font-extrabold uppercase tracking-wide ${tone === 'ember' ? 'text-ember-800' : 'text-amber-800'}`}>
           {name}
         </span>
-        <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${tone === 'garnet' ? 'bg-garnet-100 text-garnet-700' : 'bg-amber-100 text-amber-800'}`}>
+        <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${tone === 'ember' ? 'bg-ember-100 text-ember-700' : 'bg-amber-100 text-amber-800'}`}>
           {label}
         </span>
       </div>
       {separator ? (
         <div className="grid items-center gap-3 sm:grid-cols-[1fr_auto_1fr]">
           {left}
-          <span className={`mx-auto rounded-full border bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide ${tone === 'garnet' ? 'border-garnet-200 text-garnet-500' : 'border-amber-200 text-amber-600'}`}>
+          <span className={`mx-auto rounded-full border bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide ${tone === 'ember' ? 'border-ember-200 text-ember-500' : 'border-amber-200 text-amber-600'}`}>
             {separator}
           </span>
           {right}
@@ -150,7 +150,7 @@ export default function StageMap({ onPick }: { onPick?: Pick }) {
 
       {/* MakerLaunch: two entry tracks */}
       <UmbrellaBox
-        accent="garnet"
+        accent="ember"
         icon="rocket"
         name={umbrella.name}
         label={landing.pipelineBranchLabel}

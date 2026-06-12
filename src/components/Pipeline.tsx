@@ -128,7 +128,7 @@ function TrackDisclosure({ track }: { track: StageId }) {
   }
   return (
     <StageDisclosure
-      accent="garnet"
+      accent="ember"
       icon="rocket"
       title={ui.explorer.accTitle}
       subtitle={ui.explorer.accSubtitle}
@@ -159,7 +159,7 @@ export function PipelineExplorer({
 
   const tabs: { key: TabKey; name: string; icon: string; accent: Stage['accent'] }[] = [
     { key: 'explore', name: byId.explore.name, icon: byId.explore.icon, accent: byId.explore.accent },
-    { key: 'makerlaunch', name: umbrella.name, icon: 'rocket', accent: 'garnet' },
+    { key: 'makerlaunch', name: umbrella.name, icon: 'rocket', accent: 'ember' },
     { key: 'scale', name: byId.scale.name, icon: byId.scale.icon, accent: byId.scale.accent },
   ];
 
@@ -196,8 +196,8 @@ export function PipelineExplorer({
         {active === 'makerlaunch' && (
           <div>
             {/* Umbrella intro */}
-            <div className="rounded-2xl border border-garnet-200 bg-garnet-50/60 p-4 text-sm leading-relaxed text-slate-700">
-              <span className="font-bold text-garnet-800">{umbrella.name}.</span> {umbrella.tagline}
+            <div className="rounded-2xl border border-ember-200 bg-ember-50/60 p-4 text-sm leading-relaxed text-slate-700">
+              <span className="font-bold text-ember-800">{umbrella.name}.</span> {umbrella.tagline}
             </div>
 
             {/* Track sub-tabs */}

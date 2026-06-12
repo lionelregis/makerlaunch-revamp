@@ -39,7 +39,7 @@ export default function ProgramCard({
               </span>
             )}
             {program.flagship && (
-              <span className="rounded-full bg-garnet-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+              <span className="rounded-full bg-ember-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
                 {ui.program.flagship}
               </span>
             )}

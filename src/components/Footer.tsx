@@ -26,7 +26,7 @@ export default function Footer() {
                 <li key={l.view}>
                   <button
                     onClick={() => navigate(l.view)}
-                    className="rounded text-slate-500 transition hover:text-garnet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-garnet-400"
+                    className="rounded text-slate-500 transition hover:text-ember-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400"
                   >
                     {l.label}
                   </button>
@@ -40,7 +40,7 @@ export default function Footer() {
             <div className="mt-1 text-slate-500">{brand.faculty}</div>
             <a
               href="mailto:ceed@uottawa.ca"
-              className="mt-3 inline-block font-semibold text-garnet-700 transition hover:text-garnet-800"
+              className="mt-3 inline-block font-semibold text-ember-700 transition hover:text-ember-800"
             >
               {footer.contact} →
             </a>

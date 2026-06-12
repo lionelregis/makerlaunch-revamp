@@ -17,7 +17,7 @@ export default function MakerLaunch() {
       <ol className="mt-3 space-y-2">
         {ml.phases.map((p) => (
           <li key={p.name} className="flex gap-3">
-            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-garnet-50 text-[11px] font-bold text-garnet-700">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ember-50 text-[11px] font-bold text-ember-700">
               {p.n}
             </span>
             <p className="text-sm leading-relaxed text-slate-700">
@@ -32,7 +32,7 @@ export default function MakerLaunch() {
       <ul className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
         {ml.supports.map((s) => (
           <li key={s.title} className="flex items-start gap-2 text-sm leading-relaxed text-slate-700">
-            <Icon name="checkCircle" className="mt-0.5 h-4 w-4 shrink-0 text-garnet-600" />
+            <Icon name="checkCircle" className="mt-0.5 h-4 w-4 shrink-0 text-ember-600" />
             <span>
               <span className="font-semibold text-slate-900">{s.title}.</span> {s.body}
             </span>
@@ -41,9 +41,9 @@ export default function MakerLaunch() {
       </ul>
 
       {/* Closing note */}
-      <div className="mt-6 flex items-start gap-3 rounded-2xl bg-garnet-900 p-4 text-white">
+      <div className="mt-6 flex items-start gap-3 rounded-2xl bg-ink-900 p-4 text-white">
         <Icon name="trophy" className="mt-0.5 h-5 w-5 shrink-0 text-amber-300" />
-        <p className="text-sm leading-relaxed text-garnet-50">{ml.closingNote}</p>
+        <p className="text-sm leading-relaxed text-ink-50">{ml.closingNote}</p>
       </div>
     </div>
   );
