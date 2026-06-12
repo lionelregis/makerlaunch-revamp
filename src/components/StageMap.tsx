@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import Icon from './Icon';
 import { accents } from '../lib/accents';
-import { stages, umbrella, landing, exploreTracks } from '../data/content';
+import { stages, umbrella, landing, exploreTracks, ui } from '../data/content';
 import type { Accent, Stage, StageId } from '../data/content';
 
 const byId = Object.fromEntries(stages.map((s) => [s.id, s])) as Record<string, Stage>;
@@ -125,7 +125,7 @@ export default function StageMap({ onPick }: { onPick?: Pick }) {
         accent="amber"
         icon={byId.explore.icon}
         name={byId.explore.name}
-        label="two tracks"
+        label={ui.map.twoTracks}
         left={
           <TrackCard
             accent="amber"
@@ -154,7 +154,7 @@ export default function StageMap({ onPick }: { onPick?: Pick }) {
         icon="rocket"
         name={umbrella.name}
         label={landing.pipelineBranchLabel}
-        separator="or"
+        separator={ui.map.or}
         left={
           <TrackCard
             accent={makerTracks[0].accent}

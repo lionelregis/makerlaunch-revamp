@@ -1,5 +1,5 @@
 import Icon from './Icon';
-import { productStudio as ps } from '../data/content';
+import { productStudio as ps, ui } from '../data/content';
 
 /**
  * Product Studio detail, shown inside the "What you'll learn in Product Studio"
@@ -11,16 +11,16 @@ export default function ProductStudio() {
   return (
     <div>
       <p className="text-sm leading-relaxed text-slate-700">
-        {ps.tagline} It works for software, a service, or hardware, and assumes your discovery is already done.
+        {ps.tagline} {ui.productStudio.leadNote}
       </p>
       <p className="mt-2 text-sm text-slate-600">
-        <span className="font-semibold text-slate-800">The format: </span>
+        <span className="font-semibold text-slate-800">{ui.productStudio.formatLabel}</span>
         {ps.formatNote}
       </p>
 
       {/* Six phases, one line each */}
       <p className="mt-6 text-xs font-bold uppercase tracking-wide text-slate-400">
-        From a validated idea to a shipped product
+        {ui.productStudio.phasesHeader}
       </p>
       <ol className="mt-3 space-y-2">
         {ps.phases.map((p) => (
@@ -36,7 +36,7 @@ export default function ProductStudio() {
       </ol>
 
       {/* Tools, one chip row */}
-      <p className="mt-6 text-xs font-bold uppercase tracking-wide text-slate-400">Tools you’ll use</p>
+      <p className="mt-6 text-xs font-bold uppercase tracking-wide text-slate-400">{ui.productStudio.toolsLabel}</p>
       <div className="mt-2 flex flex-wrap gap-1.5">
         {ps.tools.map((t) => (
           <span key={t} className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">

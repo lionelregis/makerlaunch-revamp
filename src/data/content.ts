@@ -7,15 +7,43 @@
 // ---------------------------------------------------------------------------
 
 import yaml from 'js-yaml';
-import homeRaw from '../content/home.md?raw';
-import pipelineRaw from '../content/pipeline.md?raw';
-import programsRaw from '../content/programs.md?raw';
-import productStudioRaw from '../content/product-studio.md?raw';
-import makerLaunchRaw from '../content/makerlaunch.md?raw';
-import founderRaw from '../content/founder.md?raw';
-import advisorRaw from '../content/advisor.md?raw';
-import mentorsRaw from '../content/mentors.md?raw';
-import launchpadRaw from '../content/launchpad.md?raw';
+import { getLang } from '../lib/lang';
+import { UI } from './ui';
+
+import homeEn from '../content/home.md?raw';
+import homeFr from '../content/home.fr.md?raw';
+import pipelineEn from '../content/pipeline.md?raw';
+import pipelineFr from '../content/pipeline.fr.md?raw';
+import programsEn from '../content/programs.md?raw';
+import programsFr from '../content/programs.fr.md?raw';
+import productStudioEn from '../content/product-studio.md?raw';
+import productStudioFr from '../content/product-studio.fr.md?raw';
+import makerLaunchEn from '../content/makerlaunch.md?raw';
+import makerLaunchFr from '../content/makerlaunch.fr.md?raw';
+import founderEn from '../content/founder.md?raw';
+import founderFr from '../content/founder.fr.md?raw';
+import advisorEn from '../content/advisor.md?raw';
+import advisorFr from '../content/advisor.fr.md?raw';
+import mentorsEn from '../content/mentors.md?raw';
+import mentorsFr from '../content/mentors.fr.md?raw';
+import launchpadEn from '../content/launchpad.md?raw';
+import launchpadFr from '../content/launchpad.fr.md?raw';
+
+// The site is bilingual; the language is fixed for the page load (switching
+// reloads). Pick the matching Markdown and UI strings up front.
+export const lang = getLang();
+export const ui = UI[lang];
+
+const pick = (en: string, fr: string) => (lang === 'fr' ? fr : en);
+const homeRaw = pick(homeEn, homeFr);
+const pipelineRaw = pick(pipelineEn, pipelineFr);
+const programsRaw = pick(programsEn, programsFr);
+const productStudioRaw = pick(productStudioEn, productStudioFr);
+const makerLaunchRaw = pick(makerLaunchEn, makerLaunchFr);
+const founderRaw = pick(founderEn, founderFr);
+const advisorRaw = pick(advisorEn, advisorFr);
+const mentorsRaw = pick(mentorsEn, mentorsFr);
+const launchpadRaw = pick(launchpadEn, launchpadFr);
 
 /** Read the YAML data block (the part between the leading --- fences). */
 function frontmatter(raw: string): Record<string, unknown> {

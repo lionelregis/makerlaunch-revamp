@@ -2,7 +2,7 @@ import Icon from './Icon';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
 import MentorCard from './MentorCard';
-import { advisor, mentors } from '../data/content';
+import { advisor, mentors, ui } from '../data/content';
 
 /**
  * Featured mentors on the advisor view — a small preview of the directory, with
@@ -32,7 +32,7 @@ export default function Mentors({ onSeeAll }: { onSeeAll: () => void }) {
           onClick={onSeeAll}
           className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-indigo-700"
         >
-          See all {mentors.length} mentors &amp; advisors
+          {ui.mentors.seeAll(mentors.length)}
           <Icon name="arrowRight" className="h-4 w-4" />
         </button>
         <p className="text-xs text-slate-400">{advisor.mentorsNote}</p>

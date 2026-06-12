@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import Icon from '../components/Icon';
 import MentorCard from '../components/MentorCard';
 import { navigate } from '../lib/router';
-import { advisor, mentors, mentorsPage as copy } from '../data/content';
+import { advisor, mentors, mentorsPage as copy, ui } from '../data/content';
 
 export default function MentorsPage() {
   const onBack = () => navigate('advisor');
@@ -25,7 +25,7 @@ export default function MentorsPage() {
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 transition hover:text-slate-800"
           >
             <Icon name="arrowLeft" className="h-4 w-4" />
-            Back to advisors &amp; alumni
+            {ui.back.toAdvisors}
           </button>
           <div className="mt-4 max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-wider text-indigo-700">

@@ -4,7 +4,7 @@ import SectionHeading from '../components/SectionHeading';
 import Image from '../components/Image';
 import { PipelineExplorer } from '../components/Pipeline';
 import { navigate } from '../lib/router';
-import { founder, launchpadPage } from '../data/content';
+import { founder, launchpadPage, ui } from '../data/content';
 import type { StageId } from '../data/content';
 
 export default function FounderView({
@@ -36,7 +36,7 @@ export default function FounderView({
               >
                 <Icon name="compass" className="h-4 w-4" />
                 {founder.finderCalloutCta}
-                <span className="font-normal text-garnet-200">· 30 seconds</span>
+                <span className="font-normal text-garnet-200">{ui.founder.seconds}</span>
               </button>
             </div>
             {founder.headerImage && (
@@ -55,7 +55,7 @@ export default function FounderView({
       <section className="border-b border-slate-200 bg-slate-50 py-16">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
-            eyebrow="Your full path"
+            eyebrow={ui.founder.fullPath}
             title={founder.pipelineTitle}
             subtitle={founder.pipelineSubtitle}
           />

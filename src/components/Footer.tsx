@@ -1,16 +1,15 @@
 import Logo from './Logo';
 import { navigate } from '../lib/router';
 import type { View } from '../lib/router';
-import { brand, footer } from '../data/content';
-
-const LINKS: { view: View; label: string }[] = [
-  { view: 'founder', label: 'For founders' },
-  { view: 'advisor', label: 'For advisors & alumni' },
-  { view: 'mentors', label: 'Mentors' },
-  { view: 'launchpad', label: 'Launchpad' },
-];
+import { brand, footer, ui } from '../data/content';
 
 export default function Footer() {
+  const links: { view: View; label: string }[] = [
+    { view: 'founder', label: ui.footer.founders },
+    { view: 'advisor', label: ui.footer.advisors },
+    { view: 'mentors', label: ui.footer.mentors },
+    { view: 'launchpad', label: ui.footer.launchpad },
+  ];
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-6xl px-6 py-12">
@@ -21,9 +20,9 @@ export default function Footer() {
           </div>
 
           <nav aria-label="Footer" className="text-sm">
-            <div className="font-semibold text-slate-700">Explore the program</div>
+            <div className="font-semibold text-slate-700">{ui.footer.explore}</div>
             <ul className="mt-3 space-y-2">
-              {LINKS.map((l) => (
+              {links.map((l) => (
                 <li key={l.view}>
                   <button
                     onClick={() => navigate(l.view)}

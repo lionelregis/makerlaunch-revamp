@@ -2,12 +2,13 @@ import { useMemo, useState } from 'react';
 import Icon from './Icon';
 import { accents } from '../lib/accents';
 import { navigate } from '../lib/router';
-import { decide, reasonFor } from '../lib/finder';
+import { decide } from '../lib/finder';
 import {
   finderQuestions as questions,
   founder,
   programs,
   stages,
+  ui,
 } from '../data/content';
 import type { StageId } from '../data/content';
 
@@ -82,7 +83,7 @@ export default function StageFinder() {
                 className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 transition hover:text-slate-800"
               >
                 <Icon name="arrowLeft" className="h-4 w-4" />
-                Back
+                {ui.finder.back}
               </button>
             )}
           </div>
@@ -111,14 +112,20 @@ export default function StageFinder() {
               <p className="text-[11px] font-bold uppercase tracking-wide text-slate-400">
                 {founder.finderReasonLabel}
               </p>
-              <p className="mt-1 text-sm leading-relaxed text-slate-700">{reasonFor(result)}</p>
+              <p className="mt-1 text-sm leading-relaxed text-slate-700">
+                {result.stage === 'validate'
+                  ? result.capped
+                    ? ui.finder.reasons.validateCapped
+                    : ui.finder.reasons.validate
+                  : ui.finder.reasons[result.stage]}
+              </p>
             </div>
 
             <button
               onClick={() => navigate('founder', { stage: result.stage })}
               className={`mt-4 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold text-white transition ${a.solid} hover:opacity-90`}
             >
-              See {stage.name} on your path
+              {ui.finder.seeCta(stage.name)}
               <Icon name="arrowRight" className="h-4 w-4" />
             </button>
 
@@ -136,7 +143,7 @@ export default function StageFinder() {
                       <span className="font-display text-sm font-bold text-slate-900">{p.name}</span>
                       {p.flagship && (
                         <span className="rounded-full bg-garnet-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-                          Flagship
+                          {ui.program.flagship}
                         </span>
                       )}
                     </div>

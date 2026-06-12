@@ -8,18 +8,8 @@ import MentorsPage from './views/MentorsPage';
 import LaunchpadPage from './views/LaunchpadPage';
 import FinderPage from './views/FinderPage';
 import { useRoute } from './lib/router';
-import { brand } from './data/content';
+import { brand, ui } from './data/content';
 import type { StageId } from './data/content';
-
-/** Per-view document title suffixes (empty = home). */
-const TITLES: Record<string, string> = {
-  home: '',
-  founder: 'For founders',
-  advisor: 'For advisors & alumni',
-  mentors: 'Mentors',
-  launchpad: 'Launchpad',
-  finder: 'Find your starting point',
-};
 
 export default function App() {
   const { view, params } = useRoute();
@@ -28,7 +18,7 @@ export default function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
     const base = `${brand.programName} · ${brand.short} · uOttawa Engineering`;
-    const section = TITLES[view];
+    const section = view === 'home' ? '' : (ui.titles as Record<string, string>)[view] ?? '';
     document.title = section ? `${section} · ${base}` : base;
   }, [view]);
 

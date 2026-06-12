@@ -4,7 +4,7 @@ import SectionHeading from '../components/SectionHeading';
 import Image from '../components/Image';
 import Mentors from '../components/Mentors';
 import { navigate } from '../lib/router';
-import { advisor, partners } from '../data/content';
+import { advisor, partners, ui } from '../data/content';
 
 export default function AdvisorView() {
   const onSeeMentors = () => navigate('mentors');
@@ -38,7 +38,7 @@ export default function AdvisorView() {
 
       {/* How giving back comes full circle */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <SectionHeading eyebrow="How it works" title={advisor.flywheelTitle} align="center" />
+        <SectionHeading eyebrow={ui.advisor.howItWorks} title={advisor.flywheelTitle} align="center" />
         <ol className="mt-10 grid gap-4 md:grid-cols-4">
           {advisor.flywheelSteps.map((step, i) => (
             <Reveal key={step.title} delay={i * 90} as="li">
@@ -145,7 +145,7 @@ export default function AdvisorView() {
       <section className="border-t border-slate-200 bg-slate-50 py-14">
         <div className="mx-auto max-w-6xl px-6">
           <p className="text-center text-xs font-bold uppercase tracking-wider text-slate-400">
-            Where ventures go next — the partners we introduce them to
+            {ui.advisor.partnersLine}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             {partners.map((p) => (

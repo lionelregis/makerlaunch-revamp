@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import Icon from './Icon';
 import { accents } from '../lib/accents';
+import { ui } from '../data/content';
 import type { Accent, Program } from '../data/content';
 
 const STATUS_LABEL: Record<Exclude<Program['status'], ''>, string> = {
-  new: 'New',
-  refreshed: 'Refreshed',
+  new: ui.program.statusNew,
+  refreshed: ui.program.statusRefreshed,
 };
 
 export default function ProgramCard({
@@ -39,7 +40,7 @@ export default function ProgramCard({
             )}
             {program.flagship && (
               <span className="rounded-full bg-garnet-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-                Flagship
+                {ui.program.flagship}
               </span>
             )}
           </div>
@@ -65,12 +66,12 @@ export default function ProgramCard({
           <div className="flex items-start gap-2 text-sm text-slate-600">
             <Icon name="users" className={`mt-0.5 h-4 w-4 shrink-0 ${a.text}`} />
             <p>
-              <span className="font-semibold text-slate-800">Who it’s for: </span>
+              <span className="font-semibold text-slate-800">{ui.program.whoFor}</span>
               {program.forWhom}
             </p>
           </div>
 
-          <p className="mt-4 text-xs font-bold uppercase tracking-wide text-slate-500">What it offers</p>
+          <p className="mt-4 text-xs font-bold uppercase tracking-wide text-slate-500">{ui.program.offers}</p>
           <ul className="mt-2 space-y-1.5">
             {program.offers.map((item) => (
               <li key={item} className="flex items-start gap-2 text-sm leading-relaxed text-slate-700">
@@ -82,7 +83,7 @@ export default function ProgramCard({
 
           <div className={`mt-4 rounded-xl ${a.soft} p-3.5`}>
             <p className="text-sm leading-relaxed text-slate-700">
-              <span className={`font-semibold ${a.text}`}>You walk away with: </span>
+              <span className={`font-semibold ${a.text}`}>{ui.program.takeaway}</span>
               {program.takeaway}
             </p>
           </div>

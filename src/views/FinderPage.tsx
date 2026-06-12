@@ -1,7 +1,7 @@
 import Icon from '../components/Icon';
 import StageFinder from '../components/StageFinder';
 import { navigate } from '../lib/router';
-import { founder } from '../data/content';
+import { founder, ui } from '../data/content';
 
 export default function FinderPage() {
   const onBack = () => navigate('founder');
@@ -14,7 +14,7 @@ export default function FinderPage() {
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 transition hover:text-slate-800"
           >
             <Icon name="arrowLeft" className="h-4 w-4" />
-            Back to the founder path
+            {ui.back.toFounder}
           </button>
           <div className="mt-4 max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-wider text-garnet-700">

@@ -5,7 +5,7 @@ import StageDisclosure from './StageDisclosure';
 import ProductStudio from './ProductStudio';
 import MakerLaunch from './MakerLaunch';
 import { accents } from '../lib/accents';
-import { programs, stages, umbrella, exploreTracks } from '../data/content';
+import { programs, stages, umbrella, exploreTracks, ui } from '../data/content';
 import type { Accent, Program, Stage, StageId } from '../data/content';
 
 const byId = Object.fromEntries(stages.map((s) => [s.id, s])) as Record<string, Stage>;
@@ -31,14 +31,14 @@ function StageInfo({ stage }: { stage: Stage }) {
         <div className="rounded-xl border border-slate-200 bg-white p-4">
           <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-500">
             <span className={`h-2 w-2 rounded-full ${a.dot}`} />
-            Getting in
+            {ui.explorer.gettingIn}
           </dt>
           <dd className="mt-1.5 text-sm leading-relaxed text-slate-700">{stage.entry}</dd>
         </div>
         <div className="rounded-xl border border-slate-200 bg-white p-4">
           <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-500">
             <Icon name="arrowRight" className={`h-3.5 w-3.5 ${a.text}`} />
-            Moving on
+            {ui.explorer.movingOn}
           </dt>
           <dd className="mt-1.5 text-sm leading-relaxed text-slate-700">{stage.advance}</dd>
         </div>
@@ -85,7 +85,7 @@ function ExploreDetail({ initialTrack }: { initialTrack?: string }) {
       <div>
         {/* Sub-track toggle */}
         <div className="flex flex-wrap items-center gap-2">
-          <span className="self-center text-xs font-bold uppercase tracking-wide text-slate-400">Show:</span>
+          <span className="self-center text-xs font-bold uppercase tracking-wide text-slate-400">{ui.explorer.show}</span>
           {exploreTracks.map((t) => {
             const isActive = t.id === activeTrack.id;
             return (
@@ -119,8 +119,8 @@ function TrackDisclosure({ track }: { track: StageId }) {
       <StageDisclosure
         accent="emerald"
         icon="beaker"
-        title="What you’ll learn in Product Studio"
-        subtitle="The six phases, plus the frameworks and tools the curriculum teaches."
+        title={ui.explorer.psTitle}
+        subtitle={ui.explorer.psSubtitle}
       >
         <ProductStudio />
       </StageDisclosure>
@@ -130,8 +130,8 @@ function TrackDisclosure({ track }: { track: StageId }) {
     <StageDisclosure
       accent="garnet"
       icon="rocket"
-      title="Inside the Accelerator"
-      subtitle="The cohort journey, and everything you get along the way."
+      title={ui.explorer.accTitle}
+      subtitle={ui.explorer.accSubtitle}
     >
       <MakerLaunch />
     </StageDisclosure>
@@ -166,7 +166,7 @@ export function PipelineExplorer({
   return (
     <div>
       {/* Top-level stage tabs */}
-      <div role="tablist" aria-label="Pipeline stages" className="flex flex-wrap gap-2">
+      <div role="tablist" aria-label={ui.explorer.stagesAria} className="flex flex-wrap gap-2">
         {tabs.map((t) => {
           const sa = accents[t.accent];
           const isActive = t.key === active;
@@ -202,7 +202,7 @@ export function PipelineExplorer({
 
             {/* Track sub-tabs */}
             <div className="mt-4 flex flex-wrap gap-2">
-              <span className="self-center text-xs font-bold uppercase tracking-wide text-slate-400">Choose a track:</span>
+              <span className="self-center text-xs font-bold uppercase tracking-wide text-slate-400">{ui.explorer.chooseTrack}</span>
               {tracks.map((tr) => {
                 const ta = accents[tr.accent];
                 const isActive = tr.id === track;
