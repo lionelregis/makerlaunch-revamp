@@ -1,65 +1,108 @@
-import { useI18n } from '../lib/i18n';
-import { brand, ui } from '../data/content';
-import type { Role } from '../data/content';
+import { useState } from 'react';
 import Logo from './Logo';
 import Icon from './Icon';
+import { navigate } from '../lib/router';
+import type { View } from '../lib/router';
+import { getLang, setLang } from '../lib/lang';
+import type { Lang } from '../lib/lang';
+import { ui } from '../data/content';
 
-type View = 'home' | Role;
+function LangToggle({ other, block = false }: { other: Lang; block?: boolean }) {
+  return (
+    <button
+      onClick={() => setLang(other)}
+      aria-label={ui.nav.switchAria}
+      className={`${block ? 'block w-full text-left' : ''} rounded-full border border-slate-200 px-3 py-1.5 text-sm font-bold text-slate-600 transition hover:border-slate-300 hover:bg-slate-50`}
+    >
+      {other.toUpperCase()}
+    </button>
+  );
+}
 
-export default function Nav({ view, onNavigate }: { view: View; onNavigate: (view: View) => void }) {
-  const { t, toggle, lang } = useI18n();
+export default function Nav({ view }: { view: View }) {
+  const [open, setOpen] = useState(false);
+  const lang = getLang();
+  const other = lang === 'en' ? 'fr' : 'en';
 
-  const links: { id: Role; label: string }[] = [
-    { id: 'founder', label: t(ui.navFounders) },
-    { id: 'advisor', label: t(ui.navAdvisors) },
+  const links: { view: View; label: string }[] = [
+    { view: 'founder', label: ui.nav.founders },
+    { view: 'advisor', label: ui.nav.advisors },
+    { view: 'mentors', label: ui.nav.mentors },
+    { view: 'launchpad', label: ui.nav.launchpad },
   ];
 
+  const go = (next: View) => {
+    setOpen(false);
+    navigate(next);
+  };
+
+  function linkClass(active: boolean, block = false) {
+    return `${block ? 'block w-full text-left' : ''} rounded-full px-3.5 py-1.5 text-sm font-semibold transition ${
+      active ? 'bg-ember-50 text-ember-700' : 'text-slate-700 hover:bg-slate-100'
+    }`;
+  }
+
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:px-6">
+    <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6">
         <button
-          onClick={() => onNavigate('home')}
-          className="flex items-center gap-2.5 rounded-xl py-1 pr-2 text-left transition hover:opacity-90"
-          aria-label={t(ui.navHome)}
+          onClick={() => go('home')}
+          aria-label={ui.nav.home}
+          aria-current={view === 'home' ? 'page' : undefined}
+          className="rounded-lg transition hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400"
         >
-          <Logo className="h-9 w-9 shrink-0" />
-          <span className="hidden leading-tight sm:block">
-            <span className="block text-sm font-bold text-slate-900">{t(brand.programName)}</span>
-            <span className="block text-[11px] font-medium text-slate-500">
-              {t(brand.short)} · {t(brand.faculty)}
-            </span>
-          </span>
+          <Logo />
         </button>
 
-        <nav className="ml-auto flex items-center gap-1 sm:gap-2">
-          {links.map((link) => {
-            const active = view === link.id;
-            return (
-              <button
-                key={link.id}
-                onClick={() => onNavigate(link.id)}
-                className={`rounded-full px-3 py-1.5 text-xs font-semibold transition sm:text-sm ${
-                  active
-                    ? 'bg-garnet-700 text-white shadow-sm'
-                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-                }`}
-              >
-                {link.label}
-              </button>
-            );
-          })}
-
-          <button
-            onClick={toggle}
-            className="ml-1 flex items-center gap-1 rounded-full border border-slate-300 px-2.5 py-1.5 text-xs font-bold text-slate-700 transition hover:border-garnet-400 hover:text-garnet-700"
-            aria-label={`Switch language to ${t(ui.langLabel)}`}
-            title={t(ui.langLabel)}
-          >
-            <Icon name="language" className="h-3.5 w-3.5" />
-            <span>{lang === 'en' ? 'FR' : 'EN'}</span>
-          </button>
+        {/* Desktop nav */}
+        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+          {links.map((l) => (
+            <button
+              key={l.view}
+              onClick={() => go(l.view)}
+              aria-current={view === l.view ? 'page' : undefined}
+              className={linkClass(view === l.view)}
+            >
+              {l.label}
+            </button>
+          ))}
+          <span className="ml-1">
+            <LangToggle other={other} />
+          </span>
         </nav>
+
+        {/* Mobile menu toggle */}
+        <button
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? ui.nav.closeMenu : ui.nav.openMenu}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 transition hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400 md:hidden"
+        >
+          <Icon name={open ? 'close' : 'menu'} className="h-6 w-6" />
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {open && (
+        <nav id="mobile-nav" aria-label="Primary" className="border-t border-slate-200 bg-white md:hidden">
+          <div className="mx-auto max-w-6xl space-y-1 px-4 py-3">
+            {links.map((l) => (
+              <button
+                key={l.view}
+                onClick={() => go(l.view)}
+                aria-current={view === l.view ? 'page' : undefined}
+                className={linkClass(view === l.view, true)}
+              >
+                {l.label}
+              </button>
+            ))}
+            <div className="pt-1">
+              <LangToggle other={other} block />
+            </div>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

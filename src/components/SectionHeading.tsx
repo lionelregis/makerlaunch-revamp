@@ -1,5 +1,3 @@
-import type { ReactNode } from 'react';
-
 export default function SectionHeading({
   eyebrow,
   title,
@@ -7,7 +5,7 @@ export default function SectionHeading({
   align = 'left',
 }: {
   eyebrow?: string;
-  title: ReactNode;
+  title: string;
   subtitle?: string;
   align?: 'left' | 'center';
 }) {
@@ -15,10 +13,21 @@ export default function SectionHeading({
   return (
     <div className={centered ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}>
       {eyebrow && (
-        <p className="mb-2 text-xs font-bold uppercase tracking-[0.15em] text-garnet-700">{eyebrow}</p>
+        <div
+          className={`font-accent flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-ember-700 ${
+            centered ? 'justify-center' : ''
+          }`}
+        >
+          <span className="h-px w-6 bg-ember-300" />
+          {eyebrow}
+        </div>
       )}
-      <h2 className="text-2xl font-bold text-slate-900 text-balance sm:text-3xl">{title}</h2>
-      {subtitle && <p className="mt-3 text-base leading-relaxed text-slate-600">{subtitle}</p>}
+      <h2 className="mt-3 text-2xl font-black leading-tight text-slate-900 text-balance sm:text-3xl">
+        {title}
+      </h2>
+      {subtitle && (
+        <p className="mt-3 text-base leading-relaxed text-slate-600">{subtitle}</p>
+      )}
     </div>
   );
 }

@@ -1,123 +1,233 @@
-import { useI18n } from '../lib/i18n';
-import { programs, stages, ui } from '../data/content';
-import type { StageId } from '../data/content';
-import { ACCENTS } from '../lib/accents';
+import { useState } from 'react';
 import Icon from './Icon';
 import ProgramCard from './ProgramCard';
-import Reveal from './Reveal';
+import StageDisclosure from './StageDisclosure';
+import ProductStudio from './ProductStudio';
+import MakerLaunch from './MakerLaunch';
+import { accents } from '../lib/accents';
+import { programs, stages, umbrella, exploreTracks, ui } from '../data/content';
+import type { Accent, Program, Stage, StageId } from '../data/content';
 
-/** Non-interactive four-stage overview used on the landing page. */
-export function PipelineStrip({ onPick }: { onPick?: (stage: StageId) => void }) {
-  const { t } = useI18n();
+const byId = Object.fromEntries(stages.map((s) => [s.id, s])) as Record<string, Stage>;
+const tracks = stages.filter((s) => s.group === 'makerlaunch');
+
+type TabKey = 'explore' | 'makerlaunch' | 'scale';
+
+/** Left column: a stage's description and entry/exit criteria. */
+function StageInfo({ stage }: { stage: Stage }) {
+  const a = accents[stage.accent];
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      {stages.map((stage, i) => {
-        const a = ACCENTS[stage.accent];
-        return (
-          <Reveal key={stage.id} delay={i * 90}>
-            <button
-              type="button"
-              onClick={onPick ? () => onPick(stage.id) : undefined}
-              className={`relative flex h-full w-full flex-col rounded-2xl border bg-white p-5 text-left transition ${
-                onPick ? 'cursor-pointer hover:-translate-y-1 hover:shadow-lg' : ''
-              } ${a.border}`}
-            >
-              <div className="mb-3 flex items-center justify-between">
-                <span className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br text-white ${a.gradient}`}>
-                  <Icon name={stage.icon} className="h-6 w-6" />
-                </span>
-                <span className="text-3xl font-black text-slate-100">{stage.order}</span>
-              </div>
-              <h3 className="text-base font-bold text-slate-900">{t(stage.name)}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-slate-500">{t(stage.tagline)}</p>
-            </button>
-          </Reveal>
-        );
-      })}
+    <div key={stage.id} className="animate-fade-in">
+      <div className={`rounded-2xl bg-gradient-to-br p-6 text-white ${a.gradient}`}>
+        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/80">
+          <Icon name={stage.icon} className="h-4 w-4" />
+          {stage.owner}
+        </div>
+        <h3 className="mt-3 font-display text-2xl font-black">{stage.name}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-white/90">{stage.purpose}</p>
+      </div>
+
+      <dl className="mt-4 space-y-3">
+        <div className="rounded-xl border border-slate-200 bg-white p-4">
+          <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-500">
+            <span className={`h-2 w-2 rounded-full ${a.dot}`} />
+            {ui.explorer.gettingIn}
+          </dt>
+          <dd className="mt-1.5 text-sm leading-relaxed text-slate-700">{stage.entry}</dd>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-white p-4">
+          <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-500">
+            <Icon name="arrowRight" className={`h-3.5 w-3.5 ${a.text}`} />
+            {ui.explorer.movingOn}
+          </dt>
+          <dd className="mt-1.5 text-sm leading-relaxed text-slate-700">{stage.advance}</dd>
+        </div>
+      </dl>
     </div>
   );
 }
 
-/** Interactive explorer: pick a stage to reveal its criteria and programs. */
+/** Right column: a list of program cards. */
+function ProgramList({ list, accent }: { list: Program[]; accent: Accent }) {
+  return (
+    <div className="animate-fade-in space-y-3">
+      {list.map((p) => (
+        <ProgramCard key={p.id} program={p} accent={accent} />
+      ))}
+    </div>
+  );
+}
+
+/** A stage shown as info + all of its programs. */
+function StageDetail({ stage }: { stage: Stage }) {
+  const stagePrograms = programs.filter((p) => p.stage === stage.id);
+  return (
+    <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr]">
+      <StageInfo stage={stage} />
+      <ProgramList list={stagePrograms} accent={stage.accent} />
+    </div>
+  );
+}
+
+/** The Explore stage, with a Courses / Extracurricular sub-track toggle. */
+function ExploreDetail({ initialTrack }: { initialTrack?: string }) {
+  const stage = byId.explore;
+  const [track, setTrack] = useState(
+    initialTrack && exploreTracks.some((t) => t.id === initialTrack) ? initialTrack : exploreTracks[0].id,
+  );
+  const activeTrack = exploreTracks.find((t) => t.id === track) ?? exploreTracks[0];
+  const list = programs.filter((p) => p.stage === 'explore' && p.track === activeTrack.id);
+  const a = accents[stage.accent];
+
+  return (
+    <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr]">
+      <StageInfo stage={stage} />
+      <div>
+        {/* Sub-track toggle */}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="self-center text-xs font-bold uppercase tracking-wide text-slate-400">{ui.explorer.show}</span>
+          {exploreTracks.map((t) => {
+            const isActive = t.id === activeTrack.id;
+            return (
+              <button
+                key={t.id}
+                onClick={() => setTrack(t.id)}
+                aria-pressed={isActive}
+                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${
+                  isActive ? `${a.solid} border-transparent` : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+                }`}
+              >
+                <Icon name={t.icon} className="h-4 w-4" />
+                {t.name}
+              </button>
+            );
+          })}
+        </div>
+        <p className="mt-2 text-sm leading-relaxed text-slate-500">{activeTrack.tagline}</p>
+        <div key={activeTrack.id} className="mt-4">
+          <ProgramList list={list} accent={stage.accent} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** The on-demand detail disclosure for a MakerLaunch track. */
+function TrackDisclosure({ track }: { track: StageId }) {
+  if (track === 'validate') {
+    return (
+      <StageDisclosure
+        accent="emerald"
+        icon="beaker"
+        title={ui.explorer.psTitle}
+        subtitle={ui.explorer.psSubtitle}
+      >
+        <ProductStudio />
+      </StageDisclosure>
+    );
+  }
+  return (
+    <StageDisclosure
+      accent="ember"
+      icon="rocket"
+      title={ui.explorer.accTitle}
+      subtitle={ui.explorer.accSubtitle}
+    >
+      <MakerLaunch />
+    </StageDisclosure>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* PipelineExplorer — three stages; Explore and MakerLaunch hold tracks */
+/* ------------------------------------------------------------------ */
 export function PipelineExplorer({
-  selected,
-  onSelect,
+  initialStage,
+  initialExploreTrack,
 }: {
-  selected: StageId;
-  onSelect: (stage: StageId) => void;
+  initialStage?: StageId;
+  initialExploreTrack?: string;
 }) {
-  const { t } = useI18n();
-  const stage = stages.find((s) => s.id === selected)!;
-  const a = ACCENTS[stage.accent];
-  const stagePrograms = programs.filter((p) => p.stage === selected);
+  const initialActive: TabKey =
+    initialStage === 'validate' || initialStage === 'build'
+      ? 'makerlaunch'
+      : initialStage === 'scale'
+        ? 'scale'
+        : 'explore';
+  const [active, setActive] = useState<TabKey>(initialActive);
+  const [track, setTrack] = useState<StageId>(initialStage === 'build' ? 'build' : 'validate');
+
+  const tabs: { key: TabKey; name: string; icon: string; accent: Stage['accent'] }[] = [
+    { key: 'explore', name: byId.explore.name, icon: byId.explore.icon, accent: byId.explore.accent },
+    { key: 'makerlaunch', name: umbrella.name, icon: 'rocket', accent: 'ember' },
+    { key: 'scale', name: byId.scale.name, icon: byId.scale.icon, accent: byId.scale.accent },
+  ];
 
   return (
     <div>
-      {/* Stage selector */}
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-stretch">
-        {stages.map((s, i) => {
-          const sa = ACCENTS[s.accent];
-          const active = s.id === selected;
+      {/* Top-level stage tabs */}
+      <div role="tablist" aria-label={ui.explorer.stagesAria} className="flex flex-wrap gap-2">
+        {tabs.map((t) => {
+          const sa = accents[t.accent];
+          const isActive = t.key === active;
           return (
-            <div key={s.id} className="flex flex-1 items-center gap-2">
-              <button
-                onClick={() => onSelect(s.id)}
-                className={`flex flex-1 items-center gap-3 rounded-xl border px-4 py-3 text-left transition ${
-                  active
-                    ? `bg-gradient-to-br text-white shadow-md ${sa.gradient} border-transparent`
-                    : `border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm`
-                }`}
-                aria-pressed={active}
-              >
-                <span
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${
-                    active ? 'bg-white/20 text-white' : `${sa.bgSoft} ${sa.text}`
-                  }`}
-                >
-                  <Icon name={s.icon} className="h-5 w-5" />
-                </span>
-                <span className="leading-tight">
-                  <span className={`block text-[10px] font-bold uppercase tracking-wide ${active ? 'text-white/70' : 'text-slate-400'}`}>
-                    {t(ui.navPipeline)} {s.order}
-                  </span>
-                  <span className={`block text-sm font-bold ${active ? 'text-white' : 'text-slate-800'}`}>
-                    {t(s.name)}
-                  </span>
-                </span>
-              </button>
-              {i < stages.length - 1 && (
-                <Icon name="arrowRight" className="hidden h-4 w-4 shrink-0 text-slate-300 sm:block" />
-              )}
-            </div>
+            <button
+              key={t.key}
+              role="tab"
+              id={`stage-tab-${t.key}`}
+              aria-selected={isActive}
+              aria-controls="stage-panel"
+              onClick={() => setActive(t.key)}
+              className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${
+                isActive ? `${sa.solid} border-transparent` : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+              }`}
+            >
+              <Icon name={t.icon} className="h-4 w-4" />
+              {t.name}
+            </button>
           );
         })}
       </div>
 
-      {/* Selected stage detail */}
-      <div className={`mt-6 rounded-2xl border ${a.border} ${a.bgSoft} p-6`}>
-        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-2xl">
-            <h3 className={`text-xl font-bold ${a.text}`}>{t(stage.name)}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-700">{t(stage.purpose)}</p>
-          </div>
-        </div>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2">
-          <div className="rounded-xl border border-white bg-white/70 p-4">
-            <div className={`text-xs font-bold uppercase tracking-wide ${a.text}`}>{t(ui.entry)}</div>
-            <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{t(stage.entry)}</p>
-          </div>
-          <div className="rounded-xl border border-white bg-white/70 p-4">
-            <div className={`text-xs font-bold uppercase tracking-wide ${a.text}`}>{t(ui.exit)}</div>
-            <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{t(stage.exit)}</p>
-          </div>
-        </div>
-      </div>
+      <div id="stage-panel" role="tabpanel" aria-labelledby={`stage-tab-${active}`} className="mt-6">
+        {active === 'explore' && <ExploreDetail initialTrack={initialExploreTrack} />}
+        {active === 'scale' && <StageDetail stage={byId.scale} />}
 
-      {/* Programs in this stage */}
-      <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {stagePrograms.map((p) => (
-          <ProgramCard key={p.id} program={p} defaultOpen={p.flagship} />
-        ))}
+        {active === 'makerlaunch' && (
+          <div>
+            {/* Umbrella intro */}
+            <div className="rounded-2xl border border-ember-200 bg-ember-50/60 p-4 text-sm leading-relaxed text-slate-700">
+              <span className="font-bold text-ember-800">{umbrella.name}.</span> {umbrella.tagline}
+            </div>
+
+            {/* Track sub-tabs */}
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="self-center text-xs font-bold uppercase tracking-wide text-slate-400">{ui.explorer.chooseTrack}</span>
+              {tracks.map((tr) => {
+                const ta = accents[tr.accent];
+                const isActive = tr.id === track;
+                return (
+                  <button
+                    key={tr.id}
+                    onClick={() => setTrack(tr.id)}
+                    aria-pressed={isActive}
+                    className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${
+                      isActive ? `${ta.solid} border-transparent` : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+                    }`}
+                  >
+                    <Icon name={tr.icon} className="h-4 w-4" />
+                    {tr.name}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="mt-5">
+              <StageDetail stage={byId[track]} />
+            </div>
+            <TrackDisclosure track={track} />
+          </div>
+        )}
       </div>
     </div>
   );

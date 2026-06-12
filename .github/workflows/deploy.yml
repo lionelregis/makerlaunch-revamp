@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages
 
-# Deploys the built site to GitHub Pages. Triggers on pushes to the default
-# branch (main) and can also be run manually. The base path is derived from the
-# repository name, so this works unchanged in any repo it lives in.
+# Deploys the built React app to GitHub Pages. Triggers on pushes to the default
+# branch (main) and can also be run manually. vite.config.ts uses a relative
+# base ("./"), so the build serves correctly from the Pages project subpath.
 on:
   push:
     branches: [main]
@@ -36,9 +36,6 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          # e.g. "/makerlaunch-revamp/" — matches the GitHub Pages project URL.
-          VITE_BASE: /${{ github.event.repository.name }}/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

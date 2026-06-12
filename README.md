@@ -1,47 +1,96 @@
-# Engineering Entrepreneurship — Programming Demonstrator
+# Engineering Entrepreneurship — Programming Preview
 
-An interactive, bilingual website that demonstrates the **Engineering
+An interactive, front-facing website that previews the proposed **Engineering
 Entrepreneurship programming revamp** for the University of Ottawa Faculty of
 Engineering (Centre for Entrepreneurship and Engineering Design — CEED).
 
 It opens by asking visitors **who they are** — a *potential founder* or an
-*advisor / alumni* — and then presents the information that is relevant to that
-role across the four-stage entrepreneurial pipeline: **Explore → Validate →
-Build → Scale**.
+*advisor / alumni* — and then presents the information relevant to that role
+across the four-stage entrepreneurial pipeline: **Explore → Validate → Build →
+Scale**.
 
-> This is a demonstration of the *proposed* programming. Figures, dates, and
-> program details follow the **Strategic Plan and Operating Playbook**
-> (Summer 2026).
+> This is a preview of the *proposed* programming. Figures and dates reflect the
+> programming plan for September 2026 onward and are subject to change. It is a
+> front-facing demonstration only — internal/administrative material (budgets,
+> resourcing, milestone schedules, decision gates) is intentionally excluded.
 
-## Highlights
+## What it shows
 
 - **Role-based entry.** Choose *Founder* or *Advisor / Alumni* and the site
   tailors what you see.
 - **Founder journey.**
-  - A 4-step **stage finder** that recommends where to start based on your idea,
-    team, evidence, and whether you're commercializing research.
-  - An **interactive pipeline explorer** with explicit entry/exit criteria and
-    the programs at every stage (the new *Validation Program*, the refreshed
-    *MakerLaunch* accelerator, the *Simon Nehme* summer school, GNG 4120 and
-    capstone streams, and the eHub advisory relationship).
-  - The three **tracks** (Primary, Francophone, Research-Founder) and the
-    explicit MakerLaunch **readiness criteria**.
-- **Advisor / alumni journey.** The mentorship **flywheel**, concrete ways to
-  get involved (mentor, demo-day judge, case contributor, P.Eng. support), the
-  **PEO** advantage, recognition, and the impact targets.
-- **Bilingual by design.** Every string is available in English and French with
-  a one-click language toggle — honouring the program's *"bilingual by design,
-  not by translation"* principle. The choice is remembered across visits.
-- **Accessible & responsive.** Semantic markup, keyboard-friendly controls,
-  `prefers-reduced-motion` support, and a mobile-first layout.
+  - A 3-step **starting-point finder** that recommends where to begin based on
+    your idea, team, and evidence.
+  - A **Product Studio** deep-dive: its three formats (Foundations Series, Build
+    Sprints, Studio Cohort) and the six phases of building a product
+    (Discover → Define → Design → Build → Validate → Launch), each with what you
+    can do and what you produce.
+  - A **clearly readable program catalogue** — every program expands to show
+    *who it's for*, *what it offers*, and *what you walk away with*, across all
+    four stages (Product Studio, the refreshed *MakerLaunch* accelerator, the
+    *Simon Nehme* summer school, GNG 4120 and capstone continuation tracks, the
+    eHub, and the Explore-stage events — Design Day, uOttawaHack, pitch and case
+    competitions, the speaker series).
+  - The **MakerLaunch entry bar** (customer discovery *or* a working prototype).
+- **Advisor / alumni journey.** How giving back comes full circle, concrete
+  ways to get involved, the **P.Eng. advantage**, a featured **mentor preview**,
+  recognition, the ecosystem partners, and the 2029 impact goals.
+- **Mentors & Advisors directory.** A dedicated page with the full catalogue of
+  (illustrative) mentor profiles — each with an avatar, bio, areas of expertise,
+  and a quote on why they give back — filterable by field. Avatars are
+  illustrated portraits with a graceful coloured-monogram fallback.
+- **Launchpad.** A two-sided team-formation board (like a job board, both ways).
+  A segmented control switches between **ventures seeking cofounders** (filter by
+  the skills a team needs) and **students seeking a team** (each profile shows
+  name, degree and concentration, year, areas of interest, and a "looking for"
+  note). Either side can post and reach out by email. Posting is an in-browser
+  demo: a new post appears immediately and persists in the visitor's own browser
+  (localStorage), seeded with editable example posts and profiles.
+
+All copy is written to be genuinely front-facing — internal/strategic jargon
+(pipeline, flywheel, etc.) is deliberately avoided.
+
+## Editing the content
+
+All of the site's wording lives in plain Markdown files in **`src/content/`**.
+To change any copy, edit the Markdown and rebuild (the deploy does this
+automatically on push to `main`). You never touch the components.
+
+| File | What it controls |
+| --- | --- |
+| `home.md` | Brand, the hero, the four stat boxes, the four principles, the two role cards, the footer |
+| `pipeline.md` | The four stages (Explore, Validate, Build, Scale) |
+| `programs.md` | Every program card (summary, what it offers, takeaway) |
+| `product-studio.md` | The Product Studio section (intro, three formats, six phases) |
+| `founder.md` | The founder page copy and the starting-point finder |
+| `advisor.md` | The advisor page copy, ecosystem partners, mentors-page headings |
+| `mentors.md` | The mentor and advisor profiles |
+| `launchpad.md` | The Launchpad page copy, the post form labels, and the example posts |
+
+Each file has a small data block at the top (between the `---` fences) written
+in YAML: keep the field names, the indentation, and the `-` for list items, and
+change only the words. `src/data/content.ts` loads and type-checks these files;
+do not put wording there.
+
+Photos are editable the same way: the homepage hero lives in `home.md`, and the
+Founder/Advisor header photos and the Product Studio photo are fields in their
+files. Each is just an image URL; swap it for another (or one of your own under
+`public/`). If a URL fails to load, it falls back to a gradient. The homepage
+"ventures built here" strip is driven by the founder profiles in `mentors.md`
+(any profile with a `venture` field is featured). The starting-point finder (the
+short quiz) is reached from a link on the Founder page rather than sitting inline.
+
+The content was originally drawn from two source documents (the *Engineering
+Entrepreneurship Programming Revamp* and the *Product Studio* operating design),
+with internal/administrative material (budgets, resourcing, schedules)
+intentionally excluded.
 
 ## Tech stack
 
 - [React 19](https://react.dev) + [TypeScript](https://www.typescriptlang.org)
 - [Vite 8](https://vite.dev) (Rolldown)
 - [Tailwind CSS v4](https://tailwindcss.com) (theme tokens via `@theme`)
-- No runtime UI dependencies beyond React — icons and the language layer are
-  hand-rolled.
+- Content authored in Markdown + YAML, parsed with `js-yaml`.
 
 ## Getting started
 
@@ -57,31 +106,32 @@ npm run lint     # run ESLint
 
 ```
 src/
-  data/
-    content.ts        All bilingual copy + the program/stage/track data model
-  lib/
-    i18n.tsx          Language context + provider (EN/FR), persisted to storage
-    accents.ts        Stage → Tailwind class maps (kept static for the JIT)
+  content/*.md        All site wording (edit these), as Markdown + YAML
+  data/content.ts     Loads + type-checks src/content/*.md (do not edit copy here)
+  lib/accents.ts      Stage → Tailwind class maps (kept static for the JIT)
   components/
     Nav, Footer, Logo
     Icon              Inline icon set keyed by name
     Reveal            Scroll-triggered fade-in wrapper
     SectionHeading
-    Pipeline          PipelineStrip (overview) + PipelineExplorer (interactive)
-    ProgramCard       Expandable program card
-    StageFinder       The founder stage-finder wizard
+    Pipeline          Stage overview strip + interactive stage explorer
+    ProgramCard       Expandable program card (who it's for / offers / takeaway)
+    ProductStudio     Product Studio deep-dive (formats + six phases)
+    StageFinder       The founder starting-point finder
+    Avatar            Illustrated mentor avatar with monogram fallback
+    MentorCard        A single mentor/advisor profile card
+    Mentors           Featured mentor preview (links to the directory)
   views/
-    Landing           Hero + role selection + vision/mission + principles
-    FounderView       Stage finder, pipeline explorer, tracks, readiness, steps
-    AdvisorView       Flywheel, ways to help, PEO, recognition, impact, CTA
-  App.tsx             View routing (home / founder / advisor)
-  main.tsx            Entry point (wraps App in the language provider)
+    Landing           Hero + role selection + the idea + the path + principles
+    FounderView       Finder, Product Studio, full path, entry bar, steps
+    AdvisorView       Full circle, ways to help, P.Eng., mentors, impact, CTA
+    MentorsPage       Full mentors & advisors directory, filterable by field
+  App.tsx             View routing (home / founder / advisor / mentors)
+  main.tsx            Entry point
 ```
 
-## Content source
+## Deployment
 
-All copy is drawn from the *Engineering Entrepreneurship Programming Revamp —
-Strategic Plan and Operating Playbook* (Faculty of Engineering, University of
-Ottawa, CEED, Summer 2026) and lives in a single typed module
-(`src/data/content.ts`), so it can be reviewed and edited without touching the
-components.
+The site deploys to GitHub Pages (source: GitHub Actions) via
+`.github/workflows/deploy.yml` on pushes to `main`. The build uses a relative
+base (`./`), so it serves correctly from the Pages project subpath.
