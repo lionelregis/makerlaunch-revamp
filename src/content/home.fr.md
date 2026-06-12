@@ -25,6 +25,16 @@ heroStats:
     label: semaines dans la cohorte de développement de Product Studio
   - value: $500–$2.5k
     label: microfinancement par équipe, sans prise de participation
+photoBand:
+  - src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1100&q=70'
+    alt: Des étudiants qui collaborent autour d’un portable
+    caption: Trouvez une idée et une équipe
+  - src: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1100&q=70'
+    alt: Une étudiante qui construit un prototype
+    caption: Bâtissez un produit fonctionnel
+  - src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1100&q=70'
+    alt: Une fondatrice qui présente lors d’une journée de démonstration
+    caption: Présentez ce que vous avez bâti
 principles:
   - icon: flow
     title: Conçu comme un parcours continu

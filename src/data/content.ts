@@ -106,6 +106,13 @@ export interface Stat {
   label: string;
 }
 
+/** A photo in the homepage photo band (curated, editable stock URLs). */
+export interface PhotoBandItem {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface Stage {
   id: StageId;
   order: number;
@@ -433,6 +440,7 @@ const home = frontmatter(homeRaw);
 export const brand = home.brand as Brand;
 export const landing = home.landing as Landing;
 export const heroStats = home.heroStats as Stat[];
+export const photoBand = (home.photoBand ?? []) as PhotoBandItem[];
 export const principles = home.principles as Principle[];
 export const roleCards = home.roleCards as RoleCard[];
 export const footer = home.footer as Footer;

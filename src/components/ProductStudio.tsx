@@ -1,4 +1,5 @@
 import Icon from './Icon';
+import Image from './Image';
 import { productStudio as ps, ui } from '../data/content';
 
 /**
@@ -17,6 +18,16 @@ export default function ProductStudio() {
         <span className="font-semibold text-slate-800">{ui.productStudio.formatLabel}</span>
         {ps.formatNote}
       </p>
+
+      {ps.image && (
+        <Image
+          src={ps.image}
+          alt={ps.imageAlt ?? ''}
+          gradient="from-emerald-700 to-emerald-900"
+          className="mt-5 aspect-[16/7] w-full rounded-2xl"
+          sizes="(min-width: 1024px) 640px, 100vw"
+        />
+      )}
 
       {/* Six phases, one line each */}
       <p className="mt-6 text-xs font-bold uppercase tracking-wide text-slate-400">

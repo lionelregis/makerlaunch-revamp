@@ -25,6 +25,16 @@ heroStats:
     label: weeks in the Product Studio build cohort
   - value: $500–$2.5k
     label: micro-funding per team — no equity taken
+photoBand:
+  - src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1100&q=70'
+    alt: Students collaborating around a laptop
+    caption: Find an idea and a team
+  - src: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1100&q=70'
+    alt: A student building a prototype
+    caption: Build a working product
+  - src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1100&q=70'
+    alt: A founder presenting at demo day
+    caption: Pitch what you have built
 principles:
   - icon: flow
     title: Built as one connected path
@@ -64,5 +74,7 @@ venturesStrip:
 Edit the text in the block above. It is YAML: keep the field names, the
 indentation, and the dashes for list items. Only change the words.
 
-Homepage copy: the brand wordmark, the hero, the four stat boxes, the four guiding principles, the two role cards, and the footer.
+Homepage copy: the brand wordmark, the hero, the four stat boxes, the photo band, the four guiding principles, the two role cards, and the footer.
+
+For the photo band, src is an image URL (any will do); each photo falls back to a gradient if the URL fails. Keep the alt text descriptive and the caption short.
 -->

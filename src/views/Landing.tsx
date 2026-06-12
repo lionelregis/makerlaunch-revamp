@@ -9,6 +9,7 @@ import {
   heroStats,
   landing,
   mentors,
+  photoBand,
   principles,
   roleCards,
   venturesStrip,
@@ -131,6 +132,34 @@ export default function Landing() {
           ))}
         </div>
       </section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* Photo band                                                        */}
+      {/* ----------------------------------------------------------------- */}
+      {photoBand.length > 0 && (
+        <section className="mx-auto max-w-6xl px-6 pb-16">
+          <div className="grid gap-4 sm:grid-cols-3">
+            {photoBand.map((p, i) => (
+              <Reveal key={p.src} delay={i * 90}>
+                <figure className="group relative overflow-hidden rounded-2xl">
+                  <Image
+                    src={p.src}
+                    alt={p.alt}
+                    gradient="from-ink-700 to-ink-900"
+                    className="aspect-[4/3] w-full transition duration-500 group-hover:scale-[1.03]"
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                  />
+                  {p.caption && (
+                    <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-950/80 to-transparent p-4 text-sm font-semibold text-white">
+                      {p.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ----------------------------------------------------------------- */}
       {/* Ventures built here                                               */}
